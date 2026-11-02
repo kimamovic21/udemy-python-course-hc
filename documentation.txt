@@ -216,3 +216,20 @@ Coding exercise 24: Smart token dispenser
 Coding exercise 25: Caching expensive calculations
 
 Quiz 08: Generators and decorators in Python
+
+
+
+Section 08: Object oriented programming in Python
+
+
+59. Building your 1st class and object in Python
+
+60. Class and object namespace
+
+61. Attribute shadowing in Python
+
+62. Self argument in Python
+
+63. Constructors and init in Python classes
+
+Coding exercise 26: Smart home device tracker

@@ -21,6 +21,7 @@ My Python learning repository, starting with the basics and adding exercises as 
 | [07_comprehensions](07_comprehensions/README.md) | List, set, and dictionary comprehensions, generator expressions, and inventory filtering (exercise 23). Section completed. |
 | [08_generators](08_generators/README.md) | Generator functions with `yield`, `next()`, `.send()`, `yield from`, and `.close()`, plus a token dispenser (exercise 24). Section in progress. |
 | [09_decorators](09_decorators/README.md) | Wrapping functions with decorators, preserving metadata, logging, role checks, and caching results (exercise 25). Section in progress. |
+| [10_oop](10_oop/README.md) | Classes, objects, namespaces, attribute shadowing, methods with `self`, initialisation with `__init__`, and a Smart Home Device Tracker (exercise 26). Section in progress. |
 
 Start with **01_starter**, the first folder in this project. Each folder has its own README with code explanations, running instructions, and expected output. New folders will be added to this overview as the course progresses.
 
@@ -41,5 +42,8 @@ See [01_starter: first-time setup](01_starter/README.md#first-time-setup) for st
 - [Python for Beginners](https://www.python.org/about/gettingstarted/) — an official starting point for learning Python.
 - [Python variables](https://www.w3schools.com/python/python_variables.asp) — simple examples of creating variables and assigning values.
 - [Python data types](https://www.w3schools.com/python/python_datatypes.asp) — an introduction to types such as `str`, `int`, `float`, and `bool`.
+- [Python classes and objects](https://docs.python.org/3/tutorial/classes.html#a-first-look-at-classes) — official examples of classes, instances, methods, and class versus instance variables; use this section as a reference alongside the OOP lessons.
+- [Python self parameter](https://www.w3schools.com/python/python_class_self.asp) — short examples showing how an instance method accesses its object's attributes through `self`.
+- [Python __init__ method](https://www.w3schools.com/python/python_class_init.asp) — examples of giving each object its own initial values when it is created.
 - [Python Playground](https://python-playground.com/) — a place to try small Python examples in the browser.
 - [PEP 8: Style Guide for Python Code](https://peps.python.org/pep-0008/#introduction) — a reference for naming and formatting code; consult it gradually as you practise.
