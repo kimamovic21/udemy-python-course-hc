@@ -233,3 +233,21 @@ Section 08: Object oriented programming in Python
 63. Constructors and init in Python classes
 
 Coding exercise 26: Smart home device tracker
+
+64. Inheritance and composition in Python classes
+
+65. 3 ways to access base class
+
+66. Method resolution order - MRO
+
+67. Static methods in Python
+
+68. Class method vs static method
+
+69. Property decorator - getter and setter
+
+Coding exercise 27: Vehicle rental system
+
+Quiz 09: Object oriented programming
+
+Role play 01: Design an object-oriented Python application

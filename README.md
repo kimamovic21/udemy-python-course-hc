@@ -21,7 +21,7 @@ My Python learning repository, starting with the basics and adding exercises as 
 | [07_comprehensions](07_comprehensions/README.md) | List, set, and dictionary comprehensions, generator expressions, and inventory filtering (exercise 23). Section completed. |
 | [08_generators](08_generators/README.md) | Generator functions with `yield`, `next()`, `.send()`, `yield from`, and `.close()`, plus a token dispenser (exercise 24). Section in progress. |
 | [09_decorators](09_decorators/README.md) | Wrapping functions with decorators, preserving metadata, logging, role checks, and caching results (exercise 25). Section in progress. |
-| [10_oop](10_oop/README.md) | Classes, objects, namespaces, attribute shadowing, methods with `self`, initialisation with `__init__`, and a Smart Home Device Tracker (exercise 26). Section in progress. |
+| [10_oop](10_oop/README.md) | Classes, objects, attributes, inheritance, composition, MRO, instance, static, and class methods, and properties with validation. Exercises 26–27: a device tracker and vehicle rental system; section in progress. |
 
 Start with **01_starter**, the first folder in this project. Each folder has its own README with code explanations, running instructions, and expected output. New folders will be added to this overview as the course progresses.
 
