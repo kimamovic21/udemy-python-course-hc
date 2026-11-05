@@ -274,3 +274,10 @@ Section 09: File and exception handling in Python
 Quiz 10: Exception handling
 
 Role play 02: Diagnose and improve Python error handling
+
+
+
+Section 10: More in Python
+
+
+77. Virtual environment with venv

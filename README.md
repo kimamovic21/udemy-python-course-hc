@@ -26,6 +26,10 @@ My Python learning repository, starting with the basics and adding exercises as 
 
 Start with **01_starter**, the first folder in this project. Each folder has its own README with code explanations, running instructions, and expected output. New folders will be added to this overview as the course progresses.
 
+## Video-only topic: Virtual environments (`venv`)
+
+`venv` creates an isolated Python environment for a project, allowing its packages and versions to be managed separately from other projects. This course topic contains one video with no downloadable exercise files.
+
 ## Supporting files
 
 - [`.vscode/settings.json`](.vscode/settings.json) — project editor settings for Python, Black formatting, and automatic execution in the terminal after **Ctrl + S**, using the selected interpreter.
@@ -48,5 +52,6 @@ See [01_starter: first-time setup](01_starter/README.md#first-time-setup) for st
 - [Python __init__ method](https://www.w3schools.com/python/python_class_init.asp) — examples of giving each object its own initial values when it is created.
 - [Python errors and exceptions](https://docs.python.org/3/tutorial/errors.html) — official examples of reading tracebacks, handling specific exceptions, raising errors, and defining custom exceptions.
 - [Reading and writing files](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files) — an introduction to file modes, writing text, and closing files with `with` or `close()`.
+- [Python virtual environments (`venv`)](https://docs.python.org/3/tutorial/venv.html) — an official introduction to creating and activating project environments and managing their packages.
 - [Python Playground](https://python-playground.com/) — a place to try small Python examples in the browser.
 - [PEP 8: Style Guide for Python Code](https://peps.python.org/pep-0008/#introduction) — a reference for naming and formatting code; consult it gradually as you practise.
