@@ -251,3 +251,26 @@ Coding exercise 27: Vehicle rental system
 Quiz 09: Object oriented programming
 
 Role play 01: Design an object-oriented Python application
+
+
+
+Section 09: File and exception handling in Python
+
+
+70. What is error handling
+
+71. Try except else and finally
+
+72. Catching multiple exceptions
+
+73. Raise your own errors
+
+74. Creating custom exceptions
+
+75. Mini project with exception learning
+
+76. File handling with try except and with
+
+Quiz 10: Exception handling
+
+Role play 02: Diagnose and improve Python error handling

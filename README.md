@@ -1,6 +1,6 @@
 # The Ultimate Python Bootcamp
 
-Learn by Building 50 Projects
+## Learn by Building 50 Projects
 
 My Python learning repository, starting with the basics and adding exercises as I follow the course.
 
@@ -22,6 +22,7 @@ My Python learning repository, starting with the basics and adding exercises as 
 | [08_generators](08_generators/README.md) | Generator functions with `yield`, `next()`, `.send()`, `yield from`, and `.close()`, plus a token dispenser (exercise 24). Section in progress. |
 | [09_decorators](09_decorators/README.md) | Wrapping functions with decorators, preserving metadata, logging, role checks, and caching results (exercise 25). Section in progress. |
 | [10_oop](10_oop/README.md) | Classes, objects, attributes, inheritance, composition, MRO, instance, static, and class methods, and properties with validation. Exercises 26–27: a device tracker and vehicle rental system; section in progress. |
+| [11_exceptions](11_exceptions/README.md) | Built-in and custom exceptions, tracebacks, input validation, chai billing, and file handling with `try`, `except`, `else`, `finally`, and `raise`. Section in progress. |
 
 Start with **01_starter**, the first folder in this project. Each folder has its own README with code explanations, running instructions, and expected output. New folders will be added to this overview as the course progresses.
 
@@ -45,5 +46,7 @@ See [01_starter: first-time setup](01_starter/README.md#first-time-setup) for st
 - [Python classes and objects](https://docs.python.org/3/tutorial/classes.html#a-first-look-at-classes) — official examples of classes, instances, methods, and class versus instance variables; use this section as a reference alongside the OOP lessons.
 - [Python self parameter](https://www.w3schools.com/python/python_class_self.asp) — short examples showing how an instance method accesses its object's attributes through `self`.
 - [Python __init__ method](https://www.w3schools.com/python/python_class_init.asp) — examples of giving each object its own initial values when it is created.
+- [Python errors and exceptions](https://docs.python.org/3/tutorial/errors.html) — official examples of reading tracebacks, handling specific exceptions, raising errors, and defining custom exceptions.
+- [Reading and writing files](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files) — an introduction to file modes, writing text, and closing files with `with` or `close()`.
 - [Python Playground](https://python-playground.com/) — a place to try small Python examples in the browser.
 - [PEP 8: Style Guide for Python Code](https://peps.python.org/pep-0008/#introduction) — a reference for naming and formatting code; consult it gradually as you practise.
