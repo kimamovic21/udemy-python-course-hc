@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups; each group's README contains the project explanations, examples, and running instructions.
 
-**Status: in progress.** Days 1–3 are currently implemented and documented.
+**Status: in progress.** Days 1–4 are currently implemented and documented.
 
 ## Learning order
 
@@ -16,7 +16,7 @@ Follow this order even if your editor sorts the folders differently.
 
 | Folder | Current coverage | Status |
 | --- | --- | --- |
-| [day 1–11](day%20%5B1-11%5D/README.md) | Days 1–3 | In progress |
+| [day 1–11](day%20%5B1-11%5D/README.md) | Days 1–4 | In progress |
 | `day [12-21]` | Reserved for later challenges | Planned |
 | `day [22-31]` | Reserved for later challenges | Planned |
 | `day [32-35]` | Reserved for later challenges | Planned |
@@ -30,6 +30,7 @@ Follow this order even if your editor sorts the folders differently.
 | 1 | [Self-Intro Script Generator](day%20%5B1-11%5D/README.md#day-1-self-intro-script-generator) | `input()`, `.strip()`, f-strings, the current date, and a decorative text border. |
 | 2 | [Stylish Bio Generator](day%20%5B1-11%5D/README.md#day-2-stylish-bio-generator) | Functions, conditional layouts, emojis, `textwrap.dedent()`, and optional UTF-8 text file output. |
 | 3 | [Simple Bill Splitter](day%20%5B1-11%5D/README.md#day-3-simple-bill-splitter) | Lists, loops, numeric conversion, retrying input with `ValueError`, division, and `round()`. |
+| 4 | [Minutes Alive Calculator](day%20%5B1-11%5D/README.md#day-4-minutes-alive-calculator) | Functions, numeric conversion, tuple unpacking, rounding, and repeated calculations. |
 
 ## Original challenge statements
 
@@ -45,6 +46,7 @@ From the repository root, choose the command for the project you want to run:
 python "challenges/day [1-11]/day_1.py"
 python "challenges/day [1-11]/day_2.py"
 python "challenges/day [1-11]/day_3.py"
+python "challenges/day [1-11]/day_4.py"
 ```
 
 The quotes keep the path's spaces and square brackets together. Answer each prompt in the terminal and press **Enter** to continue.

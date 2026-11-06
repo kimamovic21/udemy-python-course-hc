@@ -2,7 +2,7 @@
 
 This group contains daily projects that apply the Python concepts covered so far. Work through the challenge groups after `11_exceptions` and before the next numbered course section (`12_...`).
 
-**Status: in progress.** This checkpoint covers days 1–3.
+**Status: in progress.** This checkpoint covers days 1–4.
 
 Navigate through the [challenge index](../README.md) or return to the [main project overview](../../README.md#folder-overview).
 
@@ -11,8 +11,9 @@ Navigate through the [challenge index](../README.md) or return to the [main proj
 1. Read the [original Day 1 challenge](DAY_1.md), then explore [day_1.py](day_1.py).
 2. Read the [original Day 2 challenge](DAY_2.md), then explore [day_2.py](day_2.py).
 3. Read the [original Day 3 challenge](DAY_3.md), then explore [day_3.py](day_3.py).
-4. Continue with later days in numerical order as they are added to this group.
-5. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
+4. Read the [original Day 4 challenge](DAY_4.md), then explore [day_4.py](day_4.py).
+5. Continue with later days in numerical order as they are added to this group.
+6. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
 
 The `DAY_*.md` files contain original challenge statements and are maintained manually by the repository owner. Preserve their original wording; keep project explanations and progress in README files.
 
@@ -26,6 +27,8 @@ The `DAY_*.md` files contain original challenge statements and are maintained ma
 | [day_2.py](day_2.py) | Generating a social media bio in one of three layouts and optionally saving its text to a file. |
 | [DAY_3.md](DAY_3.md) | The original Simple Bill Splitter challenge and its bonus tasks. |
 | [day_3.py](day_3.py) | Collecting group members, reading a bill amount, and displaying each person's rounded share. |
+| [DAY_4.md](DAY_4.md) | The original Minutes Alive Calculator challenge and its bonus tasks. |
+| [day_4.py](day_4.py) | Estimating days, hours, and minutes from an age in years, with an option to calculate again. |
 
 ## Day 1: Self-Intro Script Generator
 
@@ -150,6 +153,37 @@ The rounded shares use Python's default float display, so a value can appear as 
 
 Enter a positive integer for the group size. The retry loop applies to the bill amount; invalid group-size text raises `ValueError`, and a group size of zero causes `ZeroDivisionError` in the current script.
 
+## Day 4: Minutes Alive Calculator
+
+The task is to estimate how many days, hours, and minutes a person has been alive from their age in years. The input is converted with `float()`, so fractional ages such as `12.5` are accepted.
+
+`calculate_minutes(age_years)` uses three fixed conversion values: `365.25` days per year, `24` hours per day, and `60` minutes per hour.
+
+1. Multiply the age by `365.25` to obtain the estimated days.
+2. Multiply that unrounded result by `24` for hours, then by `60` for minutes.
+3. Return a tuple containing each total rounded to the nearest integer with `round()`.
+4. Unpack the tuple into `days`, `hours`, and `minutes` for display.
+
+These are approximate totals based on an average year length, rather than an exact birth date calculation.
+
+A `while True` loop lets the user calculate again. The repeat answer is trimmed and converted to lowercase; entering `y` repeats the calculation, and any other answer prints `Good bye!` and exits with `break`.
+
+For an age of `25` followed by `n` at the repeat prompt, the current script displays:
+
+```text
+
+ You are approx:
+  -  9131 days old
+  -  219150 hours old
+  -  13149000 minutes old
+
+Good bye!
+```
+
+The script uses a bare `except:` around the loop body. An exception inside that `try` block prints `Please enter a valid number for age`, and the loop asks for an age again.
+
+The repeat-run bonus is implemented. Numbers currently use plain integer formatting; the optional comma separators from the original challenge have not been added.
+
 ## How to run these projects
 
 Open the repository root in VS Code, select your Python interpreter, and open the Python file for the day you want to run. Press **Ctrl + S** to format and run it using the project's editor settings. Click inside the Run on Save terminal, type an answer, and press **Enter** for each prompt.
@@ -162,8 +196,9 @@ Alternatively, choose the matching command from the repository root:
 python "challenges/day [1-11]/day_1.py"
 python "challenges/day [1-11]/day_2.py"
 python "challenges/day [1-11]/day_3.py"
+python "challenges/day [1-11]/day_4.py"
 ```
 
-The quoted paths include the folder's spaces and square brackets. All three scripts use Python's standard library or built-in features and do not require additional packages.
+The quoted paths include the folder's spaces and square brackets. The projects covered so far use Python's standard library or built-in features and do not require additional packages.
 
 See the [main README](../../README.md#quick-start) for editor setup and the [folder overview](../../README.md#folder-overview) for the overall learning order.
