@@ -4,12 +4,13 @@
         "editor.defaultFormatter": "ms-python.black-formatter",
         "editor.formatOnSave": true
     },
+    "code-runner.runOnSave": false,
     "runOnSave.onlyRunOnManualSave": true,
     "runOnSave.commands": [
         {
             "languages": ["python"],
-            "command": "python.execInTerminal",
-            "runIn": "vscode"
+            "command": "python -u ${file}",
+            "runIn": "terminal"
         }
     ]
 }

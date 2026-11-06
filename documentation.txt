@@ -281,3 +281,10 @@ Section 10: More in Python
 
 
 77. Virtual environment with venv
+
+
+
+Section 11: Day [1-11] in Python - utilities
+
+
+78. Day 1 self-intro script generator
