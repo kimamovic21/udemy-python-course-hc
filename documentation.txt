@@ -288,3 +288,5 @@ Section 11: Day [1-11] in Python - utilities
 
 
 78. Day 1 self-intro script generator
+
+79. Day 2 stylish bio generator for Instagram/Twitter

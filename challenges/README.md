@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups; each group's README contains the project explanations, examples, and running instructions.
 
-**Status: in progress.** Day 1 is currently implemented and documented.
+**Status: in progress.** Days 1–2 are currently implemented and documented.
 
 ## Learning order
 
@@ -16,7 +16,7 @@ Follow this order even if your editor sorts the folders differently.
 
 | Folder | Current coverage | Status |
 | --- | --- | --- |
-| [day 1–11](day%20%5B1-11%5D/README.md) | Day 1 | In progress |
+| [day 1–11](day%20%5B1-11%5D/README.md) | Days 1–2 | In progress |
 | `day [12-21]` | Reserved for later challenges | Planned |
 | `day [22-31]` | Reserved for later challenges | Planned |
 | `day [32-35]` | Reserved for later challenges | Planned |
@@ -28,23 +28,25 @@ Follow this order even if your editor sorts the folders differently.
 | Day | Project | Main concepts |
 | --- | --- | --- |
 | 1 | [Self-Intro Script Generator](day%20%5B1-11%5D/README.md#day-1-self-intro-script-generator) | `input()`, `.strip()`, f-strings, the current date, and a decorative text border. |
+| 2 | [Stylish Bio Generator](day%20%5B1-11%5D/README.md#day-2-stylish-bio-generator) | Functions, conditional layouts, emojis, `textwrap.dedent()`, and optional UTF-8 text file output. |
 
 ## Original challenge statements
 
-Files such as `DAY_1.md` and future `DAY_2.md` contain the original task descriptions and are maintained manually by the repository owner. Preserve their original wording when working on solutions or documentation. Project explanations, running instructions, and progress belong in README files.
+The `DAY_*.md` files contain the original task descriptions and are maintained manually by the repository owner. Preserve their original wording when working on solutions or documentation. Project explanations, running instructions, and progress belong in README files.
 
 As new days are added, update the relevant group's README and this index to reflect the actual content.
 
-## Running the current project
+## Running the projects
 
-From the repository root, run:
+From the repository root, choose the command for the project you want to run:
 
 ```powershell
 python "challenges/day [1-11]/day_1.py"
+python "challenges/day [1-11]/day_2.py"
 ```
 
 The quotes keep the path's spaces and square brackets together. Answer each prompt in the terminal and press **Enter** to continue.
 
-In VS Code, open the Python file and press **Ctrl + S** to format and run it. Click inside the Run on Save terminal to enter your answers. See the [Day 1 README](day%20%5B1-11%5D/README.md#how-to-run-this-project) for the detailed example.
+In VS Code, open the Python file and press **Ctrl + S** to format and run it. Click inside the Run on Save terminal to enter your answers. See the [group README](day%20%5B1-11%5D/README.md#how-to-run-these-projects) for detailed examples, including Day 2's file-saving behaviour.
 
 See the [main README](../README.md#folder-overview) for the overall course structure and [editor setup](../README.md#quick-start).
