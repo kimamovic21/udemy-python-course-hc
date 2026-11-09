@@ -1,0 +1,2 @@
+Do homework||done
+Learn Python||not_done

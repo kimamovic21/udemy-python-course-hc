@@ -2,7 +2,7 @@
 
 This group contains daily projects that apply the Python concepts covered so far. Work through the challenge groups after `11_exceptions` and before the next numbered course section (`12_...`).
 
-**Status: in progress.** This checkpoint covers days 1–6.
+**Status: in progress.** This checkpoint covers days 1–7.
 
 Navigate through the [challenge index](../README.md) or return to the [main project overview](../../README.md#folder-overview).
 
@@ -14,8 +14,9 @@ Navigate through the [challenge index](../README.md) or return to the [main proj
 4. Read the [original Day 4 challenge](DAY_4.md), then explore [day_4.py](day_4.py).
 5. Read the [original Day 5 challenge](DAY_5.md), then explore [day_5.py](day_5.py).
 6. Read the [original Day 6 challenge](DAY_6.md), then explore [day_6.py](day_6.py).
-7. Continue with later days in numerical order as they are added to this group.
-8. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
+7. Read the [original Day 7 challenge](DAY_7.md), then explore [day_7.py](day_7.py).
+8. Continue with later days in numerical order as they are added to this group.
+9. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
 
 The `DAY_*.md` files contain original challenge statements and are maintained manually by the repository owner. Preserve their original wording; keep project explanations and progress in README files.
 
@@ -36,6 +37,9 @@ The `DAY_*.md` files contain original challenge statements and are maintained ma
 | [DAY_6.md](DAY_6.md) | The original Daily Learning Journal Logger challenge and its bonus tasks. |
 | [day_6.py](day_6.py) | Appending a timestamped learning entry and optional productivity rating to a journal beside the script. |
 | `learning_journal.txt` | The journal output created or extended by Day 6 in this folder. |
+| [DAY_7.md](DAY_7.md) | The original Terminal-Based Task List Manager challenge and its bonus tasks. |
+| [day_7.py](day_7.py) | Adding, viewing, completing, and deleting tasks through a terminal menu, with persistent storage. |
+| `tasks.txt` | The task data created or updated by Day 7 in this folder. |
 
 ## Day 1: Self-Intro Script Generator
 
@@ -260,6 +264,46 @@ The terminal confirms that the entry was saved to `learning_journal.txt`. Open t
 
 The optional rating, confirmation message, and separated entry format implement the bonus tasks. The rating prompt suggests `1–5`, but the current script stores the answer as text without validating that range or adding `/5` automatically.
 
+## Day 7: Terminal-Based Task List Manager
+
+The task is to manage a to-do list from the terminal and keep its contents between runs. Each task is stored in memory as a dictionary with `text` and `done` keys, and the dictionaries are collected in a list.
+
+`task_manager()` loads existing tasks, then uses a `while True` loop and `match` to handle the menu:
+
+| Option | Action |
+| --- | --- |
+| `1` | Add a task after trimming surrounding whitespace; reject an empty answer. |
+| `2` | View numbered tasks, with `✅` for completed tasks and an empty checkbox for unfinished ones. |
+| `3` | Mark a selected task as complete and save the updated list. |
+| `4` | Remove a selected task with `.pop()` and save the updated list. |
+| `5` | Exit the menu with `break`. |
+
+An unrecognized menu choice asks the user to choose a valid option. Before completing or deleting a task, the script converts the task number with `int()`, catches `ValueError` for nonnumeric input, and checks that the number is between `1` and the list length. `num - 1` converts the displayed number to a zero-based list index.
+
+### Loading, displaying, and saving tasks
+
+- `load_tasks()` checks whether `tasks.txt` exists. If it does, each line is split with `.rsplit("||", 1)` into task text and status. Splitting only at the last separator allows `||` inside the task text. The status becomes a Boolean with `status == "done"`. A missing file starts an empty list.
+- `display_tasks(tasks)` uses `enumerate(tasks, 1)` to show numbers starting at `1`. An empty list displays `NO tasks found`.
+- `save_tasks(tasks)` writes the current list in UTF-8, using one `text||status` record per line. Write mode (`"w"`) replaces the saved list after each addition, completion, or deletion, so removed tasks do not return on the next run.
+
+`TASK_FILE = Path(__file__).resolve().parent / "tasks.txt"` keeps both loading and saving in `challenges/day [1-11]`, beside `day_7.py`, regardless of the terminal's current working directory. The file is created on the first save. Unlike Day 6's journal, this project rewrites its current state rather than appending a history of changes.
+
+For example, starting with an empty list, add `Do homework` and `Learn Python`, then mark task `2` as complete. Choosing **View Tasks** displays:
+
+```text
+1. [ ] Do homework
+2. [✅] Learn Python
+```
+
+The corresponding records in `tasks.txt` are:
+
+```text
+Do homework||not_done
+Learn Python||done
+```
+
+Restarting the script loads these saved tasks and their completion status. Both bonus tasks are implemented: preventing empty tasks and validating task numbers before completion or deletion.
+
 ## How to run these projects
 
 Open the repository root in VS Code, select your Python interpreter, and open the Python file for the day you want to run. Press **Ctrl + S** to format and run it using the project's editor settings. Click inside the Run on Save terminal, type an answer, and press **Enter** for each prompt.
@@ -275,8 +319,9 @@ python "challenges/day [1-11]/day_3.py"
 python "challenges/day [1-11]/day_4.py"
 python "challenges/day [1-11]/day_5.py"
 python "challenges/day [1-11]/day_6.py"
+python "challenges/day [1-11]/day_7.py"
 ```
 
-The quoted paths include the folder's spaces and square brackets. The projects covered so far use Python's standard library or built-in features and do not require additional packages.
+The quoted paths include the folder's spaces and square brackets. Day 7 uses `match`, which requires Python 3.10 or later. The projects covered so far use Python's standard library or built-in features and do not require additional packages.
 
 See the [main README](../../README.md#quick-start) for editor setup and the [folder overview](../../README.md#folder-overview) for the overall learning order.
