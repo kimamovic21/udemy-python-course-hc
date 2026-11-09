@@ -294,3 +294,5 @@ Section 11: Day [1-11] in Python - utilities
 80. Day 3 simple bill splitter
 
 81. Day 4 minutes alive calculator
+
+82. Day 5 emoji enhancer for messages

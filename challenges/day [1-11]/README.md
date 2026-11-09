@@ -2,7 +2,7 @@
 
 This group contains daily projects that apply the Python concepts covered so far. Work through the challenge groups after `11_exceptions` and before the next numbered course section (`12_...`).
 
-**Status: in progress.** This checkpoint covers days 1–4.
+**Status: in progress.** This checkpoint covers days 1–5.
 
 Navigate through the [challenge index](../README.md) or return to the [main project overview](../../README.md#folder-overview).
 
@@ -12,8 +12,9 @@ Navigate through the [challenge index](../README.md) or return to the [main proj
 2. Read the [original Day 2 challenge](DAY_2.md), then explore [day_2.py](day_2.py).
 3. Read the [original Day 3 challenge](DAY_3.md), then explore [day_3.py](day_3.py).
 4. Read the [original Day 4 challenge](DAY_4.md), then explore [day_4.py](day_4.py).
-5. Continue with later days in numerical order as they are added to this group.
-6. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
+5. Read the [original Day 5 challenge](DAY_5.md), then explore [day_5.py](day_5.py).
+6. Continue with later days in numerical order as they are added to this group.
+7. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
 
 The `DAY_*.md` files contain original challenge statements and are maintained manually by the repository owner. Preserve their original wording; keep project explanations and progress in README files.
 
@@ -29,6 +30,8 @@ The `DAY_*.md` files contain original challenge statements and are maintained ma
 | [day_3.py](day_3.py) | Collecting group members, reading a bill amount, and displaying each person's rounded share. |
 | [DAY_4.md](DAY_4.md) | The original Minutes Alive Calculator challenge and its bonus tasks. |
 | [day_4.py](day_4.py) | Estimating days, hours, and minutes from an age in years, with an option to calculate again. |
+| [DAY_5.md](DAY_5.md) | The original Emoji Enhancer for Messages challenge and its bonus tasks. |
+| [day_5.py](day_5.py) | Adding emojis after matching keywords while keeping the original words and their punctuation. |
 
 ## Day 1: Self-Intro Script Generator
 
@@ -184,6 +187,48 @@ The script uses a bare `except:` around the loop body. An exception inside that 
 
 The repeat-run bonus is implemented. Numbers currently use plain integer formatting; the optional comma separators from the original challenge have not been added.
 
+## Day 5: Emoji Enhancer for Messages
+
+The task is to read a message and add an emoji after each recognized keyword, then display the enhanced message.
+
+The `emoji_map_fun` dictionary maps six keywords to emojis:
+
+| Keyword | Emoji |
+| --- | --- |
+| `love` | ❤️ |
+| `happy` | 😊 |
+| `code` | 💻 |
+| `tea` | 🍵 |
+| `music` | 🎵 |
+| `food` | 🍕 |
+
+The implementation works as follows:
+
+1. `input()` reads the message, and `message.split()` separates it into words using whitespace.
+2. For each word, `.lower().strip(".,!?")` creates a lookup value in lowercase with the listed punctuation characters removed from both ends.
+3. `emoji_map_fun.get(cleaned, "")` looks up the emoji. An unknown keyword returns an empty string instead of raising `KeyError`.
+4. If an emoji is found, the script appends the original word followed by the emoji to `updated_words`. Otherwise, it appends the word unchanged.
+5. `" ".join(updated_words)` combines the results with single spaces, and `print()` displays the message.
+
+For example, enter:
+
+```text
+I love to code and drink tea when I'm Happy.
+```
+
+The current script displays:
+
+```text
+
+ Enhanced message:
+
+I love ❤️ to code 💻 and drink tea 🍵 when I'm Happy. 😊
+```
+
+Both bonus tasks are implemented for the supported punctuation: matching is case-insensitive, and surrounding periods, commas, exclamation marks, and question marks do not prevent a match. The original spelling, capitalization, and punctuation stay with the word, so an emoji comes after its punctuation, as in `Happy. 😊`. Other punctuation characters are not removed for lookup.
+
+Repeated spaces and tabs in the input become single spaces when the words are joined.
+
 ## How to run these projects
 
 Open the repository root in VS Code, select your Python interpreter, and open the Python file for the day you want to run. Press **Ctrl + S** to format and run it using the project's editor settings. Click inside the Run on Save terminal, type an answer, and press **Enter** for each prompt.
@@ -197,6 +242,7 @@ python "challenges/day [1-11]/day_1.py"
 python "challenges/day [1-11]/day_2.py"
 python "challenges/day [1-11]/day_3.py"
 python "challenges/day [1-11]/day_4.py"
+python "challenges/day [1-11]/day_5.py"
 ```
 
 The quoted paths include the folder's spaces and square brackets. The projects covered so far use Python's standard library or built-in features and do not require additional packages.
