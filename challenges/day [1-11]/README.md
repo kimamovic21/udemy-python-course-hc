@@ -2,7 +2,7 @@
 
 This group contains daily projects that apply the Python concepts covered so far. Work through the challenge groups after `11_exceptions` and before the next numbered course section (`12_...`).
 
-**Status: in progress.** This checkpoint covers days 1–7.
+**Status: in progress.** This checkpoint covers days 1–8.
 
 Navigate through the [challenge index](../README.md) or return to the [main project overview](../../README.md#folder-overview).
 
@@ -15,8 +15,9 @@ Navigate through the [challenge index](../README.md) or return to the [main proj
 5. Read the [original Day 5 challenge](DAY_5.md), then explore [day_5.py](day_5.py).
 6. Read the [original Day 6 challenge](DAY_6.md), then explore [day_6.py](day_6.py).
 7. Read the [original Day 7 challenge](DAY_7.md), then explore [day_7.py](day_7.py).
-8. Continue with later days in numerical order as they are added to this group.
-9. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
+8. Read the [original Day 8 challenge](DAY_8.md), then explore [day_8.py](day_8.py).
+9. Continue with later days in numerical order as they are added to this group.
+10. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
 
 The `DAY_*.md` files contain original challenge statements and are maintained manually by the repository owner. Preserve their original wording; keep project explanations and progress in README files.
 
@@ -40,6 +41,8 @@ The `DAY_*.md` files contain original challenge statements and are maintained ma
 | [DAY_7.md](DAY_7.md) | The original Terminal-Based Task List Manager challenge and its bonus tasks. |
 | [day_7.py](day_7.py) | Adding, viewing, completing, and deleting tasks through a terminal menu, with persistent storage. |
 | `tasks.txt` | The task data created or updated by Day 7 in this folder. |
+| [DAY_8.md](DAY_8.md) | The original Password Strength Checker & Suggestion Tool challenge and its bonus task. |
+| [day_8.py](day_8.py) | Checking password requirements, listing missing conditions, and generating a random suggestion. |
 
 ## Day 1: Self-Intro Script Generator
 
@@ -304,6 +307,49 @@ Learn Python||done
 
 Restarting the script loads these saved tasks and their completion status. Both bonus tasks are implemented: preventing empty tasks and validating task numbers before completion or deletion.
 
+## Day 8: Password Strength Checker and Suggestion Tool
+
+The task is to check a password against five requirements, explain what is missing, and suggest a random password.
+
+### Hidden password input
+
+`getpass.getpass("Enter a password: ")` reads the password without displaying the typed characters. Click inside the terminal, type a practice password, and press **Enter**. No letters or stars appear while typing; the program is still receiving input. This implements the bonus task.
+
+### Checking the password
+
+`check_password_strength(password)` collects unmet requirements in an `issues` list:
+
+| Requirement | Check |
+| --- | --- |
+| At least 8 characters | `len(password) < 8` identifies a password that is too short. |
+| A lowercase letter | `any(c.islower() for c in password)` |
+| An uppercase letter | `any(c.isupper() for c in password)` |
+| A digit | `any(c.isdigit() for c in password)` |
+| A special character | `any(c in string.punctuation for c in password)` |
+
+Each `any()` call returns `True` when at least one character matches. When a check fails, a message is added with `.append()`. Returning an empty list means all five checks passed, and `if not issues` prints the success message. Otherwise, a loop prints every missing requirement.
+
+For the practice input `abc`, the current script displays the following. The last line is a placeholder for the randomly generated suggestion:
+
+```text
+You got weak password
+- Too short (minimum 8 characters)
+- Missing upper case letter
+- Missing a digit
+- Missing a special character
+
+ suggesting you a strong password
+<random 12-character suggestion>
+```
+
+### Generating a suggestion
+
+`generate_strong_password(length=12)` combines `string.ascii_letters`, `string.digits`, and `string.punctuation` into a character pool. A generator expression calls `random.choice(chars)` for each position, and `"".join(...)` combines the chosen characters into a string.
+
+The default suggestion has 12 characters and is printed after every check, including when the entered password passes. Choosing from the combined pool does not guarantee that every required character category appears; the current script does not run its suggestion through the checker again.
+
+The script uses only Python's standard library and displays results in the terminal without saving a file.
+
 ## How to run these projects
 
 Open the repository root in VS Code, select your Python interpreter, and open the Python file for the day you want to run. Press **Ctrl + S** to format and run it using the project's editor settings. Click inside the Run on Save terminal, type an answer, and press **Enter** for each prompt.
@@ -320,6 +366,7 @@ python "challenges/day [1-11]/day_4.py"
 python "challenges/day [1-11]/day_5.py"
 python "challenges/day [1-11]/day_6.py"
 python "challenges/day [1-11]/day_7.py"
+python "challenges/day [1-11]/day_8.py"
 ```
 
 The quoted paths include the folder's spaces and square brackets. Day 7 uses `match`, which requires Python 3.10 or later. The projects covered so far use Python's standard library or built-in features and do not require additional packages.

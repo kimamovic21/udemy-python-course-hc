@@ -300,3 +300,5 @@ Section 11: Day [1-11] in Python - utilities
 83. Day 6 daily learning journal logger
 
 84. Day 7 terminal-based task list manager
+
+85. Day 8 password strength checker and suggestion tool

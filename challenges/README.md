@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups; each group's README contains the project explanations, examples, and running instructions.
 
-**Status: in progress.** Days 1–7 are currently implemented and documented.
+**Status: in progress.** Days 1–8 are currently implemented and documented.
 
 ## Learning order
 
@@ -16,7 +16,7 @@ Follow this order even if your editor sorts the folders differently.
 
 | Folder | Current coverage | Status |
 | --- | --- | --- |
-| [day 1–11](day%20%5B1-11%5D/README.md) | Days 1–7 | In progress |
+| [day 1–11](day%20%5B1-11%5D/README.md) | Days 1–8 | In progress |
 | `day [12-21]` | Reserved for later challenges | Planned |
 | `day [22-31]` | Reserved for later challenges | Planned |
 | `day [32-35]` | Reserved for later challenges | Planned |
@@ -34,6 +34,7 @@ Follow this order even if your editor sorts the folders differently.
 | 5 | [Emoji Enhancer for Messages](day%20%5B1-11%5D/README.md#day-5-emoji-enhancer-for-messages) | Dictionaries, `.get()`, string cleanup, loops, and joining words into an enhanced message. |
 | 6 | [Daily Learning Journal Logger](day%20%5B1-11%5D/README.md#day-6-daily-learning-journal-logger) | Timestamps, optional input, UTF-8 file output, append mode, and paths relative to the script. |
 | 7 | [Terminal-Based Task List Manager](day%20%5B1-11%5D/README.md#day-7-terminal-based-task-list-manager) | Functions, lists of dictionaries, `match`, input validation, and persistent task storage. |
+| 8 | [Password Strength Checker & Suggestion Tool](day%20%5B1-11%5D/README.md#day-8-password-strength-checker-and-suggestion-tool) | Hidden input with `getpass`, character checks with `any()`, and random password suggestions. |
 
 ## Original challenge statements
 
@@ -53,10 +54,13 @@ python "challenges/day [1-11]/day_4.py"
 python "challenges/day [1-11]/day_5.py"
 python "challenges/day [1-11]/day_6.py"
 python "challenges/day [1-11]/day_7.py"
+python "challenges/day [1-11]/day_8.py"
 ```
 
 The quotes keep the path's spaces and square brackets together. Answer each prompt in the terminal and press **Enter** to continue.
 
 In VS Code, open the Python file and press **Ctrl + S** to format and run it. Click inside the Run on Save terminal to enter your answers. See the [group README](day%20%5B1-11%5D/README.md#how-to-run-these-projects) for detailed examples, including where Days 2, 6, and 7 save their files.
+
+Day 8 hides password input: type in the terminal and press **Enter**, even though no characters or stars appear.
 
 See the [main README](../README.md#folder-overview) for the overall course structure and [editor setup](../README.md#quick-start).
