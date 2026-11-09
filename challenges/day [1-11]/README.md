@@ -2,7 +2,7 @@
 
 This group contains daily projects that apply the Python concepts covered so far. Work through the challenge groups after `11_exceptions` and before the next numbered course section (`12_...`).
 
-**Status: in progress.** This checkpoint covers days 1–5.
+**Status: in progress.** This checkpoint covers days 1–6.
 
 Navigate through the [challenge index](../README.md) or return to the [main project overview](../../README.md#folder-overview).
 
@@ -13,8 +13,9 @@ Navigate through the [challenge index](../README.md) or return to the [main proj
 3. Read the [original Day 3 challenge](DAY_3.md), then explore [day_3.py](day_3.py).
 4. Read the [original Day 4 challenge](DAY_4.md), then explore [day_4.py](day_4.py).
 5. Read the [original Day 5 challenge](DAY_5.md), then explore [day_5.py](day_5.py).
-6. Continue with later days in numerical order as they are added to this group.
-7. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
+6. Read the [original Day 6 challenge](DAY_6.md), then explore [day_6.py](day_6.py).
+7. Continue with later days in numerical order as they are added to this group.
+8. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
 
 The `DAY_*.md` files contain original challenge statements and are maintained manually by the repository owner. Preserve their original wording; keep project explanations and progress in README files.
 
@@ -32,6 +33,9 @@ The `DAY_*.md` files contain original challenge statements and are maintained ma
 | [day_4.py](day_4.py) | Estimating days, hours, and minutes from an age in years, with an option to calculate again. |
 | [DAY_5.md](DAY_5.md) | The original Emoji Enhancer for Messages challenge and its bonus tasks. |
 | [day_5.py](day_5.py) | Adding emojis after matching keywords while keeping the original words and their punctuation. |
+| [DAY_6.md](DAY_6.md) | The original Daily Learning Journal Logger challenge and its bonus tasks. |
+| [day_6.py](day_6.py) | Appending a timestamped learning entry and optional productivity rating to a journal beside the script. |
+| `learning_journal.txt` | The journal output created or extended by Day 6 in this folder. |
 
 ## Day 1: Self-Intro Script Generator
 
@@ -229,6 +233,33 @@ Both bonus tasks are implemented for the supported punctuation: matching is case
 
 Repeated spaces and tabs in the input become single spaces when the words are joined.
 
+## Day 6: Daily Learning Journal Logger
+
+The task is to record what the user learned today and append it to a text journal with the date and time. An optional productivity rating can be included with each entry.
+
+The implementation works as follows:
+
+1. `input()` collects the learning entry and optional rating, and `.strip()` removes surrounding whitespace. Leave the rating blank to omit it.
+2. `datetime.datetime.now()` reads the computer's local date and time. `.strftime("%Y-%m-%d - %I:%M %p")` formats it with a year-month-day date and a 12-hour clock with AM/PM.
+3. F-strings build the journal entry. The rating line is added only when the rating is nonempty, and a separator of 50 hyphens divides entries.
+4. `Path(__file__).resolve().parent / "learning_journal.txt"` builds the output path from the script's folder. The journal is saved in `challenges/day [1-11]`, even when the script is launched from the repository root.
+5. `open(journal_path, "a", encoding="utf-8")` creates the file if needed or appends to an existing journal. The `with` block closes it after writing, then the script prints a confirmation.
+
+For example, enter `Today I learned about Python file paths!` as the learning entry and `4` as the rating. The appended text has this format; `YYYY-MM-DD - HH:MM AM/PM` stands for the actual local timestamp:
+
+```text
+
+ 🗓️ YYYY-MM-DD - HH:MM AM/PM
+Today I learned about Python file paths!
+ Productivity Rating: 4
+
+--------------------------------------------------
+```
+
+The terminal confirms that the entry was saved to `learning_journal.txt`. Open that file in this folder to read previous entries; each run adds another entry without replacing earlier content.
+
+The optional rating, confirmation message, and separated entry format implement the bonus tasks. The rating prompt suggests `1–5`, but the current script stores the answer as text without validating that range or adding `/5` automatically.
+
 ## How to run these projects
 
 Open the repository root in VS Code, select your Python interpreter, and open the Python file for the day you want to run. Press **Ctrl + S** to format and run it using the project's editor settings. Click inside the Run on Save terminal, type an answer, and press **Enter** for each prompt.
@@ -243,6 +274,7 @@ python "challenges/day [1-11]/day_2.py"
 python "challenges/day [1-11]/day_3.py"
 python "challenges/day [1-11]/day_4.py"
 python "challenges/day [1-11]/day_5.py"
+python "challenges/day [1-11]/day_6.py"
 ```
 
 The quoted paths include the folder's spaces and square brackets. The projects covered so far use Python's standard library or built-in features and do not require additional packages.
