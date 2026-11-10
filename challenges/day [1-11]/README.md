@@ -2,7 +2,7 @@
 
 This group contains daily projects that apply the Python concepts covered so far. Work through the challenge groups after `11_exceptions` and before the next numbered course section (`12_...`).
 
-**Status: in progress.** This checkpoint covers days 1–8.
+**Status: in progress.** This checkpoint covers days 1–9.
 
 Navigate through the [challenge index](../README.md) or return to the [main project overview](../../README.md#folder-overview).
 
@@ -16,8 +16,9 @@ Navigate through the [challenge index](../README.md) or return to the [main proj
 6. Read the [original Day 6 challenge](DAY_6.md), then explore [day_6.py](day_6.py).
 7. Read the [original Day 7 challenge](DAY_7.md), then explore [day_7.py](day_7.py).
 8. Read the [original Day 8 challenge](DAY_8.md), then explore [day_8.py](day_8.py).
-9. Continue with later days in numerical order as they are added to this group.
-10. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
+9. Read the [original Day 9 challenge](DAY_9.md), then explore [day_9.py](day_9.py).
+10. Continue with later days in numerical order as they are added to this group.
+11. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
 
 The `DAY_*.md` files contain original challenge statements and are maintained manually by the repository owner. Preserve their original wording; keep project explanations and progress in README files.
 
@@ -43,6 +44,8 @@ The `DAY_*.md` files contain original challenge statements and are maintained ma
 | `tasks.txt` | The task data created or updated by Day 7 in this folder. |
 | [DAY_8.md](DAY_8.md) | The original Password Strength Checker & Suggestion Tool challenge and its bonus task. |
 | [day_8.py](day_8.py) | Checking password requirements, listing missing conditions, and generating a random suggestion. |
+| [DAY_9.md](DAY_9.md) | The original Set a Countdown Timer challenge and its bonus tasks. |
+| [day_9.py](day_9.py) | Validating a duration and showing a live countdown in minutes and seconds. |
 
 ## Day 1: Self-Intro Script Generator
 
@@ -350,6 +353,31 @@ The default suggestion has 12 characters and is printed after every check, inclu
 
 The script uses only Python's standard library and displays results in the terminal without saving a file.
 
+## Day 9: Countdown Timer
+
+The task is to ask for a duration in seconds, show a live countdown in the terminal, and display a message when time runs out.
+
+The implementation works as follows:
+
+1. A `while True` loop reads the duration with `int(input(...))`. `except ValueError` handles non-integer input, while values below `1` print a message and use `continue` to ask again. A valid positive integer exits the input loop with `break`.
+2. `range(seconds, 0, -1)` counts down from the entered duration to `1`.
+3. `divmod(remaining, 60)` returns whole minutes and leftover seconds, unpacked into `mins` and `secs`.
+4. `f"{mins:02}:{secs:02}"` formats each number with at least two digits, using leading zeros for values below `10`.
+5. `print(..., end="\r")` returns the cursor to the start of the current line so the next countdown value replaces it. `time.sleep(1)` pauses for one second between updates.
+6. After the last pause, the script prints `Time's up! Take a break or move on to next task.`
+
+For example, entering `3` starts a countdown whose successive values are shown below on separate lines for clarity. In the terminal, they update on the same line:
+
+```text
+🕰️ Time left: 00:03
+🕰️ Time left: 00:02
+🕰️ Time left: 00:01
+```
+
+The loop stops before `00:00` and then displays the final message. As another formatting example, `divmod(65, 60)` produces `(1, 5)`, displayed as `01:05`.
+
+The `MM:SS` formatting and input-validation bonuses are implemented. The optional `print("\a")` beep is present as a comment, so the current script finishes without playing a beep. The project uses the standard-library `time` module and does not save a file.
+
 ## How to run these projects
 
 Open the repository root in VS Code, select your Python interpreter, and open the Python file for the day you want to run. Press **Ctrl + S** to format and run it using the project's editor settings. Click inside the Run on Save terminal, type an answer, and press **Enter** for each prompt.
@@ -367,6 +395,7 @@ python "challenges/day [1-11]/day_5.py"
 python "challenges/day [1-11]/day_6.py"
 python "challenges/day [1-11]/day_7.py"
 python "challenges/day [1-11]/day_8.py"
+python "challenges/day [1-11]/day_9.py"
 ```
 
 The quoted paths include the folder's spaces and square brackets. Day 7 uses `match`, which requires Python 3.10 or later. The projects covered so far use Python's standard library or built-in features and do not require additional packages.

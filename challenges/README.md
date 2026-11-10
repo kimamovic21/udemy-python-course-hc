@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups; each group's README contains the project explanations, examples, and running instructions.
 
-**Status: in progress.** Days 1–8 are currently implemented and documented.
+**Status: in progress.** Days 1–9 are currently implemented and documented.
 
 ## Learning order
 
@@ -16,7 +16,7 @@ Follow this order even if your editor sorts the folders differently.
 
 | Folder | Current coverage | Status |
 | --- | --- | --- |
-| [day 1–11](day%20%5B1-11%5D/README.md) | Days 1–8 | In progress |
+| [day 1–11](day%20%5B1-11%5D/README.md) | Days 1–9 | In progress |
 | `day [12-21]` | Reserved for later challenges | Planned |
 | `day [22-31]` | Reserved for later challenges | Planned |
 | `day [32-35]` | Reserved for later challenges | Planned |
@@ -35,6 +35,7 @@ Follow this order even if your editor sorts the folders differently.
 | 6 | [Daily Learning Journal Logger](day%20%5B1-11%5D/README.md#day-6-daily-learning-journal-logger) | Timestamps, optional input, UTF-8 file output, append mode, and paths relative to the script. |
 | 7 | [Terminal-Based Task List Manager](day%20%5B1-11%5D/README.md#day-7-terminal-based-task-list-manager) | Functions, lists of dictionaries, `match`, input validation, and persistent task storage. |
 | 8 | [Password Strength Checker & Suggestion Tool](day%20%5B1-11%5D/README.md#day-8-password-strength-checker-and-suggestion-tool) | Hidden input with `getpass`, character checks with `any()`, and random password suggestions. |
+| 9 | [Countdown Timer](day%20%5B1-11%5D/README.md#day-9-countdown-timer) | Input validation, descending `range()`, `divmod()`, time formatting, and live terminal updates. |
 
 ## Original challenge statements
 
@@ -55,6 +56,7 @@ python "challenges/day [1-11]/day_5.py"
 python "challenges/day [1-11]/day_6.py"
 python "challenges/day [1-11]/day_7.py"
 python "challenges/day [1-11]/day_8.py"
+python "challenges/day [1-11]/day_9.py"
 ```
 
 The quotes keep the path's spaces and square brackets together. Answer each prompt in the terminal and press **Enter** to continue.
