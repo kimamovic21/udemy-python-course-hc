@@ -2,22 +2,24 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups; each group's README contains the project explanations, examples, and running instructions.
 
-**Status: in progress.** Days 1–11 have scripts and documentation. Day 11 currently implements the basic scoring; see its group README for remaining challenge features.
+**Status: in progress.** The first group has local days 1–11, and `day [12-21]` now contains its first project: a CSV contact book. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features.
 
 ## Learning order
 
 1. Work through the numbered lesson folders up to `11_exceptions`.
-2. Complete challenges in day order, starting with `day [1-11]` and continuing through the groups listed below.
+2. Complete the challenge groups in the order listed below, starting with `day [1-11]`, then `day [12-21]`. Within each group, follow its local project numbers.
 3. After all challenge groups, continue with the next numbered course section (`12_...`, when added).
 
 Follow this order even if your editor sorts the folders differently.
+
+Project numbering restarts inside `day [12-21]`: its first files are `DAY_1.md` and `day_1.py`. Folder names identify the course groups; file numbers identify projects within that group. Keep the tutorial's original names and use the group path to distinguish projects with the same filename.
 
 ## Challenge groups
 
 | Folder | Current coverage | Status |
 | --- | --- | --- |
-| [day 1–11](day%20%5B1-11%5D/README.md) | Days 1–11 | In progress |
-| `day [12-21]` | Reserved for later challenges | Planned |
+| [day 1–11](day%20%5B1-11%5D/README.md) | Local days 1–11 | In progress |
+| [day 12–21](day%20%5B12-21%5D/README.md) | Local day 1: CLI Contact Book | In progress |
 | `day [22-31]` | Reserved for later challenges | Planned |
 | `day [32-35]` | Reserved for later challenges | Planned |
 | `day [36-45]` | Reserved for later challenges | Planned |
@@ -25,19 +27,20 @@ Follow this order even if your editor sorts the folders differently.
 
 ## Projects covered so far
 
-| Day | Project | Main concepts |
-| --- | --- | --- |
-| 1 | [Self-Intro Script Generator](day%20%5B1-11%5D/README.md#day-1-self-intro-script-generator) | `input()`, `.strip()`, f-strings, the current date, and a decorative text border. |
-| 2 | [Stylish Bio Generator](day%20%5B1-11%5D/README.md#day-2-stylish-bio-generator) | Functions, conditional layouts, emojis, `textwrap.dedent()`, and optional UTF-8 text file output. |
-| 3 | [Simple Bill Splitter](day%20%5B1-11%5D/README.md#day-3-simple-bill-splitter) | Lists, loops, numeric conversion, retrying input with `ValueError`, division, and `round()`. |
-| 4 | [Minutes Alive Calculator](day%20%5B1-11%5D/README.md#day-4-minutes-alive-calculator) | Functions, numeric conversion, tuple unpacking, rounding, and repeated calculations. |
-| 5 | [Emoji Enhancer for Messages](day%20%5B1-11%5D/README.md#day-5-emoji-enhancer-for-messages) | Dictionaries, `.get()`, string cleanup, loops, and joining words into an enhanced message. |
-| 6 | [Daily Learning Journal Logger](day%20%5B1-11%5D/README.md#day-6-daily-learning-journal-logger) | Timestamps, optional input, UTF-8 file output, append mode, and paths relative to the script. |
-| 7 | [Terminal-Based Task List Manager](day%20%5B1-11%5D/README.md#day-7-terminal-based-task-list-manager) | Functions, lists of dictionaries, `match`, input validation, and persistent task storage. |
-| 8 | [Password Strength Checker & Suggestion Tool](day%20%5B1-11%5D/README.md#day-8-password-strength-checker-and-suggestion-tool) | Hidden input with `getpass`, character checks with `any()`, and random password suggestions. |
-| 9 | [Countdown Timer](day%20%5B1-11%5D/README.md#day-9-countdown-timer) | Input validation, descending `range()`, `divmod()`, time formatting, and live terminal updates. |
-| 10 | [Secret Message Encryptor & Decryptor](day%20%5B1-11%5D/README.md#day-10-secret-message-encryptor-and-decryptor) | Caesar cipher, functions, character codes with `ord()` and `chr()`, modulo, and integer conversion. |
-| 11 | [Friendship Compatibility Calculator](day%20%5B1-11%5D/README.md#day-11-friendship-compatibility-calculator) | Case normalization, sets, intersections, weighted scoring, and limiting results with `min()`. |
+| Group | Local day | Project | Main concepts |
+| --- | --- | --- | --- |
+| `day [1-11]` | 1 | [Self-Intro Script Generator](day%20%5B1-11%5D/README.md#day-1-self-intro-script-generator) | `input()`, `.strip()`, f-strings, the current date, and a decorative text border. |
+| `day [1-11]` | 2 | [Stylish Bio Generator](day%20%5B1-11%5D/README.md#day-2-stylish-bio-generator) | Functions, conditional layouts, emojis, `textwrap.dedent()`, and optional UTF-8 text file output. |
+| `day [1-11]` | 3 | [Simple Bill Splitter](day%20%5B1-11%5D/README.md#day-3-simple-bill-splitter) | Lists, loops, numeric conversion, retrying input with `ValueError`, division, and `round()`. |
+| `day [1-11]` | 4 | [Minutes Alive Calculator](day%20%5B1-11%5D/README.md#day-4-minutes-alive-calculator) | Functions, numeric conversion, tuple unpacking, rounding, and repeated calculations. |
+| `day [1-11]` | 5 | [Emoji Enhancer for Messages](day%20%5B1-11%5D/README.md#day-5-emoji-enhancer-for-messages) | Dictionaries, `.get()`, string cleanup, loops, and joining words into an enhanced message. |
+| `day [1-11]` | 6 | [Daily Learning Journal Logger](day%20%5B1-11%5D/README.md#day-6-daily-learning-journal-logger) | Timestamps, optional input, UTF-8 file output, append mode, and paths relative to the script. |
+| `day [1-11]` | 7 | [Terminal-Based Task List Manager](day%20%5B1-11%5D/README.md#day-7-terminal-based-task-list-manager) | Functions, lists of dictionaries, `match`, input validation, and persistent task storage. |
+| `day [1-11]` | 8 | [Password Strength Checker & Suggestion Tool](day%20%5B1-11%5D/README.md#day-8-password-strength-checker-and-suggestion-tool) | Hidden input with `getpass`, character checks with `any()`, and random password suggestions. |
+| `day [1-11]` | 9 | [Countdown Timer](day%20%5B1-11%5D/README.md#day-9-countdown-timer) | Input validation, descending `range()`, `divmod()`, time formatting, and live terminal updates. |
+| `day [1-11]` | 10 | [Secret Message Encryptor & Decryptor](day%20%5B1-11%5D/README.md#day-10-secret-message-encryptor-and-decryptor) | Caesar cipher, functions, character codes with `ord()` and `chr()`, modulo, and integer conversion. |
+| `day [1-11]` | 11 | [Friendship Compatibility Calculator](day%20%5B1-11%5D/README.md#day-11-friendship-compatibility-calculator) | Case normalization, sets, intersections, weighted scoring, and limiting results with `min()`. |
+| `day [12-21]` | 1 | [CLI Contact Book (CSV-Powered)](day%20%5B12-21%5D/README.md#day-1-cli-contact-book-csv-powered) | CSV readers and writers, functions, file persistence, partial search, and duplicate-name checks. |
 
 ## Original challenge statements
 
@@ -61,12 +64,15 @@ python "challenges/day [1-11]/day_8.py"
 python "challenges/day [1-11]/day_9.py"
 python "challenges/day [1-11]/day_10.py"
 python "challenges/day [1-11]/day_11.py"
+python "challenges/day [12-21]/day_1.py"
 ```
 
 The quotes keep the path's spaces and square brackets together. Answer each prompt in the terminal and press **Enter** to continue.
 
 In VS Code, open the Python file and press **Ctrl + S** to format and run it. Click inside the Run on Save terminal to enter your answers. See the [group README](day%20%5B1-11%5D/README.md#how-to-run-these-projects) for detailed examples, including where Days 2, 6, and 7 save their files.
 
-Day 8 hides password input: type in the terminal and press **Enter**, even though no characters or stars appear.
+The CSV contact book saves `contacts.csv` beside its script in `day [12-21]`, regardless of the terminal's current working directory. See its [group README](day%20%5B12-21%5D/README.md#how-to-run-this-project) for details. The [CSV line-ending note](day%20%5B12-21%5D/README.md#csv-line-endings-and-the-windows-fix) explains the Windows blank-line issue and the commented original code beside the active fixes.
+
+Day 8 in the first group hides password input: type in the terminal and press **Enter**, even though no characters or stars appear.
 
 See the [main README](../README.md#folder-overview) for the overall course structure and [editor setup](../README.md#quick-start).

@@ -19,7 +19,7 @@ Navigate through the [challenge index](../README.md) or return to the [main proj
 9. Read the [original Day 9 challenge](DAY_9.md), then explore [day_9.py](day_9.py).
 10. Read the [original Day 10 challenge](DAY_10.md), then explore [day_10.py](day_10.py).
 11. Read the [original Day 11 challenge](DAY_11.md), then explore [day_11.py](day_11.py).
-12. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
+12. After this group, continue with [day 12–21](../day%20%5B12-21%5D/README.md) and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
 
 The `DAY_*.md` files contain original challenge statements and are maintained manually by the repository owner. Preserve their original wording; keep project explanations and progress in README files.
 
@@ -477,3 +477,19 @@ python "challenges/day [1-11]/day_11.py"
 The quoted paths include the folder's spaces and square brackets. Day 7 uses `match`, which requires Python 3.10 or later. The projects covered so far use Python's standard library or built-in features and do not require additional packages.
 
 See the [main README](../../README.md#quick-start) for editor setup and the [folder overview](../../README.md#folder-overview) for the overall learning order.
+
+## Useful links for beginners
+
+These official Python references cover concepts already used in this group. Read the relevant sections as needed while revisiting a project.
+
+| Reference | Where it helps |
+| --- | --- |
+| [Lists, sets, and dictionaries](https://docs.python.org/3/tutorial/datastructures.html) | Bill splitting, keyword-to-emoji mappings, task lists, and shared-letter scoring. |
+| [Reading and writing files](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files) | Saving bios, appending journal entries, and storing tasks with `with open(...)`. |
+| [Paths with pathlib](https://docs.python.org/3/library/pathlib.html#basic-use) | Saving the journal and task file beside their Python scripts. |
+| [Date and time format codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) | Understanding the journal's `%Y`, `%m`, `%d`, `%I`, `%M`, and `%p` timestamp format. |
+| [Hidden password input with getpass](https://docs.python.org/3/library/getpass.html#getpass.getpass) | Why the password checker accepts typing without displaying characters. |
+| [Pausing with time.sleep](https://docs.python.org/3/library/time.html#time.sleep) | The countdown timer's one-second pauses. |
+| [Built-in functions](https://docs.python.org/3/library/functions.html) | Looking up `round()`, `enumerate()`, `any()`, `divmod()`, `ord()`, `chr()`, and `min()`. |
+
+Continue with the [next challenge group](../day%20%5B12-21%5D/README.md), where local project numbering starts again at `1`.
