@@ -315,3 +315,5 @@ Section 12: Day [12-21] data handling projects
 
 
 89. Day 1 CSV powered contact book
+
+90. Day 2 student marks analyzer

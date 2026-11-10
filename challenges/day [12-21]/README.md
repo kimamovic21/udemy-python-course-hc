@@ -2,15 +2,16 @@
 
 This is the second challenge group. Work through it after [day 1–11](../day%20%5B1-11%5D/README.md), then continue with the later groups in the [challenge index](../README.md#challenge-groups).
 
-**Status: in progress.** The first local project, CLI Contact Book (CSV-Powered), is implemented and documented.
+**Status: in progress.** Local days 1–2, CLI Contact Book (CSV-Powered) and Student Marks Analyzer, are implemented and documented.
 
 Navigate through the [challenge index](../README.md) or return to the [main project overview](../../README.md#folder-overview).
 
 ## Learning order and file numbering
 
 1. Read the [original Day 1 challenge](DAY_1.md), then explore [day_1.py](day_1.py).
-2. Continue with later local projects in numerical order as they are added.
-3. After this group, continue with `day [22-31]` and the remaining challenge groups before returning to the next numbered course section (`12_...`).
+2. Read the [original Day 2 challenge](DAY_2.md), then explore [day_2.py](day_2.py).
+3. Continue with later local projects in numerical order as they are added.
+4. After this group, continue with `day [22-31]` and the remaining challenge groups before returning to the next numbered course section (`12_...`).
 
 The tutorial restarts project numbering in this folder: `DAY_1.md` and `day_1.py` belong to `day [12-21]` and are separate from the files with those names in `day [1-11]`. Keep the original filenames; this README uses the local day numbers rather than renaming the first project to Day 12.
 
@@ -23,6 +24,8 @@ The `DAY_*.md` files contain original task descriptions maintained manually by t
 | [DAY_1.md](DAY_1.md) | The original CLI Contact Book (CSV-Powered) challenge and its bonus tasks. |
 | [day_1.py](day_1.py) | Adding, viewing, and searching contacts stored in a CSV file. |
 | `contacts.csv` | Runtime data with `Name`, `Phone`, and `Email` columns, created and reused beside `day_1.py` in this folder. |
+| [DAY_2.md](DAY_2.md) | The original Student Marks Analyzer challenge and its bonus tasks. |
+| [day_2.py](day_2.py) | Collecting student marks and reporting the average, highest and lowest results, and student count. |
 
 ## Day 1: CLI Contact Book (CSV-Powered)
 
@@ -99,17 +102,80 @@ Alex | 📞 0123456789
 
 Trying to add `alex` again prints `Contact name already exists`. A search with no matches prints `No matching contact found`. The table-like display, partial search, and duplicate-name checks implement the bonus tasks.
 
-## How to run this project
+## Day 2: Student Marks Analyzer
 
-From the repository root:
+The task is to collect student names and marks, then display summary statistics and a detailed report. Marks are numeric scores; the program does not convert them to letter grades or a `1–5` grading scale.
+
+### Collecting student data
+
+`collect_student_data()` builds a dictionary whose keys are student names and whose values are their marks:
+
+1. A `while True` loop asks for a name and removes surrounding whitespace with `.strip()`.
+2. Entering `done` ends data collection with `break`. The command is case-insensitive, so `DONE` works too.
+3. `if name in students` rejects a duplicate name and uses `continue` to ask for another. This comparison is case-sensitive: `Ana` and `ana` are different dictionary keys.
+4. `float(input(...))` converts the mark to a number and stores it with `students[name] = marks`. Decimal marks are accepted, although the original task describes integer scores.
+5. Invalid numeric text triggers `ValueError` and prints `Please enter a valid number for marks`. That record is not saved, and the loop returns to the name prompt.
+6. The function returns the dictionary after data entry is finished.
+
+The current script does not reject empty names or restrict marks to a particular range.
+
+### Calculating and displaying the report
+
+`display_report(students)` first checks for an empty dictionary. If there are no students, it prints `No student data ❌` and returns before attempting calculations.
+
+For a nonempty dictionary:
+
+- `list(students.values())` collects all marks.
+- `max()` and `min()` find the highest and lowest marks.
+- `sum(marks) / len(marks)` calculates the arithmetic mean; `{average:.2f}` displays it with two decimal places.
+- List comprehensions over `students.items()` collect every name tied for the highest or lowest result. `', '.join(...)` formats those names for display.
+- `len(students)` gives the student count, and a final loop prints each student's mark in input order.
+
+The two calls at the bottom of the file collect all data first, then display the report. Results stay in memory for that run; this project does not create a data file.
+
+### Example
+
+Enter the following names and marks, then enter `done` at the next name prompt:
+
+| Student | Mark |
+| --- | --- |
+| Ana | 80 |
+| Marko | 90 |
+| Sara | 90 |
+
+The resulting report is:
+
+```text
+
+ Students marks report 🗓️
+------------------------------
+Total students: 3
+average marks for students: 86.67
+Highest marks : 90.0 by Marko, Sara
+lowest marks : 80.0 by Ana
+------------------------------
+Detailed Marks 🗓️
+ - Ana: 80.0
+ - Marko: 90.0
+ - Sara: 90.0
+```
+
+Both top-scoring students appear in the report. The same logic includes all students tied for the lowest mark. Collecting data before reporting, the report-style layout, and duplicate-name prevention implement the bonus tasks; duplicate checking uses the case-sensitive rule described above.
+
+## How to run these projects
+
+From the repository root, choose the command for the project you want to run:
 
 ```powershell
 python "challenges/day [12-21]/day_1.py"
+python "challenges/day [12-21]/day_2.py"
 ```
 
 **File location:** `contacts.csv` is created and reused in `challenges/day [12-21]`, beside `day_1.py`, even when the script is launched from the repository root. An existing CSV at another location is not moved automatically.
 
-In VS Code, open this group's `day_1.py` and press **Ctrl + S** to format and run it. Click inside the Run on Save terminal, type your menu choice or contact detail, and press **Enter**. The save command uses the terminal's `python -u`; the CSV location remains beside the script.
+Day 2 displays its report in the terminal without saving a file. Both projects use only Python's standard library or built-in features.
+
+In VS Code, open the Python file for the local day you want to run and press **Ctrl + S** to format and run it. Click inside the Run on Save terminal, type your menu choice or contact detail, and press **Enter**. The save command uses the terminal's `python -u`; the CSV location remains beside the script.
 
 See the [main README](../../README.md#quick-start) for editor setup.
 
