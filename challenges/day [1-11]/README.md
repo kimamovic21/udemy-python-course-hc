@@ -2,7 +2,7 @@
 
 This group contains daily projects that apply the Python concepts covered so far. Work through the challenge groups after `11_exceptions` and before the next numbered course section (`12_...`).
 
-**Status: in progress.** This checkpoint covers days 1–9.
+**Status: in progress.** This checkpoint covers days 1–10.
 
 Navigate through the [challenge index](../README.md) or return to the [main project overview](../../README.md#folder-overview).
 
@@ -17,8 +17,9 @@ Navigate through the [challenge index](../README.md) or return to the [main proj
 7. Read the [original Day 7 challenge](DAY_7.md), then explore [day_7.py](day_7.py).
 8. Read the [original Day 8 challenge](DAY_8.md), then explore [day_8.py](day_8.py).
 9. Read the [original Day 9 challenge](DAY_9.md), then explore [day_9.py](day_9.py).
-10. Continue with later days in numerical order as they are added to this group.
-11. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
+10. Read the [original Day 10 challenge](DAY_10.md), then explore [day_10.py](day_10.py).
+11. Continue with later days in numerical order as they are added to this group.
+12. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
 
 The `DAY_*.md` files contain original challenge statements and are maintained manually by the repository owner. Preserve their original wording; keep project explanations and progress in README files.
 
@@ -46,6 +47,8 @@ The `DAY_*.md` files contain original challenge statements and are maintained ma
 | [day_8.py](day_8.py) | Checking password requirements, listing missing conditions, and generating a random suggestion. |
 | [DAY_9.md](DAY_9.md) | The original Set a Countdown Timer challenge and its bonus tasks. |
 | [day_9.py](day_9.py) | Validating a duration and showing a live countdown in minutes and seconds. |
+| [DAY_10.md](DAY_10.md) | The original Secret Message Encryptor & Decryptor challenge, its Caesar cipher rules, and bonus tasks. |
+| [day_10.py](day_10.py) | Shifting letters to encrypt a message and reversing the shift to decrypt it. |
 
 ## Day 1: Self-Intro Script Generator
 
@@ -378,6 +381,37 @@ The loop stops before `00:00` and then displays the final message. As another fo
 
 The `MM:SS` formatting and input-validation bonuses are implemented. The optional `print("\a")` beep is present as a comment, so the current script finishes without playing a beep. The project uses the standard-library `time` module and does not save a file.
 
+## Day 10: Secret Message Encryptor and Decryptor
+
+The task is to encrypt or decrypt a message using a Caesar cipher: shift each letter by a numeric key while leaving spaces, digits, and punctuation unchanged.
+
+The implementation works as follows:
+
+1. The user chooses `e` for encryption or `d` for decryption. `.strip().lower()` accepts surrounding whitespace and uppercase choices too.
+2. `int(input(...))` reads the key. Text that cannot be converted to an integer prints `Invalid key`; an unrecognized mode prints `Invalid choice`.
+3. `encrypt(message, key)` loops over the message. For letters, it selects the character code of `A` or `a` as the base, preserving uppercase and lowercase separately.
+4. `(ord(char) - base + key) % 26 + base` shifts the letter within the 26-letter alphabet. `% 26` wraps around the end, so `z` shifted by `1` becomes `a`.
+5. `chr(shifted)` converts the new character code back to a letter. Other characters are copied unchanged, and the function returns the combined result.
+6. `decrypt(message, key)` reuses `encrypt(message, -key)` to shift letters in the opposite direction.
+
+For example, choose `e`, enter `Hello, Zebra! 123`, and use key `3`. The result is:
+
+```text
+Encrypted message:
+Khoor, Cheud! 123
+```
+
+Run the script again, choose `d`, enter `Khoor, Cheud! 123`, and use the same key `3`:
+
+```text
+Decrypted message:
+Hello, Zebra! 123
+```
+
+These examples preserve capitalization, punctuation, spaces, and digits. The letter-shifting formula is designed for `A–Z` and `a–z`; although `.isalpha()` also recognizes other alphabets and accented letters, the current formula does not preserve those correctly.
+
+The prompt suggests a key from `1` to `25`, but the current script only checks integer conversion and does not enforce that range. It handles one message per run and displays the result without saving a file. Uppercase/lowercase handling and the terminal prompts cover the bonus tasks.
+
 ## How to run these projects
 
 Open the repository root in VS Code, select your Python interpreter, and open the Python file for the day you want to run. Press **Ctrl + S** to format and run it using the project's editor settings. Click inside the Run on Save terminal, type an answer, and press **Enter** for each prompt.
@@ -396,6 +430,7 @@ python "challenges/day [1-11]/day_6.py"
 python "challenges/day [1-11]/day_7.py"
 python "challenges/day [1-11]/day_8.py"
 python "challenges/day [1-11]/day_9.py"
+python "challenges/day [1-11]/day_10.py"
 ```
 
 The quoted paths include the folder's spaces and square brackets. Day 7 uses `match`, which requires Python 3.10 or later. The projects covered so far use Python's standard library or built-in features and do not require additional packages.
