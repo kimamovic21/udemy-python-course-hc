@@ -306,3 +306,5 @@ Section 11: Day [1-11] in Python - utilities
 86. Day 9 set a countdown timer
 
 87. Day 10 building a Caesar cipher
+
+88. Day 11 friendship calculator

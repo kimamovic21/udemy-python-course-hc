@@ -2,7 +2,7 @@
 
 This group contains daily projects that apply the Python concepts covered so far. Work through the challenge groups after `11_exceptions` and before the next numbered course section (`12_...`).
 
-**Status: in progress.** This checkpoint covers days 1–10.
+**Status: in progress.** This checkpoint covers days 1–11. Day 11 has basic scoring; additional challenge features are listed below.
 
 Navigate through the [challenge index](../README.md) or return to the [main project overview](../../README.md#folder-overview).
 
@@ -18,7 +18,7 @@ Navigate through the [challenge index](../README.md) or return to the [main proj
 8. Read the [original Day 8 challenge](DAY_8.md), then explore [day_8.py](day_8.py).
 9. Read the [original Day 9 challenge](DAY_9.md), then explore [day_9.py](day_9.py).
 10. Read the [original Day 10 challenge](DAY_10.md), then explore [day_10.py](day_10.py).
-11. Continue with later days in numerical order as they are added to this group.
+11. Read the [original Day 11 challenge](DAY_11.md), then explore [day_11.py](day_11.py).
 12. After this group, continue with `day [12-21]` and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
 
 The `DAY_*.md` files contain original challenge statements and are maintained manually by the repository owner. Preserve their original wording; keep project explanations and progress in README files.
@@ -49,6 +49,8 @@ The `DAY_*.md` files contain original challenge statements and are maintained ma
 | [day_9.py](day_9.py) | Validating a duration and showing a live countdown in minutes and seconds. |
 | [DAY_10.md](DAY_10.md) | The original Secret Message Encryptor & Decryptor challenge, its Caesar cipher rules, and bonus tasks. |
 | [day_10.py](day_10.py) | Shifting letters to encrypt a message and reversing the shift to decrypt it. |
+| [DAY_11.md](DAY_11.md) | The original Friendship Compatibility Calculator challenge and its bonus tasks. |
+| [day_11.py](day_11.py) | Calculating a score from unique shared characters and vowels in two names. |
 
 ## Day 1: Self-Intro Script Generator
 
@@ -412,6 +414,44 @@ These examples preserve capitalization, punctuation, spaces, and digits. The let
 
 The prompt suggests a key from `1` to `25`, but the current script only checks integer conversion and does not enforce that range. It handles one message per run and displays the result without saving a file. Uppercase/lowercase handling and the terminal prompts cover the bonus tasks.
 
+## Day 11: Friendship Compatibility Calculator
+
+The task is to create a playful compatibility score from two names. The current script calculates a score from shared characters and vowels, then displays the number in the terminal.
+
+`friendship_score(name1, name2)` performs the calculation:
+
+1. `.lower()` converts both names to lowercase, so capitalization does not affect the result.
+2. `set(name1) & set(name2)` finds the unique characters shared by both names. Repeated occurrences count once, and character order does not matter.
+3. `len(shared_letters) * 5` adds five points for each shared character.
+4. `set("aeiou") & shared_letters` finds shared vowels. Each adds ten more points, so a shared vowel contributes fifteen points in total.
+5. `min(score, 100)` caps the returned score at `100`.
+
+`run_friendship_calculator()` prints the title, collects two names with `input()`, calls the scoring function, and prints the returned number. The final call to `run_friendship_calculator()` starts the program.
+
+For example, enter `Ana` and `Amina`:
+
+| Calculation | Points |
+| --- | --- |
+| Shared letters `a` and `n`: `2 * 5` | 10 |
+| Additional points for the shared vowel `a`: `1 * 10` | 10 |
+| Total | 20 |
+
+The current terminal output, excluding the input prompts, is:
+
+```text
+❤️ Friendship Compatibility calculator ❤️
+
+ 20
+```
+
+The score is a name-based programming exercise. The current code does not trim whitespace or filter non-letter characters, so a space or punctuation mark appearing in both names also earns five points.
+
+### Current challenge coverage
+
+The script implements name input, case-insensitive comparison, shared-character and vowel scoring, and a maximum score of `100`. It prints the numeric score without a percent sign. Character-position scoring, themed result messages, score-based advice, and a centered framed result are not implemented yet. Heart emojis appear in the title; result-specific emojis are also still pending.
+
+The project uses built-in Python features and does not save a file.
+
 ## How to run these projects
 
 Open the repository root in VS Code, select your Python interpreter, and open the Python file for the day you want to run. Press **Ctrl + S** to format and run it using the project's editor settings. Click inside the Run on Save terminal, type an answer, and press **Enter** for each prompt.
@@ -431,6 +471,7 @@ python "challenges/day [1-11]/day_7.py"
 python "challenges/day [1-11]/day_8.py"
 python "challenges/day [1-11]/day_9.py"
 python "challenges/day [1-11]/day_10.py"
+python "challenges/day [1-11]/day_11.py"
 ```
 
 The quoted paths include the folder's spaces and square brackets. Day 7 uses `match`, which requires Python 3.10 or later. The projects covered so far use Python's standard library or built-in features and do not require additional packages.
