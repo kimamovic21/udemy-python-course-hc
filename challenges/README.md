@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups; each group's README contains the project explanations, examples, and running instructions.
 
-**Status: in progress.** The first group has local days 1–11, and `day [12-21]` now contains local days 1–2: a CSV contact book and a student marks analyzer. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features.
+**Status: in progress.** The first group has local days 1–11, and `day [12-21]` now contains local days 1–3: a CSV contact book, a student marks analyzer, and a JSON movie tracker. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features.
 
 ## Learning order
 
@@ -19,7 +19,7 @@ Project numbering restarts inside `day [12-21]`: its first files are `DAY_1.md` 
 | Folder | Current coverage | Status |
 | --- | --- | --- |
 | [day 1–11](day%20%5B1-11%5D/README.md) | Local days 1–11 | In progress |
-| [day 12–21](day%20%5B12-21%5D/README.md) | Local days 1–2 | In progress |
+| [day 12–21](day%20%5B12-21%5D/README.md) | Local days 1–3 | In progress |
 | `day [22-31]` | Reserved for later challenges | Planned |
 | `day [32-35]` | Reserved for later challenges | Planned |
 | `day [36-45]` | Reserved for later challenges | Planned |
@@ -42,6 +42,7 @@ Project numbering restarts inside `day [12-21]`: its first files are `DAY_1.md` 
 | `day [1-11]` | 11 | [Friendship Compatibility Calculator](day%20%5B1-11%5D/README.md#day-11-friendship-compatibility-calculator) | Case normalization, sets, intersections, weighted scoring, and limiting results with `min()`. |
 | `day [12-21]` | 1 | [CLI Contact Book (CSV-Powered)](day%20%5B12-21%5D/README.md#day-1-cli-contact-book-csv-powered) | CSV readers and writers, functions, file persistence, partial search, and duplicate-name checks. |
 | `day [12-21]` | 2 | [Student Marks Analyzer](day%20%5B12-21%5D/README.md#day-2-student-marks-analyzer) | Dictionaries, numeric input, summary statistics, list comprehensions, and formatted reports. |
+| `day [12-21]` | 3 | [Personal Movie Tracker with JSON](day%20%5B12-21%5D/README.md#day-3-personal-movie-tracker-with-json) | JSON persistence, lists of dictionaries, rating validation, duplicate checks, and title or genre search. |
 
 ## Original challenge statements
 
@@ -67,6 +68,7 @@ python "challenges/day [1-11]/day_10.py"
 python "challenges/day [1-11]/day_11.py"
 python "challenges/day [12-21]/day_1.py"
 python "challenges/day [12-21]/day_2.py"
+python "challenges/day [12-21]/day_3.py"
 ```
 
 The quotes keep the path's spaces and square brackets together. Answer each prompt in the terminal and press **Enter** to continue.
@@ -74,6 +76,8 @@ The quotes keep the path's spaces and square brackets together. Answer each prom
 In VS Code, open the Python file and press **Ctrl + S** to format and run it. Click inside the Run on Save terminal to enter your answers. See the [group README](day%20%5B1-11%5D/README.md#how-to-run-these-projects) for detailed examples, including where Days 2, 6, and 7 save their files.
 
 The CSV contact book saves `contacts.csv` beside its script in `day [12-21]`, regardless of the terminal's current working directory. See its [group README](day%20%5B12-21%5D/README.md#how-to-run-these-projects) for details. The [CSV line-ending note](day%20%5B12-21%5D/README.md#csv-line-endings-and-the-windows-fix) explains the Windows blank-line issue and the commented original code beside the active fixes.
+
+The movie tracker also saves its data beside its script: `movies.json` is created after the first successful movie addition.
 
 Day 8 in the first group hides password input: type in the terminal and press **Enter**, even though no characters or stars appear.
 
