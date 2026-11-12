@@ -2,7 +2,7 @@
 
 This is the second challenge group. Work through it after [day 1–11](../day%20%5B1-11%5D/README.md), then continue with the later groups in the [challenge index](../README.md#challenge-groups).
 
-**Status: in progress.** Local days 1–4 are documented. The weather logger supports adding and viewing records; its requested summary statistics are not implemented yet.
+**Status: in progress.** Local days 1–5 are documented. The weather logger supports adding and viewing records; its requested summary statistics are not implemented yet.
 
 Navigate through the [challenge index](../README.md) or return to the [main project overview](../../README.md#folder-overview).
 
@@ -12,8 +12,9 @@ Navigate through the [challenge index](../README.md) or return to the [main proj
 2. Read the [original Day 2 challenge](DAY_2.md), then explore [day_2.py](day_2.py).
 3. Read the [original Day 3 challenge](DAY_3.md), then explore [day_3.py](day_3.py).
 4. Read the [original Day 4 challenge](DAY_4.md), complete the [weather logger setup](#day-4-setup-openweather-and-env), then explore [day_4.py](day_4.py).
-5. Continue with later local projects in numerical order as they are added.
-6. After this group, continue with `day [22-31]` and the remaining challenge groups before returning to the next numbered course section (`12_...`).
+5. Read the [original Day 5 sample data](DAY_5.md), then follow the [visualization setup](#day-5-setup-and-running) and explore [day_5.py](day_5.py).
+6. Continue with later local projects in numerical order as they are added.
+7. After this group, continue with `day [22-31]` and the remaining challenge groups before returning to the next numbered course section (`12_...`).
 
 The tutorial restarts project numbering in this folder: `DAY_1.md` and `day_1.py` belong to `day [12-21]` and are separate from the files with those names in `day [1-11]`. Keep the original filenames; this README uses the local day numbers rather than renaming the first project to Day 12.
 
@@ -33,9 +34,13 @@ The `DAY_*.md` files contain original task descriptions maintained manually by t
 | `movies.json` | Movie data created after the first successful addition and reused beside `day_3.py`. |
 | [DAY_4.md](DAY_4.md) | The original Real-Time Weather Logger (API + CSV) challenge and its bonus tasks. |
 | [day_4.py](day_4.py) | Fetching city weather from OpenWeather and saving one record per city and local date. |
-| `weather_logs.csv` | Weather records created and reused beside `day_4.py`. |
+| `weather_logs.csv` | Weather records saved by Day 4 and read by Day 5; both scripts use the file in this folder. |
 | [.env.example](.env.example) | A shareable template containing the environment variable name and a placeholder key. |
 | `.env` | Local API configuration, excluded from Git by the root `.gitignore`. |
+| [DAY_5.md](DAY_5.md) | The original weather sample data and instruction to plot graphs. |
+| [day_5.py](day_5.py) | Reading weather records and displaying a line plot and condition-frequency bar chart. |
+| [temperature_sarajevo_november_2026.png](temperature_sarajevo_november_2026.png) | Manually saved Figure 1: the daily mean temperature series for the November demo. |
+| [weather_conditions_sarajevo_november_2026.png](weather_conditions_sarajevo_november_2026.png) | Manually saved Figure 2: condition counts for the same 30 records. |
 
 ## Day 1: CLI Contact Book (CSV-Powered)
 
@@ -329,22 +334,116 @@ Entering the same city again on the same date prints `Entry for this city and da
 
 Adding and viewing daily records, duplicate prevention, and basic API-failure feedback are implemented. Average, highest, and lowest temperatures, the most frequent condition, an aligned table, and detailed invalid-city feedback from the original challenge are not implemented yet.
 
+## Day 5: Weather Data Visualization
+
+The task is to plot graphs from the weather CSV data. `visualize_weather()` reads `weather_logs.csv` and displays two figures using `matplotlib.pyplot`, imported as `plt`. It reads existing data without calling OpenWeather, loading `.env`, or changing the CSV.
+
+### Day 5 setup and running
+
+Install Matplotlib with the Python interpreter used to run the project:
+
+```powershell
+python -m pip install matplotlib
+```
+
+The `csv` and `collections` modules are built into Python and need no installation. If VS Code still reports an unresolved import after installation, check the selected Python interpreter; reloading the window can refresh Pylance.
+
+`FILENAME = Path(__file__).resolve().parent / "weather_logs.csv"` reads the CSV beside `day_5.py`, using the same file as Day 4. This works when the terminal is at the repository root or when the file is launched with **Ctrl + S**.
+
+From the repository root:
+
+```powershell
+python "challenges/day [12-21]/day_5.py"
+```
+
+The CSV must already exist in `challenges/day [12-21]`, with `Date`, `City`, `Temperature`, and `Condition` columns. Use records saved by Day 4, or the sample data from `DAY_5.md`; keep the original task file unchanged. A missing CSV still raises `FileNotFoundError`; the visualizer reads data and does not create it.
+
+The original relative path searched the terminal's working directory, causing `FileNotFoundError` when saving from VS Code with the terminal at the repository root. Building the path from `__file__` fixes that without changing the terminal directory.
+
+Close the first chart window to let the program continue to the second `plt.show()` call. After closing the second chart, the script finishes.
+
+### Reading data and drawing the figures
+
+1. `csv.DictReader` reads each row as a dictionary. The script converts `Temperature` to `float` before collecting dates in `dates` and numeric values in `temps`. Invalid numeric values or missing fields skip the row before anything is appended.
+2. `defaultdict(int)` initializes a missing condition count to zero. `conditions[row["Condition"]] += 1` counts each record for that condition.
+3. If there are no collected dates, the script prints `NO data is available` and returns.
+4. The first figure uses `plt.plot(dates, temps, marker="o")` to connect entries in file order. Its title is `Temperature over time`, with a temperature axis in degrees Celsius, rotated date labels, a grid, and `tight_layout()` to adjust spacing.
+5. The second figure uses `plt.bar(...)` to display condition counts as sky-blue bars. The horizontal axis is labeled `Condition`, and the vertical axis is labeled `Records`.
+
+With the seven sample records in `DAY_5.md`, the condition counts are:
+
+| Condition | Record count |
+| --- | --- |
+| Clear | 2 |
+| Sunny | 2 |
+| Rain | 2 |
+| Clouds | 1 |
+
+The line plot receives seven entries in the sample's order. Dates are not sorted by the script, and records from different cities are combined. The bar chart counts CSV records rather than unique calendar days. For a dataset with one city and one row per day, these counts also equal the number of days.
+
+### Current behaviour to understand
+
+CSV values start as strings. The original `temps.append(row["Temperature"])` remains as a comment beside the active numeric append. Converting to `float` fixes the temperature axis: values such as `3.0`, `12.0`, and `8.0` are now positioned by their numeric values, rather than their order of first appearance as text categories.
+
+The row-processing handler catches `KeyError`, `TypeError`, and `ValueError` before appending the date, temperature, and condition. Missing files still fail before that block. Figures are displayed in windows; the script does not save image files.
+
+### November 2026 demonstration dataset
+
+The current `weather_logs.csv` contains **30 daily rows for Sarajevo, November 1–30, 2026**, prepared on November 12, 2026 for plotting practice. It retains the original four CSV columns. These are daily mean temperatures in °C, unlike Day 4's individual current-weather readings. The November demo was prepared separately; Day 4 still uses OpenWeather.
+
+**The full month is not an observed historical record.** Data comes from [Open-Meteo](https://open-meteo.com/en/docs), with the final three days simulated for this exercise:
+
+| Dates | Provenance |
+| --- | --- |
+| November 1–11 | Open-Meteo model values for past dates; not measurements from a weather station. |
+| November 12–27 | Open-Meteo forecast daily means as available on November 12. Today's full-day mean is also a forecast. |
+| November 28–30 | Simulated demonstration values, not fetched observations or forecasts. |
+
+The API request used Sarajevo coordinates `43.8563, 18.4131`, timezone `Europe/Sarajevo`, `daily=temperature_2m_mean,weather_code`, and dates `2026-11-01` through `2026-11-27`. Daily weather codes describe the day's most severe condition and are grouped into readable labels such as `Clouds`, `Rain`, and `Snow`. [Open-Meteo's daily parameter definitions](https://open-meteo.com/en/docs#daily-parameter-definition) explain these values.
+
+For the simulated final three temperatures, the mean of the last seven forecast temperatures was adjusted by `+0.8`, `-0.4`, and `-1.0` °C, respectively. Their conditions were chosen as `Clouds`, `Rain`, and `Clouds` for demonstration; these are not predictions.
+
+The working CSV is a plotting demonstration rather than a collection of live observations. Day 4's duplicate check uses the date and city from this dataset, so an existing Sarajevo demo row for the current date also counts as an existing entry.
+
+### Saved chart examples
+
+These PNG files are snapshots saved manually with the disk icon in Matplotlib's toolbar. `Figure 1` and `Figure 2` are window labels, rather than filenames. The Python script displays the figures; it does not save these PNGs automatically or refresh them when the CSV changes.
+
+Both images use the [November 2026 demonstration dataset](#november-2026-demonstration-dataset): past model values, forecasts, and three simulated days. They are not a complete month of observed weather.
+
+**Figure 1: daily mean temperature for Sarajevo**
+
+![Daily mean temperatures for Sarajevo, November 1–30, 2026, using the model, forecast, and simulated demonstration data.](temperature_sarajevo_november_2026.png)
+
+The horizontal axis shows dates, and the vertical axis shows temperature in °C. The 30 points follow the CSV's day order. This view helps compare warmer and cooler parts of the demonstration month.
+
+**Figure 2: weather condition counts for Sarajevo**
+
+![Weather condition counts for the 30-day Sarajevo November 2026 demonstration: Rain 11, Clouds 10, Snow 1, Thunderstorm 1, Drizzle 6, and Fog 1.](weather_conditions_sarajevo_november_2026.png)
+
+Each bar counts records for one condition. The counts total 30: `Rain` 11, `Clouds` 10, `Snow` 1, `Thunderstorm` 1, `Drizzle` 6, and `Fog` 1. With one Sarajevo record per date, each record represents one day in this demo.
+
+To regenerate the snapshots after changing the data, run `day_5.py`, save the first figure with the disk icon, close it to open the second figure, and save that one too. Use the filenames listed above to update the images displayed in this README.
+
 ## How to run these projects
 
-From the repository root, choose the command for the project you want to run:
+From the repository root, choose the matching command:
 
 ```powershell
 python "challenges/day [12-21]/day_1.py"
 python "challenges/day [12-21]/day_2.py"
 python "challenges/day [12-21]/day_3.py"
 python "challenges/day [12-21]/day_4.py"
+python "challenges/day [12-21]/day_5.py"
 ```
+
+For Day 5, follow the [setup instructions above](#day-5-setup-and-running) to install Matplotlib and prepare the weather CSV.
 
 **File location:** `contacts.csv` is created and reused in `challenges/day [12-21]`, beside `day_1.py`, even when the script is launched from the repository root. An existing CSV at another location is not moved automatically.
 
-Day 3 also keeps `movies.json` beside its script, creating it after the first successful addition. Day 2 displays its report in the terminal without saving a file. Days 1–3 use only Python's standard library or built-in features. Day 4 additionally requires `requests`, `python-dotenv`, and the [OpenWeather setup](#day-4-setup-openweather-and-env); its CSV stays beside the script too.
+Day 3 also keeps `movies.json` beside its script, creating it after the first successful addition. Day 2 displays its report in the terminal without saving a file. Days 1–3 use only Python's standard library or built-in features. Day 4 additionally requires `requests`, `python-dotenv`, and the [OpenWeather setup](#day-4-setup-openweather-and-env); its CSV stays beside the script too. Day 5 needs `matplotlib` and reads the same weather CSV beside its script.
 
-In VS Code, open the Python file for the local day you want to run and press **Ctrl + S** to format and run it. Click inside the Run on Save terminal, type your menu choice or requested details, and press **Enter**. The save command uses the terminal's `python -u`; the CSV and JSON files, including `weather_logs.csv`, remain beside their respective scripts.
+In VS Code, open the Python file for the local day you want to run and press **Ctrl + S** to format and run it. Click inside the Run on Save terminal, type your menu choice or requested details, and press **Enter**. The save command uses the terminal's `python -u`; Days 1, 3, and 4 keep their data beside their scripts, and Day 5 reads the weather CSV from that same folder.
 
 See the [main README](../../README.md#quick-start) for editor setup.
 
@@ -356,3 +455,5 @@ See the [main README](../../README.md#quick-start) for editor setup.
 - [OpenWeather API keys](https://home.openweathermap.org/api_keys): sign in to manage the key used by Day 4.
 - [OpenWeather Current Weather API](https://openweathermap.org/current): city queries, response fields, and metric temperature units.
 - [python-dotenv](https://bbc2.github.io/python-dotenv/): installation and loading local environment variables.
+- [Matplotlib quick start](https://matplotlib.org/stable/users/explain/quick_start.html): figures, axes, plotting data, and displaying charts.
+- [Matplotlib categorical plotting](https://matplotlib.org/stable/gallery/lines_bars_and_markers/categorical_variables.html): how string values become category labels.

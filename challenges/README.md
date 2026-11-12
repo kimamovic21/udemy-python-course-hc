@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups; each group's README contains the project explanations, examples, and running instructions.
 
-**Status: in progress.** The first group has local days 1–11, and `day [12-21]` now contains local days 1–4: a CSV contact book, a student marks analyzer, a JSON movie tracker, and a weather logger. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features.
+**Status: in progress.** The first group has local days 1–11, and `day [12-21]` now contains local days 1–5: a CSV contact book, a student marks analyzer, a JSON movie tracker, a weather logger, and weather data visualization. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features.
 
 ## Learning order
 
@@ -19,7 +19,7 @@ Project numbering restarts inside `day [12-21]`: its first files are `DAY_1.md` 
 | Folder | Current coverage | Status |
 | --- | --- | --- |
 | [day 1–11](day%20%5B1-11%5D/README.md) | Local days 1–11 | In progress |
-| [day 12–21](day%20%5B12-21%5D/README.md) | Local days 1–4 | In progress |
+| [day 12–21](day%20%5B12-21%5D/README.md) | Local days 1–5 | In progress |
 | `day [22-31]` | Reserved for later challenges | Planned |
 | `day [32-35]` | Reserved for later challenges | Planned |
 | `day [36-45]` | Reserved for later challenges | Planned |
@@ -44,6 +44,7 @@ Project numbering restarts inside `day [12-21]`: its first files are `DAY_1.md` 
 | `day [12-21]` | 2 | [Student Marks Analyzer](day%20%5B12-21%5D/README.md#day-2-student-marks-analyzer) | Dictionaries, numeric input, summary statistics, list comprehensions, and formatted reports. |
 | `day [12-21]` | 3 | [Personal Movie Tracker with JSON](day%20%5B12-21%5D/README.md#day-3-personal-movie-tracker-with-json) | JSON persistence, lists of dictionaries, rating validation, duplicate checks, and title or genre search. |
 | `day [12-21]` | 4 | [Real-Time Weather Logger](day%20%5B12-21%5D/README.md#day-4-real-time-weather-logger) | HTTP requests, API JSON responses, environment variables, CSV logging, and duplicate checks. |
+| `day [12-21]` | 5 | [Weather Data Visualization](day%20%5B12-21%5D/README.md#day-5-weather-data-visualization) | CSV reading, `defaultdict` counts, Matplotlib line plots, and bar charts. |
 
 ## Original challenge statements
 
@@ -71,6 +72,7 @@ python "challenges/day [12-21]/day_1.py"
 python "challenges/day [12-21]/day_2.py"
 python "challenges/day [12-21]/day_3.py"
 python "challenges/day [12-21]/day_4.py"
+python "challenges/day [12-21]/day_5.py"
 ```
 
 The quotes keep the path's spaces and square brackets together. Answer each prompt in the terminal and press **Enter** to continue.
@@ -82,6 +84,8 @@ The CSV contact book saves `contacts.csv` beside its script in `day [12-21]`, re
 The movie tracker also saves its data beside its script: `movies.json` is created after the first successful movie addition.
 
 Before running the weather logger, follow the [Day 4 setup instructions](day%20%5B12-21%5D/README.md#day-4-setup-openweather-and-env): install `requests` and `python-dotenv`, obtain your own OpenWeather key, and configure the local `.env` file. Weather records are saved beside the script in `weather_logs.csv`.
+
+Day 5 needs `matplotlib` and reads `weather_logs.csv` beside its script, using the same file as Day 4 regardless of the terminal's working directory. Follow its [setup and running instructions](day%20%5B12-21%5D/README.md#day-5-setup-and-running) to display both charts. The working CSV currently contains a [30-day Sarajevo demonstration](day%20%5B12-21%5D/README.md#november-2026-demonstration-dataset), combining past model data, forecasts, and three simulated days. See the [saved chart examples](day%20%5B12-21%5D/README.md#saved-chart-examples) for both PNG snapshots and explanations.
 
 Day 8 in the first group hides password input: type in the terminal and press **Enter**, even though no characters or stars appear.
 
