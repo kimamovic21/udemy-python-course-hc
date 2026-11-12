@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1",
+    "name": "Daniel Carter",
+    "email": "daniel.carter@example.com",
+    "location": "Los Angeles, CA",
+    "is_active": "true"
+  },
+  {
+    "id": "2",
+    "name": "Madison Reed",
+    "email": "madison.reed@example.com",
+    "location": "Miami, FL",
+    "is_active": "false"
+  },
+  {
+    "id": "3",
+    "name": "Ethan Brooks",
+    "email": "ethan.brooks@example.com",
+    "location": "Dallas, TX",
+    "is_active": "true"
+  },
+  {
+    "id": "4",
+    "name": "Ava Bennett",
+    "email": "ava.bennett@example.com",
+    "location": "Houston, TX",
+    "is_active": "true"
+  },
+  {
+    "id": "5",
+    "name": "Noah Parker",
+    "email": "noah.parker@example.com",
+    "location": "Philadelphia, PA",
+    "is_active": "false"
+  },
+  {
+    "id": "6",
+    "name": "Isabella Collins",
+    "email": "isabella.collins@example.com",
+    "location": "Phoenix, AZ",
+    "is_active": "true"
+  },
+  {
+    "id": "7",
+    "name": "Liam Foster",
+    "email": "liam.foster@example.com",
+    "location": "San Diego, CA",
+    "is_active": "false"
+  },
+  {
+    "id": "8",
+    "name": "Mia Reynolds",
+    "email": "mia.reynolds@example.com",
+    "location": "Nashville, TN",
+    "is_active": "true"
+  },
+  {
+    "id": "9",
+    "name": "Mason Hayes",
+    "email": "mason.hayes@example.com",
+    "location": "Columbus, OH",
+    "is_active": "true"
+  },
+  {
+    "id": "10",
+    "name": "Harper Sullivan",
+    "email": "harper.sullivan@example.com",
+    "location": "Baltimore, MD",
+    "is_active": "false"
+  }
+]

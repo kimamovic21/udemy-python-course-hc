@@ -1,0 +1,11 @@
+id,name,email,location,is_active
+1,Daniel Carter,daniel.carter@example.com,"Los Angeles, CA",true
+2,Madison Reed,madison.reed@example.com,"Miami, FL",false
+3,Ethan Brooks,ethan.brooks@example.com,"Dallas, TX",true
+4,Ava Bennett,ava.bennett@example.com,"Houston, TX",true
+5,Noah Parker,noah.parker@example.com,"Philadelphia, PA",false
+6,Isabella Collins,isabella.collins@example.com,"Phoenix, AZ",true
+7,Liam Foster,liam.foster@example.com,"San Diego, CA",false
+8,Mia Reynolds,mia.reynolds@example.com,"Nashville, TN",true
+9,Mason Hayes,mason.hayes@example.com,"Columbus, OH",true
+10,Harper Sullivan,harper.sullivan@example.com,"Baltimore, MD",false
