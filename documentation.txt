@@ -323,3 +323,5 @@ Section 12: Day [12-21] data handling projects
 92. Day 4 real time weather API with CSV storage
 
 93. Day 5 Graph with matplotlib
+
+94. Day 6 JSON to CSV converter from scratch

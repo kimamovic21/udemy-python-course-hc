@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "James Anderson",
+    "email": "james.anderson@example.com",
+    "location": "New York, NY",
+    "is_active": true
+  },
+  {
+    "id": 2,
+    "name": "Emily Johnson",
+    "email": "emily.johnson@example.com",
+    "location": "Chicago, IL",
+    "is_active": true
+  },
+  {
+    "id": 3,
+    "name": "Michael Brown",
+    "email": "michael.brown@example.com",
+    "location": "Austin, TX",
+    "is_active": false
+  },
+  {
+    "id": 4,
+    "name": "Olivia Davis",
+    "email": "olivia.davis@example.com",
+    "location": "Seattle, WA",
+    "is_active": true
+  },
+  {
+    "id": 5,
+    "name": "William Miller",
+    "email": "william.miller@example.com",
+    "location": "Boston, MA",
+    "is_active": false
+  },
+  {
+    "id": 6,
+    "name": "Sophia Wilson",
+    "email": "sophia.wilson@example.com",
+    "location": "Denver, CO",
+    "is_active": true
+  },
+  {
+    "id": 7,
+    "name": "Benjamin Moore",
+    "email": "benjamin.moore@example.com",
+    "location": "San Francisco, CA",
+    "is_active": true
+  },
+  {
+    "id": 8,
+    "name": "Charlotte Taylor",
+    "email": "charlotte.taylor@example.com",
+    "location": "Atlanta, GA",
+    "is_active": false
+  },
+  {
+    "id": 9,
+    "name": "Lucas Martin",
+    "email": "lucas.martin@example.com",
+    "location": "Portland, OR",
+    "is_active": true
+  },
+  {
+    "id": 10,
+    "name": "Amelia Thompson",
+    "email": "amelia.thompson@example.com",
+    "location": "San Diego, CA",
+    "is_active": false
+  }
+]

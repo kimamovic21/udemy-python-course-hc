@@ -8,9 +8,20 @@
     "runOnSave.onlyRunOnManualSave": true,
     "runOnSave.commands": [
         {
-            "languages": ["python"],
+            "languages": [
+                "python"
+            ],
             "command": "python -u ${file}",
             "runIn": "terminal"
         }
-    ]
+    ],
+    "workbench.editorAssociations": {
+        "*.csv": "default",
+        "*.xlsx": "spreadjs.designer"
+    },
+    "git.decorations.enabled": true,
+    "explorer.decorations.colors": true,
+    "workbench.colorCustomizations": {
+        "gitDecoration.ignoredResourceForeground": "#808080"
+    }
 }

@@ -2,3 +2,6 @@
 .env
 .env.*
 !.env.example
+
+# Temporary Excel lock files
+~$*
