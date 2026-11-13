@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups; each group's README contains the project explanations, examples, and running instructions.
 
-**Status: in progress.** The first group has local days 1–11, and `day [12-21]` now contains local days 1–9, including weather projects, CSV/JSON conversion, JSON flattening, and a basic offline credential manager. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features.
+**Status: in progress.** The first group has local days 1–11, and `day [12-21]` now contains local days 1–10, including weather projects, data conversion, JSON flattening, a credential exercise, and Fernet-encrypted notes. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features.
 
 ## Learning order
 
@@ -19,7 +19,7 @@ Project numbering restarts inside `day [12-21]`: its first files are `DAY_1.md` 
 | Folder | Current coverage | Status |
 | --- | --- | --- |
 | [day 1–11](day%20%5B1-11%5D/README.md) | Local days 1–11 | In progress |
-| [day 12–21](day%20%5B12-21%5D/README.md) | Local days 1–9 | In progress |
+| [day 12–21](day%20%5B12-21%5D/README.md) | Local days 1–10 | In progress |
 | `day [22-31]` | Reserved for later challenges | Planned |
 | `day [32-35]` | Reserved for later challenges | Planned |
 | `day [36-45]` | Reserved for later challenges | Planned |
@@ -49,6 +49,7 @@ Project numbering restarts inside `day [12-21]`: its first files are `DAY_1.md` 
 | `day [12-21]` | 7 | [CSV-to-JSON Converter Tool](day%20%5B12-21%5D/README.md#day-7-csv-to-json-converter-tool) | CSV dictionaries, JSON output, file paths, previewing records, and preserving text values. |
 | `day [12-21]` | 8 | [JSON Flattener](day%20%5B12-21%5D/README.md#day-8-json-flattener) | Recursion, nested dictionaries, list indexes, custom separators, and preserving JSON value types. |
 | `day [12-21]` | 9 | [Offline Credential Manager](day%20%5B12-21%5D/README.md#day-9-offline-credential-manager) | Base64 encoding, append-mode storage, decoding, and simple password checks; update and masking remain pending. |
+| `day [12-21]` | 10 | [Offline Notes Locker](day%20%5B12-21%5D/README.md#day-10-offline-notes-locker) | Fernet encryption, local key reuse, JSON note storage, timestamps, and title search. |
 
 ## Original challenge statements
 
@@ -81,6 +82,7 @@ python "challenges/day [12-21]/day_6.py"
 python "challenges/day [12-21]/day_7.py"
 python "challenges/day [12-21]/day_8.py"
 python "challenges/day [12-21]/day_9.py"
+python "challenges/day [12-21]/day_10.py"
 ```
 
 The quotes keep the path's spaces and square brackets together. Answer each prompt in the terminal and press **Enter** to continue.
@@ -102,6 +104,8 @@ Day 7 reads its separate `raw_data.csv` sample and writes `converted_data.json` 
 Day 8 in the second group flattens `nested_data.json` into `flattened_data.json` beside the script. Press **Enter** at its separator prompt to use dots, or enter a separator such as `-`.
 
 Day 9 stores Base64-encoded practice credentials in `vault.txt` beside the script. Base64 is reversible encoding; the current viewer displays the decoded password. See its [current implementation notes](day%20%5B12-21%5D/README.md#day-9-current-challenge-coverage) for unfinished menu actions and masking.
+
+Day 10 requires `cryptography`; follow the [Notes Locker setup](day%20%5B12-21%5D/README.md#day-10-setup-and-local-files). It keeps `notes_vault.json` and its local `vault.key` beside the script. The key is ignored by Git and is needed to decrypt previously saved content.
 
 Day 8 in the first group hides password input: type in the terminal and press **Enter**, even though no characters or stars appear.
 

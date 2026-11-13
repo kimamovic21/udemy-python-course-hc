@@ -331,3 +331,5 @@ Section 12: Day [12-21] data handling projects
 96. Day 8 Flatten JSON - advance
 
 97. Day 9 build a secure offline password vault
+
+98. Day 10 cryptography Fernet symmetric encryption

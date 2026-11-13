@@ -2,7 +2,7 @@
 
 This is the second challenge group. Work through it after [day 1–11](../day%20%5B1-11%5D/README.md), then continue with the later groups in the [challenge index](../README.md#challenge-groups).
 
-**Status: in progress.** Local days 1–9 are documented. The weather logger supports adding and viewing records; its requested summary statistics are not implemented yet.
+**Status: in progress.** Local days 1–10 are documented. The weather logger supports adding and viewing records; its requested summary statistics are not implemented yet.
 
 Navigate through the [challenge index](../README.md) or return to the [main project overview](../../README.md#folder-overview).
 
@@ -17,7 +17,7 @@ Navigate through the [challenge index](../README.md) or return to the [main proj
 7. Read the [original Day 7 challenge](DAY_7.md), then explore [day_7.py](day_7.py) with the [sample CSV](raw_data.csv).
 8. Read the [original Day 8 challenge](DAY_8.md), then explore [day_8.py](day_8.py) and its [nested JSON example](nested_data.json).
 9. Read the [original Day 9 challenge](DAY_9.md), then explore [day_9.py](day_9.py) using practice credentials.
-10. Continue with later local projects in numerical order as they are added.
+10. Read the [original Day 10 challenge](DAY_10.md), complete the [Notes Locker setup](#day-10-setup-and-local-files), then explore [day_10.py](day_10.py).
 11. After this group, continue with `day [22-31]` and the remaining challenge groups before returning to the next numbered course section (`12_...`).
 
 The tutorial restarts project numbering in this folder: `DAY_1.md` and `day_1.py` belong to `day [12-21]` and are separate from the files with those names in `day [1-11]`. Keep the original filenames; this README uses the local day numbers rather than renaming the first project to Day 12.
@@ -61,6 +61,10 @@ The `DAY_*.md` files contain original task descriptions maintained manually by t
 | [DAY_9.md](DAY_9.md) | The original Offline Credential Manager challenge, assignment, and bonus tasks. |
 | [day_9.py](day_9.py) | Adding and viewing Base64-encoded practice credentials with a simple strength-scoring helper. |
 | `vault.txt` | Runtime data created beside `day_9.py` when the first credential is added. |
+| [DAY_10.md](DAY_10.md) | The original Offline Notes Locker challenge and optional tasks. |
+| [day_10.py](day_10.py) | Adding, listing, viewing, and searching notes with Fernet-encrypted content. |
+| `notes_vault.json` | Local note records containing readable titles/timestamps and encrypted content. |
+| `vault.key` | The local Fernet key generated once and reused, excluded from Git. |
 
 ## Day 1: CLI Contact Book (CSV-Powered)
 
@@ -672,6 +676,77 @@ Adding records, Base64 encoding/decoding, append-mode persistence, listing recor
 
 The script does not check duplicate websites or empty inputs. It assumes every saved line decodes into exactly three fields; malformed lines or field values containing `||` can fail during decoding or splitting. It uses only Python's standard-library `base64`, `os`, and `pathlib` modules and needs no additional packages or API keys.
 
+## Day 10: Offline Notes Locker
+
+The task is to add, list, read, and search local notes while encrypting their content with `cryptography.fernet.Fernet`. This differs from Day 9's reversible Base64 encoding: Fernet uses a secret key for encryption and decryption. Only note content is encrypted; titles and timestamps remain readable in the JSON.
+
+### Day 10 setup and local files
+
+Install the external package using the Python interpreter that runs the script:
+
+```powershell
+python -m pip install cryptography
+```
+
+The import is `from cryptography.fernet import Fernet`. The `json`, `os`, `datetime`, and `pathlib` modules come with Python and need no separate installation. See the [official installation guide](https://cryptography.io/en/latest/installation/) and [Fernet documentation](https://cryptography.io/en/latest/fernet/).
+
+Both file paths use `Path(__file__).resolve().parent`, so they stay beside `day_10.py` in `challenges/day [12-21]`, even when the script starts from the repository root:
+
+| File | Created when | Role |
+| --- | --- | --- |
+| `vault.key` | At startup, if no key file exists. | Stores the secret key used to encrypt and decrypt note content. |
+| `notes_vault.json` | After the first successful note addition. | Stores a JSON list of note titles, encrypted content, and timestamps. |
+
+`load_or_create_key()` generates a key with `Fernet.generate_key()` and writes it in binary mode (`"wb"`), or reads the existing bytes with `"rb"`. It returns `Fernet(key)`. The module-level call `fernet = load_or_create_key()` runs before the menu and also runs if the module is imported.
+
+Keep the same key with the corresponding notes: replacing or deleting it prevents decryption of their existing content. Anyone with the key and note file can read that content. The root [.gitignore](../../.gitignore) excludes `vault.key`; documentation examples do not contain an actual key. `notes_vault.json` is not automatically ignored by the current Git configuration.
+
+### Menu and functions
+
+`main()` repeats the menu with `while True`, selects actions with `match`, and exits with option `5`:
+
+| Option | Function | Behaviour |
+| --- | --- | --- |
+| `1` | `add_note()` | Read a title and content, encrypt the content, add a local timestamp, and save the note. |
+| `2` | `list_notes()` | Show numbered titles and timestamps, or `No notes yet` for an empty vault. |
+| `3` | `view_note()` | Ask for a displayed note number, decrypt that note's content, and print it. |
+| `4` | `search_notes()` | Find case-insensitive partial matches in note titles and display matching titles/timestamps. |
+| `5` | Exit | Leave the loop with `break`. |
+
+`load_vault()` returns an empty list when the JSON file does not exist. `save_vault(data)` writes the complete list using UTF-8 and `json.dump(..., indent=2)`. Each successful save replaces the file, retaining previous notes because they are loaded into the list before appending the new one.
+
+Within `add_note()`, `.strip()` trims the title and content. `content.encode()` produces bytes, `fernet.encrypt(...)` encrypts them, and `.decode()` turns the token into text that can be stored in JSON. `datetime.now().strftime("%Y-%m-%d %H:%M:%S")` records the computer's local time.
+
+`view_note()` reverses the process with `fernet.decrypt(encrypted.encode()).decode()`. It subtracts `1` from the displayed note number because Python list indexes start at zero. Search uses a list comprehension over the title; it does not decrypt or search note bodies.
+
+### Practice example
+
+Choose **Add Note**, enter title `Python practice` and content `Today I learned about Fernet.`. The program confirms `✅ data saved`.
+
+The saved record has this structure. Both the token and timestamp below are placeholders; the generated token changes each time:
+
+```json
+[
+  {
+    "title": "Python practice",
+    "content": "<encrypted Fernet token>",
+    "timestamp": "YYYY-MM-DD HH:MM:SS"
+  }
+]
+```
+
+Listing notes shows the title and timestamp. Selecting that note with **View Note** decrypts its content back to `Today I learned about Fernet.`. Searching for `PYTHON` finds the title without case sensitivity.
+
+### Current challenge coverage
+
+Adding notes, content encryption/decryption, listing, title search, and timestamps are implemented. The current file is named `notes_vault.json`, rather than the `.vault` filename suggested by the original challenge. The optional master password is not implemented; the program directly loads the local key file.
+
+Empty titles and content are accepted, and an empty search matches all titles. The current view-selection check uses `index <= len(data)` instead of a strict upper bound, so a selection one beyond the last note reaches an `IndexError` and is reported as `Invalid input` by the bare handler. The view action also asks for a number after an empty list. Other file/JSON errors are not handled consistently yet.
+
+### Reference mentioned in the tutorial
+
+[William Stallings](https://williamstallings.com/) is the website mentioned by the instructor during this lesson. It is included as an optional course reference; the practical package instructions for this project are in the Fernet links above.
+
 ## How to run these projects
 
 From the repository root, choose the matching command:
@@ -686,21 +761,22 @@ python "challenges/day [12-21]/day_6.py"
 python "challenges/day [12-21]/day_7.py"
 python "challenges/day [12-21]/day_8.py"
 python "challenges/day [12-21]/day_9.py"
+python "challenges/day [12-21]/day_10.py"
 ```
 
 For Day 5, follow the [setup instructions above](#day-5-setup-and-running) to install Matplotlib and prepare the weather CSV.
 
 **File location:** `contacts.csv` is created and reused in `challenges/day [12-21]`, beside `day_1.py`, even when the script is launched from the repository root. An existing CSV at another location is not moved automatically.
 
-Day 3 also keeps `movies.json` beside its script, creating it after the first successful addition. Day 2 displays its report in the terminal without saving a file. Days 1–3 and 6–9 use only Python's standard library or built-in features. Day 4 additionally requires `requests`, `python-dotenv`, and the [OpenWeather setup](#day-4-setup-openweather-and-env); its CSV stays beside the script too. Day 5 needs `matplotlib` and reads the same weather CSV beside its script.
+Day 3 also keeps `movies.json` beside its script, creating it after the first successful addition. Day 2 displays its report in the terminal without saving a file. Days 1–3 and 6–9 use only Python's standard library or built-in features. Day 4 additionally requires `requests`, `python-dotenv`, and the [OpenWeather setup](#day-4-setup-openweather-and-env); its CSV stays beside the script too. Day 10 additionally requires `cryptography` and its [local-file setup](#day-10-setup-and-local-files). Day 5 needs `matplotlib` and reads the same weather CSV beside its script.
 
-In VS Code, open the Python file for the local day you want to run and press **Ctrl + S** to format and run it. Click inside the Run on Save terminal, type your menu choice or requested details, and press **Enter**. The save command uses the terminal's `python -u`; Days 1, 3, 4, and 6–9 keep their data beside their scripts, and Day 5 reads the weather CSV from that same folder.
+In VS Code, open the Python file for the local day you want to run and press **Ctrl + S** to format and run it. Click inside the Run on Save terminal, type your menu choice or requested details, and press **Enter**. The save command uses the terminal's `python -u`; Days 1, 3, 4, and 6–10 keep their data beside their scripts, and Day 5 reads the weather CSV from that same folder.
 
 See the [main README](../../README.md#quick-start) for editor setup.
 
 ## Useful links for beginners
 
-The standard-library modules below come with Python and do not need `pip install`. External packages used here are `requests`, `python-dotenv`, and `matplotlib`; their installation commands are documented in the Day 4 and Day 5 setup sections.
+The standard-library modules below come with Python and do not need `pip install`. External packages used here are `requests`, `python-dotenv`, `matplotlib`, and `cryptography`; their installation commands are documented in the Day 4, Day 5, and Day 10 setup sections.
 
 - [Base64 encoding and decoding](https://docs.python.org/3/library/base64.html): `b64encode()` and `b64decode()` used by Day 9's credential exercise.
 - [JSON encoding and decoding](https://docs.python.org/3/library/json.html): `load()`, `dump()`, and `dumps()` used in the movie tracker, converters, and JSON flattener.
@@ -718,3 +794,6 @@ The standard-library modules below come with Python and do not need `pip install
 - [Matplotlib quick start](https://matplotlib.org/stable/users/explain/quick_start.html): figures, axes, plotting data, and displaying charts.
 - [Matplotlib categorical plotting](https://matplotlib.org/stable/gallery/lines_bars_and_markers/categorical_variables.html): how string values become category labels.
 - [SpreadJS XLSX Editor](https://marketplace.visualstudio.com/items?itemName=mescius.spreadjs-xlsx-editor): optional spreadsheet viewing and editing inside VS Code.
+- [Cryptography installation](https://cryptography.io/en/latest/installation/): installing the package used by Day 10.
+- [Fernet encryption](https://cryptography.io/en/latest/fernet/): generating a key, encrypting bytes, and decrypting tokens.
+- [William Stallings](https://williamstallings.com/): optional website reference mentioned by the instructor in the Notes Locker lesson.

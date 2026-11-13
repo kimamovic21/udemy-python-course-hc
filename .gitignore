@@ -5,3 +5,6 @@
 
 # Temporary Excel lock files
 ~$*
+
+# Local notes encryption key
+vault.key
