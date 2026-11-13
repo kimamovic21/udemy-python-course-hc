@@ -23,9 +23,9 @@ My Python learning repository, starting with the basics and adding exercises as 
 | [09_decorators](09_decorators/README.md) | Wrapping functions with decorators, preserving metadata, logging, role checks, and caching results (exercise 25). Section in progress. |
 | [10_oop](10_oop/README.md) | Classes, objects, attributes, inheritance, composition, MRO, instance, static, and class methods, and properties with validation. Exercises 26–27: a device tracker and vehicle rental system; section in progress. |
 | [11_exceptions](11_exceptions/README.md) | Built-in and custom exceptions, tracebacks, input validation, chai billing, and file handling with `try`, `except`, `else`, `finally`, and `raise`. Section in progress. |
-| [challenges](challenges/README.md) | Daily projects applying the previous sections, organised by day range. The challenge index lists groups, projects, and progress. In progress. |
+| [challenges](challenges/README.md) | Daily projects applying the previous sections, organised by tutorial section (`01_utilities` and `02_data_handling`). The challenge index lists groups, projects, and progress. In progress. |
 
-Start with **01_starter**, the first folder in this project. Detailed explanations, running instructions, and expected output are documented in the corresponding lesson or challenge-group README files. New folders will be added to this overview as the course progresses.
+Start with **01_starter**, the first folder in this project. Detailed explanations, running instructions, and expected output are documented in the corresponding lesson, project, or challenge-group README files. New folders will be added to this overview as the course progresses.
 
 After **11_exceptions**, work through all the groups in the [challenge index](challenges/README.md#challenge-groups) before continuing to the next numbered section (`12_...`). Follow the documented learning order even if your editor sorts the folders differently.
 

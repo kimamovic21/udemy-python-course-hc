@@ -8,3 +8,9 @@
 
 # Local notes encryption key
 vault.key
+
+# Local notes data for this lesson only
+/challenges/02_data_handling/day_10/notes_vault.json
+
+# Local credential data for this lesson only
+/challenges/02_data_handling/day_9/vault.txt

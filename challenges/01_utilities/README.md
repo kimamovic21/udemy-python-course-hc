@@ -1,6 +1,6 @@
-# Challenges — Days 1–11
+# Challenges — Utilities
 
-This group contains daily projects that apply the Python concepts covered so far. Work through the challenge groups after `11_exceptions` and before the next numbered course section (`12_...`).
+This group corresponds to `01_utilities` in the Udemy tutorial and contains daily projects that apply the Python concepts covered so far. Work through the challenge groups after `11_exceptions` and before the next numbered course section (`12_...`).
 
 **Status: in progress.** This checkpoint covers days 1–11. Day 11 has basic scoring; additional challenge features are listed below.
 
@@ -19,7 +19,7 @@ Navigate through the [challenge index](../README.md) or return to the [main proj
 9. Read the [original Day 9 challenge](DAY_9.md), then explore [day_9.py](day_9.py).
 10. Read the [original Day 10 challenge](DAY_10.md), then explore [day_10.py](day_10.py).
 11. Read the [original Day 11 challenge](DAY_11.md), then explore [day_11.py](day_11.py).
-12. After this group, continue with [day 12–21](../day%20%5B12-21%5D/README.md) and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
+12. After this group, continue with [02_data_handling](../02_data_handling/README.md) and the later groups listed in the [challenge index](../README.md#challenge-groups) before returning to the numbered course sections.
 
 The `DAY_*.md` files contain original challenge statements and are maintained manually by the repository owner. Preserve their original wording; keep project explanations and progress in README files.
 
@@ -257,7 +257,7 @@ The implementation works as follows:
 1. `input()` collects the learning entry and optional rating, and `.strip()` removes surrounding whitespace. Leave the rating blank to omit it.
 2. `datetime.datetime.now()` reads the computer's local date and time. `.strftime("%Y-%m-%d - %I:%M %p")` formats it with a year-month-day date and a 12-hour clock with AM/PM.
 3. F-strings build the journal entry. The rating line is added only when the rating is nonempty, and a separator of 50 hyphens divides entries.
-4. `Path(__file__).resolve().parent / "learning_journal.txt"` builds the output path from the script's folder. The journal is saved in `challenges/day [1-11]`, even when the script is launched from the repository root.
+4. `Path(__file__).resolve().parent / "learning_journal.txt"` builds the output path from the script's folder. The journal is saved in `challenges/01_utilities`, even when the script is launched from the repository root.
 5. `open(journal_path, "a", encoding="utf-8")` creates the file if needed or appends to an existing journal. The `with` block closes it after writing, then the script prints a confirmation.
 
 For example, enter `Today I learned about Python file paths!` as the learning entry and `4` as the rating. The appended text has this format; `YYYY-MM-DD - HH:MM AM/PM` stands for the actual local timestamp:
@@ -297,7 +297,7 @@ An unrecognized menu choice asks the user to choose a valid option. Before compl
 - `display_tasks(tasks)` uses `enumerate(tasks, 1)` to show numbers starting at `1`. An empty list displays `NO tasks found`.
 - `save_tasks(tasks)` writes the current list in UTF-8, using one `text||status` record per line. Write mode (`"w"`) replaces the saved list after each addition, completion, or deletion, so removed tasks do not return on the next run.
 
-`TASK_FILE = Path(__file__).resolve().parent / "tasks.txt"` keeps both loading and saving in `challenges/day [1-11]`, beside `day_7.py`, regardless of the terminal's current working directory. The file is created on the first save. Unlike Day 6's journal, this project rewrites its current state rather than appending a history of changes.
+`TASK_FILE = Path(__file__).resolve().parent / "tasks.txt"` keeps both loading and saving in `challenges/01_utilities`, beside `day_7.py`, regardless of the terminal's current working directory. The file is created on the first save. Unlike Day 6's journal, this project rewrites its current state rather than appending a history of changes.
 
 For example, starting with an empty list, add `Do homework` and `Learn Python`, then mark task `2` as complete. Choosing **View Tasks** displays:
 
@@ -461,17 +461,17 @@ The save command uses `python -u` with the Python available in that terminal. Ea
 Alternatively, choose the matching command from the repository root:
 
 ```powershell
-python "challenges/day [1-11]/day_1.py"
-python "challenges/day [1-11]/day_2.py"
-python "challenges/day [1-11]/day_3.py"
-python "challenges/day [1-11]/day_4.py"
-python "challenges/day [1-11]/day_5.py"
-python "challenges/day [1-11]/day_6.py"
-python "challenges/day [1-11]/day_7.py"
-python "challenges/day [1-11]/day_8.py"
-python "challenges/day [1-11]/day_9.py"
-python "challenges/day [1-11]/day_10.py"
-python "challenges/day [1-11]/day_11.py"
+python "challenges/01_utilities/day_1.py"
+python "challenges/01_utilities/day_2.py"
+python "challenges/01_utilities/day_3.py"
+python "challenges/01_utilities/day_4.py"
+python "challenges/01_utilities/day_5.py"
+python "challenges/01_utilities/day_6.py"
+python "challenges/01_utilities/day_7.py"
+python "challenges/01_utilities/day_8.py"
+python "challenges/01_utilities/day_9.py"
+python "challenges/01_utilities/day_10.py"
+python "challenges/01_utilities/day_11.py"
 ```
 
 The quoted paths include the folder's spaces and square brackets. Day 7 uses `match`, which requires Python 3.10 or later. The projects covered so far use Python's standard library or built-in features and do not require additional packages.
@@ -495,4 +495,4 @@ These official Python references cover concepts already used in this group. Read
 | [Pausing with time.sleep](https://docs.python.org/3/library/time.html#time.sleep) | The countdown timer's one-second pauses. |
 | [Built-in functions](https://docs.python.org/3/library/functions.html) | Looking up `round()`, `enumerate()`, `any()`, `divmod()`, `ord()`, `chr()`, and `min()`. |
 
-Continue with the [next challenge group](../day%20%5B12-21%5D/README.md), where local project numbering starts again at `1`.
+Continue with the [next challenge group](../02_data_handling/README.md), where local project numbering starts again at `1`.
