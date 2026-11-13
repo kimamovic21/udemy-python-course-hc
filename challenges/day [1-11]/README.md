@@ -489,6 +489,9 @@ These official Python references cover concepts already used in this group. Read
 | [Paths with pathlib](https://docs.python.org/3/library/pathlib.html#basic-use) | Saving the journal and task file beside their Python scripts. |
 | [Date and time format codes](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) | Understanding the journal's `%Y`, `%m`, `%d`, `%I`, `%M`, and `%p` timestamp format. |
 | [Hidden password input with getpass](https://docs.python.org/3/library/getpass.html#getpass.getpass) | Why the password checker accepts typing without displaying characters. |
+| [Shared indentation with textwrap.dedent](https://docs.python.org/3/library/textwrap.html#textwrap.dedent) | How the Day 2 bio generator removes indentation shared by nonblank lines. |
+| [Choosing an item with random.choice](https://docs.python.org/3/library/random.html#random.choice) | Selecting characters in Day 8's random-password programming exercise. |
+| [String constants](https://docs.python.org/3/library/string.html#string-constants) | The `ascii_letters`, `digits`, and `punctuation` character pools used in Day 8. |
 | [Pausing with time.sleep](https://docs.python.org/3/library/time.html#time.sleep) | The countdown timer's one-second pauses. |
 | [Built-in functions](https://docs.python.org/3/library/functions.html) | Looking up `round()`, `enumerate()`, `any()`, `divmod()`, `ord()`, `chr()`, and `min()`. |
 

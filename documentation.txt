@@ -329,3 +329,5 @@ Section 12: Day [12-21] data handling projects
 95. Day 7 CSV to JSON converter tool
 
 96. Day 8 Flatten JSON - advance
+
+97. Day 9 build a secure offline password vault
