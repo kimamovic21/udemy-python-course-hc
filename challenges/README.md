@@ -1,18 +1,18 @@
 # Daily Challenges
 
-This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling`, each lesson has its own README with explanations, examples, and running instructions.
+This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling` and `03_web_scraping`, each lesson has its own README with explanations, examples, and running instructions.
 
-**Status: in progress.** The first group has local days 1–11, and `02_data_handling` now contains local days 1–10, including weather projects, data conversion, JSON flattening, a credential exercise, and Fernet-encrypted notes. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features.
+**Status: in progress.** The first group has local days 1–11, and `02_data_handling` now contains local days 1–10, including weather projects, data conversion, JSON flattening, a credential exercise, and Fernet-encrypted notes. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features. The current section is `03_web_scraping`, starting with Day 1: extracting Wikipedia headings.
 
 ## Learning order
 
 1. Work through the numbered lesson folders up to `11_exceptions`.
-2. Complete the challenge groups in the order listed below, starting with `01_utilities`, then `02_data_handling`. Within each group, follow its local project numbers.
+2. Complete the challenge groups in the order listed below, starting with `01_utilities`, then `02_data_handling`, followed by `03_web_scraping`. Within each group, follow its local project numbers.
 3. After all challenge groups, continue with the next numbered course section (`12_...`, when added).
 
 Follow this order even if your editor sorts the folders differently.
 
-Project numbering restarts inside `02_data_handling`: its first files are `DAY_1.md` and `day_1.py`. Folder names match the tutorial sections (`01_utilities` and `02_data_handling`); file numbers identify projects within each group. Keep the tutorial's original names and use the group path to distinguish projects with the same filename. Inside `02_data_handling`, each lesson now has a separate `day_1` through `day_10` folder containing its script, original task, and related data. See the [folder layout](02_data_handling/README.md#folder-layout) and each lesson's own README.
+Project numbering restarts inside `02_data_handling`: its first files are `DAY_1.md` and `day_1.py`. Folder names match the tutorial sections (`01_utilities`, `02_data_handling`, and `03_web_scraping`); file numbers identify projects within each group. Keep the tutorial's original names and use the group path to distinguish projects with the same filename. Inside `02_data_handling`, each lesson now has a separate `day_1` through `day_10` folder containing its script, original task, and related data. See the [folder layout](02_data_handling/README.md#folder-layout) and each lesson's own README.
 
 ## Challenge groups
 
@@ -20,7 +20,7 @@ Project numbering restarts inside `02_data_handling`: its first files are `DAY_1
 | --- | --- | --- |
 | [01_utilities](01_utilities/README.md) | Local days 1–11 | In progress |
 | [02_data_handling](02_data_handling/README.md) | Local days 1–10 | In progress |
-| `day [22-31]` | Reserved for later challenges | Planned |
+| [03_web_scraping](03_web_scraping/README.md) | Local day 1: Wikipedia heading extraction | In progress |
 | `day [32-35]` | Reserved for later challenges | Planned |
 | `day [36-45]` | Reserved for later challenges | Planned |
 | `day [46-52]` | Reserved for later challenges | Planned |
@@ -50,6 +50,7 @@ Project numbering restarts inside `02_data_handling`: its first files are `DAY_1
 | `02_data_handling` | 8 | [JSON Flattener](02_data_handling/day_8/README.md) | Recursion, nested dictionaries, list indexes, custom separators, and preserving JSON value types. |
 | `02_data_handling` | 9 | [Offline Credential Manager](02_data_handling/day_9/README.md) | Base64 encoding, append-mode storage, decoding, and simple password checks; update and masking remain pending. |
 | `02_data_handling` | 10 | [Offline Notes Locker](02_data_handling/day_10/README.md) | Fernet encryption, local key reuse, JSON note storage, timestamps, and title search. |
+| `03_web_scraping` | 1 | [Scrape Wikipedia h2 Headers](03_web_scraping/day_1/README.md) | Requests, HTTP error handling, HTML parsing with Beautiful Soup, and extracting heading text into a list. |
 
 ## Original challenge statements
 
@@ -83,6 +84,7 @@ python "challenges/02_data_handling/day_7/day_7.py"
 python "challenges/02_data_handling/day_8/day_8.py"
 python "challenges/02_data_handling/day_9/day_9.py"
 python "challenges/02_data_handling/day_10/day_10.py"
+python "challenges/03_web_scraping/day_1/day_1.py"
 ```
 
 Paths are quoted consistently so these commands also work if the repository is stored in a directory with spaces. Answer each prompt in the terminal and press **Enter** to continue.
@@ -106,6 +108,8 @@ Day 8 in the second group flattens `nested_data.json` into `flattened_data.json`
 Day 9 stores Base64-encoded practice credentials in `vault.txt` beside the script. This lesson's `day_9/vault.txt` is ignored by Git and is created locally when the first credential is saved. Base64 is reversible encoding; the current viewer displays the decoded password. See its [current implementation notes](02_data_handling/day_9/README.md#day-9-current-challenge-coverage) for unfinished menu actions and masking.
 
 Day 10 requires `cryptography`; follow the [Notes Locker setup](02_data_handling/day_10/README.md#day-10-setup-and-local-files). It keeps `notes_vault.json` and its local `vault.key` beside the script. The key is ignored by Git and is needed to decrypt previously saved content. This lesson's `day_10/notes_vault.json` is also ignored and is created locally when the first note is saved. The exact-path ignore rules for the two data files do not apply to files with the same names in other folders.
+
+Web scraping Day 1 requires `requests` and `beautifulsoup4` (imported as `bs4`). Follow its [setup instructions](03_web_scraping/day_1/README.md#setup) before running it. It downloads the Wikipedia page and prints headings without creating local data files; see its [current challenge coverage](03_web_scraping/day_1/README.md#current-challenge-coverage) for remaining requirements.
 
 Day 8 in the first group hides password input: type in the terminal and press **Enter**, even though no characters or stars appear.
 
