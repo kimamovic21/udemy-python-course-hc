@@ -103,4 +103,4 @@ In VS Code, open `day_4.py` and press **Ctrl + S**. There are no input prompts. 
 - [Paths with pathlib](https://docs.python.org/3/library/pathlib.html): keeping the image folder beside the script.
 - [Combining URLs with urljoin()](https://docs.python.org/3/library/urllib.parse.html#urllib.parse.urljoin): resolving relative image addresses.
 
-[Previous: Day 3](../day_3/README.md)
+[Previous: Day 3](../day_3/README.md) · [Next: Day 5](../day_5/README.md)
