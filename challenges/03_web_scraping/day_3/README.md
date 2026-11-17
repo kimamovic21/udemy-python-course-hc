@@ -108,4 +108,4 @@ In VS Code, open `day_3.py` and press **Ctrl + S**. The JSON stays beside the sc
 - [Python JSON encoding and decoding](https://docs.python.org/3/library/json.html): saving lists and dictionaries with `dump()` and formatting with `indent`.
 - [Requests quickstart](https://requests.readthedocs.io/en/latest/user/quickstart/): making requests and handling HTTP errors.
 
-[Previous: Day 2](../day_2/README.md)
+[Previous: Day 2](../day_2/README.md) · [Next: Day 4](../day_4/README.md)

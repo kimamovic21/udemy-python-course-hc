@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling` and `03_web_scraping`, each lesson has its own README with explanations, examples, and running instructions.
 
-**Status: in progress.** The first group has local days 1–11, and `02_data_handling` now contains local days 1–10, including weather projects, data conversion, JSON flattening, a credential exercise, and Fernet-encrypted notes. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features. The current section is `03_web_scraping`, covering Wikipedia headings, Hacker News CSV export, and paginated book scraping with JSON output in local days 1–3.
+**Status: in progress.** The first group has local days 1–11, and `02_data_handling` now contains local days 1–10, including weather projects, data conversion, JSON flattening, a credential exercise, and Fernet-encrypted notes. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features. The current section is `03_web_scraping`, covering Wikipedia headings, Hacker News CSV export, paginated book scraping, and cover-image downloads in local days 1–4.
 
 ## Learning order
 
@@ -20,7 +20,7 @@ Project numbering restarts inside `02_data_handling`: its first files are `DAY_1
 | --- | --- | --- |
 | [01_utilities](01_utilities/README.md) | Local days 1–11 | In progress |
 | [02_data_handling](02_data_handling/README.md) | Local days 1–10 | In progress |
-| [03_web_scraping](03_web_scraping/README.md) | Local days 1–3: Wikipedia, Hacker News, and Books to Scrape | In progress |
+| [03_web_scraping](03_web_scraping/README.md) | Local days 1–4: headings, CSV/JSON exports, and cover-image downloads | In progress |
 | `day [32-35]` | Reserved for later challenges | Planned |
 | `day [36-45]` | Reserved for later challenges | Planned |
 | `day [46-52]` | Reserved for later challenges | Planned |
@@ -53,6 +53,7 @@ Project numbering restarts inside `02_data_handling`: its first files are `DAY_1
 | `03_web_scraping` | 1 | [Scrape Wikipedia h2 Headers](03_web_scraping/day_1/README.md) | Requests, HTTP error handling, HTML parsing with Beautiful Soup, and extracting heading text into a list. |
 | `03_web_scraping` | 2 | [Hacker News Top Posts Scraper](03_web_scraping/day_2/README.md) | CSS selectors, extracting titles and URLs, CSV export, and paths relative to the script. |
 | `03_web_scraping` | 3 | [Scrape Books to Scrape (70 Books)](03_web_scraping/day_3/README.md) | Pagination, `urljoin()`, extracting titles and prices, list slicing, and JSON output. |
+| `03_web_scraping` | 4 | [Download Cover Images of the First 10 Books](03_web_scraping/day_4/README.md) | Relative image URLs, filename cleanup, streamed downloads, and binary image output. |
 
 ## Original challenge statements
 
@@ -89,6 +90,7 @@ python "challenges/02_data_handling/day_10/day_10.py"
 python "challenges/03_web_scraping/day_1/day_1.py"
 python "challenges/03_web_scraping/day_2/day_2.py"
 python "challenges/03_web_scraping/day_3/day_3.py"
+python "challenges/03_web_scraping/day_4/day_4.py"
 ```
 
 Paths are quoted consistently so these commands also work if the repository is stored in a directory with spaces. Answer each prompt in the terminal and press **Enter** to continue.
@@ -118,6 +120,8 @@ Web scraping Day 1 requires `requests` and `beautifulsoup4` (imported as `bs4`).
 Web scraping Day 2 reads the [Hacker News homepage](https://news.ycombinator.com/) and saves up to 20 titles and URLs to `03_web_scraping/day_2/hn_top20.csv`. It uses the same external packages as Day 1; follow its [Day 2 guide](03_web_scraping/day_2/README.md) for the exact `day_2.py` filename, output location, and CSV behaviour.
 
 Web scraping Day 3 collects up to 70 titles and prices from [Books to Scrape](https://books.toscrape.com/) by following next-page links. Its `03_web_scraping/day_3/books_data.json` output stays beside the script, including when launched from the repository root. See the [Day 3 guide](03_web_scraping/day_3/README.md#json-output-and-current-file-location) for the output path and running instructions.
+
+Web scraping Day 4 reads the first 10 book listings from the [Books to Scrape homepage](https://books.toscrape.com/) and attempts to download their covers. Images are saved in `03_web_scraping/day_4/images/` with cleaned book-title filenames. The [Day 4 guide](03_web_scraping/day_4/README.md) explains streaming, binary writes, and the current download-error messages.
 
 Day 8 in the first group hides password input: type in the terminal and press **Enter**, even though no characters or stars appear.
 

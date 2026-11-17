@@ -14,3 +14,6 @@ vault.key
 
 # Local credential data for this lesson only
 /challenges/02_data_handling/day_9/vault.txt
+
+# Downloaded covers for the Day 4 project only
+/challenges/03_web_scraping/day_4/images/

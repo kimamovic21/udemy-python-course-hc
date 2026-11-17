@@ -2,7 +2,7 @@
 
 This group corresponds to `03_web_scraping` in the Udemy tutorial. It follows [01_utilities](../01_utilities/README.md) and [02_data_handling](../02_data_handling/README.md).
 
-**Status: in progress — current course section.** Days 1–3 cover fetching HTML with Requests, extracting Wikipedia headings, exporting Hacker News posts to CSV, and collecting 70 books across multiple pages for JSON export.
+**Status: in progress — current course section.** Days 1–4 cover HTML extraction, Wikipedia headings, Hacker News CSV export, paginated book scraping to JSON, and downloading book cover images.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 
@@ -15,6 +15,7 @@ Local numbering starts again at `day_1`. Each lesson folder contains the script,
 | [day_1](day_1/README.md) | Scrape Wikipedia h2 Headers | HTTP requests, HTML parsing, heading extraction, lists, and request-error handling. |
 | [day_2](day_2/README.md) | Hacker News Top Posts Scraper | CSS selectors, lists of dictionaries, CSV output, and script-relative paths. |
 | [day_3](day_3/README.md) | Scrape Books to Scrape (70 Books) | Pagination, relative URL resolution, list slicing, and JSON export. |
+| [day_4](day_4/README.md) | Download Cover Images of the First 10 Books | Image URLs, filename cleanup, streamed downloads, binary files, and script-relative folders. |
 
 The `DAY_*.md` files contain original task statements maintained manually by the repository owner. Keep their contents unchanged; record explanations and progress in README files.
 
@@ -26,7 +27,7 @@ Install the packages with the Python interpreter used to run the project:
 python -m pip install requests beautifulsoup4
 ```
 
-`beautifulsoup4` is the package name used by pip; Python imports it with `from bs4 import BeautifulSoup`. These scripts use Python's built-in `html.parser`, so no additional parser package is needed. Day 2 also uses `csv` and `pathlib`; Day 3 uses `json`, `pathlib`, and `urllib.parse`. These modules are part of Python's standard library.
+`beautifulsoup4` is the package name used by pip; Python imports it with `from bs4 import BeautifulSoup`. These scripts use Python's built-in `html.parser`, so no additional parser package is needed. Day 2 also uses `csv` and `pathlib`; Day 3 uses `json`, `pathlib`, and `urllib.parse`. Day 4 uses `os`, `pathlib`, `re`, and `urllib.parse`. These modules are part of Python's standard library.
 
 From the repository root:
 
@@ -34,6 +35,7 @@ From the repository root:
 python "challenges/03_web_scraping/day_1/day_1.py"
 python "challenges/03_web_scraping/day_2/day_2.py"
 python "challenges/03_web_scraping/day_3/day_3.py"
+python "challenges/03_web_scraping/day_4/day_4.py"
 ```
 
 Or open the script in VS Code and press **Ctrl + S** using the existing Run on Save configuration. An internet connection is required for the page request. Day 1 prints its results in the terminal and does not create any data files.
@@ -46,6 +48,8 @@ Day 2 uses the [Hacker News homepage](https://news.ycombinator.com/) as its sour
 
 Day 3 uses [Books to Scrape](https://books.toscrape.com/), follows next-page links, and keeps up to 70 book titles and prices in JSON. Its `day_3/books_data.json` output stays beside `day_3.py` using a script-relative path, regardless of the terminal's working directory. See the [Day 3 output-location note](day_3/README.md#json-output-and-current-file-location) and [running instructions](day_3/README.md#how-to-run).
 
+Day 4 also uses [Books to Scrape](https://books.toscrape.com/), downloading covers from the first 10 homepage listings into `day_4/images/`. The folder stays beside `day_4.py` regardless of the terminal's working directory. See the [Day 4 README](day_4/README.md) for filename cleanup, streamed binary downloads, and current error-handling behaviour.
+
 ## Useful links for beginners
 
 - [Python Package Index (PyPI)](https://pypi.org/): browse external Python packages used in these projects.
@@ -54,7 +58,9 @@ Day 3 uses [Books to Scrape](https://books.toscrape.com/), follows next-page lin
 - [Hacker News](https://news.ycombinator.com/): the homepage scraped in Day 2.
 - [Beautiful Soup CSS selectors](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#css-selectors): selecting post links with `.select()`.
 - [Python CSV reading and writing](https://docs.python.org/3/library/csv.html): exporting dictionaries with `DictWriter`.
-- [Books to Scrape](https://books.toscrape.com/): the pagination practice website used in Day 3.
+- [Books to Scrape](https://books.toscrape.com/): the source for Day 3 book records and Day 4 cover images.
 - [Combining URLs with urljoin()](https://docs.python.org/3/library/urllib.parse.html#urllib.parse.urljoin): resolving next-page links.
 - [Python JSON encoding and decoding](https://docs.python.org/3/library/json.html): exporting the collected books.
+- [Requests streaming downloads](https://requests.readthedocs.io/en/latest/user/advanced/#body-content-workflow): reading and saving image data in chunks.
+- [Replacing matches with re.sub()](https://docs.python.org/3/library/re.html#re.sub): cleaning book titles for image filenames.
 - [Wikimedia User-Agent policy](https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy/en): identification requirements for automated requests.
