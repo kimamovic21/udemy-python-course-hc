@@ -94,4 +94,4 @@ In VS Code, open `day_2.py` and press **Ctrl + S**. There are no input prompts. 
 - [Python CSV reading and writing](https://docs.python.org/3/library/csv.html): `DictWriter`, header rows, quoting, and CSV line endings.
 - [Paths with pathlib](https://docs.python.org/3/library/pathlib.html): building output paths relative to the script.
 
-[Previous: Day 1](../day_1/README.md)
+[Previous: Day 1](../day_1/README.md) · [Next: Day 3](../day_3/README.md)

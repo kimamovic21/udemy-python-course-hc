@@ -342,3 +342,5 @@ Section 13: Day [22-31] Web scraping in Python
 99. Day 1 Scrapping Wiki headings
 
 100. Day 2 save hacker new in CSV
+
+101. Day 3 multi page data scrapping
