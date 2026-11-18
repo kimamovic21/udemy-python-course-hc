@@ -2,7 +2,7 @@
 
 This group corresponds to `03_web_scraping` in the Udemy tutorial. It follows [01_utilities](../01_utilities/README.md) and [02_data_handling](../02_data_handling/README.md).
 
-**Status: in progress — current course section.** Days 1–6 cover HTML extraction, Wikipedia headings, Hacker News CSV export, paginated book scraping, cover-image downloads, and creating quote images with Pillow.
+**Status: in progress — current course section.** Days 1–7 cover HTML extraction, CSV/JSON exports, cover downloads, Pillow quote images, and logging CoinGecko API prices with Matplotlib graphs.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 
@@ -18,6 +18,7 @@ Local numbering starts again at `day_1`. Each lesson folder contains the script,
 | [day_4](day_4/README.md) | Download Cover Images of the First 10 Books | Image URLs, filename cleanup, streamed downloads, binary files, and script-relative folders. |
 | [day_5](day_5/README.md) | Download Cover Images Using wget | Package-based downloading, progress display, numbered filenames, and local output folders. |
 | [day_6](day_6/README.md) | Quote of the Day Image Maker | Quote extraction, tuples, text wrapping, Pillow drawing, and PNG output. |
+| [day_7](day_7/README.md) | Crypto Price Tracker with Graphs | JSON API responses, timestamped CSV appends, coin IDs, and Matplotlib plots. |
 
 The `DAY_*.md` files contain original task statements maintained manually by the repository owner. Keep their contents unchanged; record explanations and progress in README files.
 
@@ -41,7 +42,13 @@ Day 6 additionally requires Pillow, imported as `PIL`:
 python -m pip install Pillow
 ```
 
-`beautifulsoup4` is the package name used by pip; Python imports it with `from bs4 import BeautifulSoup`. These scripts use Python's built-in `html.parser`, so no additional parser package is needed. Day 2 also uses `csv` and `pathlib`; Day 3 uses `json`, `pathlib`, and `urllib.parse`. Day 4 uses `os`, `pathlib`, `re`, and `urllib.parse`. Day 6 uses `os`, `pathlib`, and `textwrap`. These modules are part of Python's standard library.
+Day 7 uses Requests and Matplotlib rather than HTML parsing:
+
+```powershell
+python -m pip install requests matplotlib
+```
+
+`beautifulsoup4` is the package name used by pip; Python imports it with `from bs4 import BeautifulSoup`. The HTML-scraping lessons use Python's built-in `html.parser`, so no additional parser package is needed. Day 7 reads API JSON instead. Day 2 also uses `csv` and `pathlib`; Day 3 uses `json`, `pathlib`, and `urllib.parse`. Day 4 uses `os`, `pathlib`, `re`, and `urllib.parse`. Day 6 uses `os`, `pathlib`, and `textwrap`. Day 7 uses `os`, `csv`, `pathlib`, and `datetime`. These modules are part of Python's standard library.
 
 From the repository root:
 
@@ -52,6 +59,7 @@ python "challenges/03_web_scraping/day_3/day_3.py"
 python "challenges/03_web_scraping/day_4/day_4.py"
 python "challenges/03_web_scraping/day_5/day_5.py"
 python "challenges/03_web_scraping/day_6/day_6.py"
+python "challenges/03_web_scraping/day_7/day_7.py"
 ```
 
 Or open the script in VS Code and press **Ctrl + S** using the existing Run on Save configuration. An internet connection is required for the page request. Day 1 prints its results in the terminal and does not create any data files.
@@ -70,6 +78,8 @@ Day 5 downloads the same first 10 homepage covers using [wget](https://pypi.org/
 
 Day 6 reads the first five quotes and authors from [Quotes to Scrape](https://quotes.toscrape.com/) and creates 800 × 400 PNG cards using Pillow. Output stays in `day_6/quotes/`, which is ignored by Git. Repeated runs overwrite the same numbered PNGs. See the [Day 6 guide](day_6/README.md) for installation, drawing steps, and current layout limitations.
 
+Day 7 fetches JSON market data from [CoinGecko](https://www.coingecko.com/), appends timestamped prices to `day_7/crypto_prices.csv`, and displays stored prices for a selected coin ID in a Matplotlib window. The CSV stays beside the script and grows across runs. See the [Day 7 guide](day_7/README.md) for setup, API-access limitations, and the graph prompt.
+
 ## Useful links for beginners
 
 - [Python Package Index (PyPI)](https://pypi.org/): browse external Python packages used in these projects.
@@ -87,4 +97,7 @@ Day 6 reads the first five quotes and authors from [Quotes to Scrape](https://qu
 - [Quotes to Scrape](https://quotes.toscrape.com/): the source for the Day 6 quote cards.
 - [Pillow on PyPI](https://pypi.org/project/Pillow/): the additional Day 6 image library.
 - [Pillow tutorial](https://pillow.readthedocs.io/en/stable/handbook/tutorial.html): basic image creation and saving.
+- [CoinGecko](https://www.coingecko.com/): the data provider for Day 7.
+- [CoinGecko coins/markets API](https://docs.coingecko.com/demo/reference/coins-markets): market-data request parameters and response fields.
+- [Matplotlib quick start](https://matplotlib.org/stable/users/explain/quick_start.html): drawing and displaying the Day 7 graph.
 - [Wikimedia User-Agent policy](https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy/en): identification requirements for automated requests.
