@@ -348,3 +348,5 @@ Section 13: Day [22-31] Web scraping in Python
 102. Day 4 download the stream of image in raw code
 
 103. Day 5 scrape and download anything with wget
+
+104. Day 6 generate images with quotes

@@ -117,4 +117,4 @@ In VS Code, open `day_5.py` and press **Ctrl + S**. There are no input prompts. 
 - [Requests quickstart](https://requests.readthedocs.io/en/latest/user/quickstart/): the library still used for fetching the homepage.
 - [Paths with pathlib](https://docs.python.org/3/library/pathlib.html): keeping the final image folder beside the script.
 
-[Previous: Day 4](../day_4/README.md)
+[Previous: Day 4](../day_4/README.md) · [Next: Day 6](../day_6/README.md)

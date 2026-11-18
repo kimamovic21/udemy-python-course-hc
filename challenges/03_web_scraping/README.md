@@ -2,7 +2,7 @@
 
 This group corresponds to `03_web_scraping` in the Udemy tutorial. It follows [01_utilities](../01_utilities/README.md) and [02_data_handling](../02_data_handling/README.md).
 
-**Status: in progress — current course section.** Days 1–5 cover HTML extraction, Wikipedia headings, Hacker News CSV export, paginated book scraping to JSON, and cover-image downloads using Requests and wget.
+**Status: in progress — current course section.** Days 1–6 cover HTML extraction, Wikipedia headings, Hacker News CSV export, paginated book scraping, cover-image downloads, and creating quote images with Pillow.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 
@@ -17,6 +17,7 @@ Local numbering starts again at `day_1`. Each lesson folder contains the script,
 | [day_3](day_3/README.md) | Scrape Books to Scrape (70 Books) | Pagination, relative URL resolution, list slicing, and JSON export. |
 | [day_4](day_4/README.md) | Download Cover Images of the First 10 Books | Image URLs, filename cleanup, streamed downloads, binary files, and script-relative folders. |
 | [day_5](day_5/README.md) | Download Cover Images Using wget | Package-based downloading, progress display, numbered filenames, and local output folders. |
+| [day_6](day_6/README.md) | Quote of the Day Image Maker | Quote extraction, tuples, text wrapping, Pillow drawing, and PNG output. |
 
 The `DAY_*.md` files contain original task statements maintained manually by the repository owner. Keep their contents unchanged; record explanations and progress in README files.
 
@@ -34,7 +35,13 @@ Day 5 additionally requires the Python `wget` package:
 python -m pip install wget
 ```
 
-`beautifulsoup4` is the package name used by pip; Python imports it with `from bs4 import BeautifulSoup`. These scripts use Python's built-in `html.parser`, so no additional parser package is needed. Day 2 also uses `csv` and `pathlib`; Day 3 uses `json`, `pathlib`, and `urllib.parse`. Day 4 uses `os`, `pathlib`, `re`, and `urllib.parse`. These modules are part of Python's standard library.
+Day 6 additionally requires Pillow, imported as `PIL`:
+
+```powershell
+python -m pip install Pillow
+```
+
+`beautifulsoup4` is the package name used by pip; Python imports it with `from bs4 import BeautifulSoup`. These scripts use Python's built-in `html.parser`, so no additional parser package is needed. Day 2 also uses `csv` and `pathlib`; Day 3 uses `json`, `pathlib`, and `urllib.parse`. Day 4 uses `os`, `pathlib`, `re`, and `urllib.parse`. Day 6 uses `os`, `pathlib`, and `textwrap`. These modules are part of Python's standard library.
 
 From the repository root:
 
@@ -44,6 +51,7 @@ python "challenges/03_web_scraping/day_2/day_2.py"
 python "challenges/03_web_scraping/day_3/day_3.py"
 python "challenges/03_web_scraping/day_4/day_4.py"
 python "challenges/03_web_scraping/day_5/day_5.py"
+python "challenges/03_web_scraping/day_6/day_6.py"
 ```
 
 Or open the script in VS Code and press **Ctrl + S** using the existing Run on Save configuration. An internet connection is required for the page request. Day 1 prints its results in the terminal and does not create any data files.
@@ -60,6 +68,8 @@ Day 4 also uses [Books to Scrape](https://books.toscrape.com/), downloading cove
 
 Day 5 downloads the same first 10 homepage covers using [wget](https://pypi.org/project/wget/) and saves final files in `day_5/images/`. That folder is ignored by Git. Repeated saves can create numbered image copies instead of overwriting files; see the [Day 5 comparison with Day 4](day_5/README.md#difference-from-day-4) and its [setup instructions](day_5/README.md#setup).
 
+Day 6 reads the first five quotes and authors from [Quotes to Scrape](https://quotes.toscrape.com/) and creates 800 × 400 PNG cards using Pillow. Output stays in `day_6/quotes/`, which is ignored by Git. Repeated runs overwrite the same numbered PNGs. See the [Day 6 guide](day_6/README.md) for installation, drawing steps, and current layout limitations.
+
 ## Useful links for beginners
 
 - [Python Package Index (PyPI)](https://pypi.org/): browse external Python packages used in these projects.
@@ -74,4 +84,7 @@ Day 5 downloads the same first 10 homepage covers using [wget](https://pypi.org/
 - [Requests streaming downloads](https://requests.readthedocs.io/en/latest/user/advanced/#body-content-workflow): reading and saving image data in chunks.
 - [Replacing matches with re.sub()](https://docs.python.org/3/library/re.html#re.sub): cleaning book titles for image filenames.
 - [wget on PyPI](https://pypi.org/project/wget/): installation and API examples for the Day 5 downloader.
+- [Quotes to Scrape](https://quotes.toscrape.com/): the source for the Day 6 quote cards.
+- [Pillow on PyPI](https://pypi.org/project/Pillow/): the additional Day 6 image library.
+- [Pillow tutorial](https://pillow.readthedocs.io/en/stable/handbook/tutorial.html): basic image creation and saving.
 - [Wikimedia User-Agent policy](https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy/en): identification requirements for automated requests.

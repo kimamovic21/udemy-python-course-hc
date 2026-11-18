@@ -20,3 +20,6 @@ vault.key
 
 # Downloaded covers for the Day 5 project only
 /challenges/03_web_scraping/day_5/images/
+
+# Generated quote images for the Day 6 project only
+/challenges/03_web_scraping/day_6/quotes/
