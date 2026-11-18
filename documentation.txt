@@ -352,3 +352,5 @@ Section 13: Day [22-31] Web scraping in Python
 104. Day 6 generate images with quotes
 
 105. Day 7 crypto price tracker with graphs
+
+106. Day 8 - Do this task every hour

@@ -120,4 +120,4 @@ After a first successful batch, each coin normally has one recorded point. Run t
 - [Python CSV reading and writing](https://docs.python.org/3/library/csv.html): appending rows and reading columns with `DictReader`.
 - [Paths with pathlib](https://docs.python.org/3/library/pathlib.html): keeping the CSV beside the script.
 
-[Previous: Day 6](../day_6/README.md)
+[Previous: Day 6](../day_6/README.md) · [Next: Day 8](../day_8/README.md)
