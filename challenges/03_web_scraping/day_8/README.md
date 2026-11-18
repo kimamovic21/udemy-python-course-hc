@@ -115,4 +115,4 @@ Stop it with **Ctrl + C** in its terminal. Before saving to run a changed versio
 - [CoinGecko coins/markets API](https://docs.coingecko.com/demo/reference/coins-markets): request parameters and JSON fields.
 - [Python CSV reading and writing](https://docs.python.org/3/library/csv.html): creating headers and appending rows.
 
-[Previous: Day 7](../day_7/README.md)
+[Previous: Day 7](../day_7/README.md) · [Next: Day 9](../day_9/README.md)

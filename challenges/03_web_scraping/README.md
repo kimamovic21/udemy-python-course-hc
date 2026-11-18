@@ -2,7 +2,7 @@
 
 This group corresponds to `03_web_scraping` in the Udemy tutorial. It follows [01_utilities](../01_utilities/README.md) and [02_data_handling](../02_data_handling/README.md).
 
-**Status: in progress — current course section.** Days 1–8 cover HTML extraction, data exports, image downloads and generation, CoinGecko price graphs, and scheduled hourly API logging.
+**Status: in progress — current course section.** Days 1–9 cover HTML extraction, data exports, images, CoinGecko graphs, hourly API logging, and storing and searching prices in SQLite.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 
@@ -20,6 +20,7 @@ Local numbering starts again at `day_1`. Each lesson folder contains the script,
 | [day_6](day_6/README.md) | Quote of the Day Image Maker | Quote extraction, tuples, text wrapping, Pillow drawing, and PNG output. |
 | [day_7](day_7/README.md) | Crypto Price Tracker with Graphs | JSON API responses, timestamped CSV appends, coin IDs, and Matplotlib plots. |
 | [day_8](day_8/README.md) | Hourly Crypto Price Logger | Job scheduling, polling loops, hourly API requests, and independent CSV history. |
+| [day_9](day_9/README.md) | Store and Search Crypto Prices in SQLite | Database tables, inserts, commits, parameterized queries, and latest-price search. |
 
 The `DAY_*.md` files contain original task statements maintained manually by the repository owner. Keep their contents unchanged; record explanations and progress in README files.
 
@@ -49,13 +50,15 @@ Day 7 uses Requests and Matplotlib rather than HTML parsing:
 python -m pip install requests matplotlib
 ```
 
-Day 8 uses Requests and the schedule package:
+Days 8–9 require Requests and the schedule package. Day 9 still imports schedule, although it does not schedule any jobs:
 
 ```powershell
 python -m pip install requests schedule
 ```
 
-`beautifulsoup4` is the package name used by pip; Python imports it with `from bs4 import BeautifulSoup`. The HTML-scraping lessons use Python's built-in `html.parser`, so no additional parser package is needed. Days 7–8 read API JSON instead. Day 2 also uses `csv` and `pathlib`; Day 3 uses `json`, `pathlib`, and `urllib.parse`. Day 4 uses `os`, `pathlib`, `re`, and `urllib.parse`. Day 6 uses `os`, `pathlib`, and `textwrap`. Days 7–8 use `os`, `csv`, `pathlib`, and `datetime`; Day 8 also uses `time`. These modules are part of Python's standard library.
+Day 9 uses Python's standard-library `sqlite3` module; no separate SQLite server or pip package is needed. The optional [SQLite Viewer extension](https://marketplace.visualstudio.com/items?itemName=qwtel.sqlite-viewer) displays its database in VS Code.
+
+`beautifulsoup4` is the package name used by pip; Python imports it with `from bs4 import BeautifulSoup`. The HTML-scraping lessons use Python's built-in `html.parser`, so no additional parser package is needed. Days 7–9 read API JSON instead. Day 2 also uses `csv` and `pathlib`; Day 3 uses `json`, `pathlib`, and `urllib.parse`. Day 4 uses `os`, `pathlib`, `re`, and `urllib.parse`. Day 6 uses `os`, `pathlib`, and `textwrap`. Days 7–8 use `os`, `csv`, `pathlib`, and `datetime`; Day 8 also uses `time`. Day 9 adds `sqlite3`. These modules are part of Python's standard library.
 
 From the repository root:
 
@@ -68,6 +71,7 @@ python "challenges/03_web_scraping/day_5/day_5.py"
 python "challenges/03_web_scraping/day_6/day_6.py"
 python "challenges/03_web_scraping/day_7/day_7.py"
 python "challenges/03_web_scraping/day_8/day_8.py"
+python "challenges/03_web_scraping/day_9/day_9.py"
 ```
 
 Or open the script in VS Code and press **Ctrl + S** using the existing Run on Save configuration. An internet connection is required for the page request. Day 1 prints its results in the terminal and does not create any data files.
@@ -90,6 +94,8 @@ Day 7 fetches JSON market data from [CoinGecko](https://www.coingecko.com/), app
 
 Day 8 uses [schedule](https://schedule.readthedocs.io/en/stable/) to fetch CoinGecko prices at the beginning of each hour and append them to its own `day_8/crypto_prices.csv`. It does not fetch immediately or require Day 7's CSV. The process must remain running; `time.sleep(60)` controls checks for due work, not the hourly interval. See the [Day 8 guide](day_8/README.md) for startup timing, CSV creation, and stopping the loop with Ctrl + C.
 
+Day 9 stores CoinGecko observations in `day_9/crypto.db` and searches for a coin's latest saved price. Its single-action menu currently fetches on demand; the original task's hourly scheduling is not implemented. See the [Day 9 guide](day_9/README.md) for the table structure, menu, and [SQLite Viewer instructions](day_9/README.md#opening-cryptodb-in-vs-code).
+
 ## Useful links for beginners
 
 - [Python Package Index (PyPI)](https://pypi.org/): browse external Python packages used in these projects.
@@ -107,10 +113,12 @@ Day 8 uses [schedule](https://schedule.readthedocs.io/en/stable/) to fetch CoinG
 - [Quotes to Scrape](https://quotes.toscrape.com/): the source for the Day 6 quote cards.
 - [Pillow on PyPI](https://pypi.org/project/Pillow/): the additional Day 6 image library.
 - [Pillow tutorial](https://pillow.readthedocs.io/en/stable/handbook/tutorial.html): basic image creation and saving.
-- [CoinGecko](https://www.coingecko.com/): the data provider for Days 7–8.
+- [CoinGecko](https://www.coingecko.com/): the data provider for Days 7–9.
 - [CoinGecko coins/markets API](https://docs.coingecko.com/demo/reference/coins-markets): market-data request parameters and response fields.
 - [Matplotlib quick start](https://matplotlib.org/stable/users/explain/quick_start.html): drawing and displaying the Day 7 graph.
 - [schedule documentation](https://schedule.readthedocs.io/en/stable/): the library used for Day 8 hourly jobs.
 - [schedule examples](https://schedule.readthedocs.io/en/stable/examples.html): `.at()`, `run_pending()`, and polling loops.
 - [schedule on PyPI](https://pypi.org/project/schedule/): installation and package information.
+- [Python sqlite3 tutorial](https://docs.python.org/3/library/sqlite3.html#tutorial): creating tables, inserting records, and searching with SQL.
+- [SQLite Viewer](https://marketplace.visualstudio.com/items?itemName=qwtel.sqlite-viewer): inspecting Day 9 database records inside VS Code.
 - [Wikimedia User-Agent policy](https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy/en): identification requirements for automated requests.

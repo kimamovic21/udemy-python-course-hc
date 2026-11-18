@@ -354,3 +354,5 @@ Section 13: Day [22-31] Web scraping in Python
 105. Day 7 crypto price tracker with graphs
 
 106. Day 8 - Do this task every hour
+
+107. Day 9 store and search in Sqlite DB

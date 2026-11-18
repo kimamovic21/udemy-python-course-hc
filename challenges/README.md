@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling` and `03_web_scraping`, each lesson has its own README with explanations, examples, and running instructions.
 
-**Status: in progress.** The first group has local days 1–11, and `02_data_handling` now contains local days 1–10, including weather projects, data conversion, JSON flattening, a credential exercise, and Fernet-encrypted notes. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features. The current section is `03_web_scraping`, covering HTML extraction, data exports, images, CoinGecko graphs, and automated hourly price logging in local days 1–8.
+**Status: in progress.** The first group has local days 1–11, and `02_data_handling` now contains local days 1–10, including weather projects, data conversion, JSON flattening, a credential exercise, and Fernet-encrypted notes. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features. The current section is `03_web_scraping`, covering HTML extraction, data exports, images, API graphs, hourly logging, and SQLite storage/search in local days 1–9.
 
 ## Learning order
 
@@ -20,7 +20,7 @@ Project numbering restarts inside `02_data_handling`: its first files are `DAY_1
 | --- | --- | --- |
 | [01_utilities](01_utilities/README.md) | Local days 1–11 | In progress |
 | [02_data_handling](02_data_handling/README.md) | Local days 1–10 | In progress |
-| [03_web_scraping](03_web_scraping/README.md) | Local days 1–8: HTML extraction, exports, images, API graphs, and hourly logging | In progress |
+| [03_web_scraping](03_web_scraping/README.md) | Local days 1–9: extraction, exports, images, API graphs, scheduling, and SQLite | In progress |
 | `day [32-35]` | Reserved for later challenges | Planned |
 | `day [36-45]` | Reserved for later challenges | Planned |
 | `day [46-52]` | Reserved for later challenges | Planned |
@@ -58,6 +58,7 @@ Project numbering restarts inside `02_data_handling`: its first files are `DAY_1
 | `03_web_scraping` | 6 | [Quote of the Day Image Maker](03_web_scraping/day_6/README.md) | Quote and author extraction, tuples, text wrapping, Pillow drawing, and local PNG output. |
 | `03_web_scraping` | 7 | [Crypto Price Tracker with Graphs](03_web_scraping/day_7/README.md) | CoinGecko API JSON, timestamped CSV history, coin selection, and Matplotlib line graphs. |
 | `03_web_scraping` | 8 | [Hourly Crypto Price Logger](03_web_scraping/day_8/README.md) | schedule jobs, polling intervals, hourly API fetching, and a separate CSV history. |
+| `03_web_scraping` | 9 | [Store and Search Crypto Prices in SQLite](03_web_scraping/day_9/README.md) | SQLite tables, timestamped inserts, parameterized queries, and latest-price search. |
 
 ## Original challenge statements
 
@@ -99,6 +100,7 @@ python "challenges/03_web_scraping/day_5/day_5.py"
 python "challenges/03_web_scraping/day_6/day_6.py"
 python "challenges/03_web_scraping/day_7/day_7.py"
 python "challenges/03_web_scraping/day_8/day_8.py"
+python "challenges/03_web_scraping/day_9/day_9.py"
 ```
 
 Paths are quoted consistently so these commands also work if the repository is stored in a directory with spaces. Answer each prompt in the terminal and press **Enter** to continue.
@@ -138,6 +140,8 @@ Web scraping Day 6 uses [Quotes to Scrape](https://quotes.toscrape.com/) and [Pi
 Web scraping Day 7 uses the [CoinGecko](https://www.coingecko.com/) JSON API and appends timestamped prices to `03_web_scraping/day_7/crypto_prices.csv`. Enter a printed coin ID to plot its saved history with Matplotlib, or submit an empty value to finish. The [Day 7 guide](03_web_scraping/day_7/README.md) explains dependencies, API-access limitations, append behaviour, and the CSV location.
 
 Web scraping Day 8 uses [schedule](https://schedule.readthedocs.io/en/stable/) to log CoinGecko prices hourly to `03_web_scraping/day_8/crypto_prices.csv`. It waits for the next hour before its first fetch, creates its own CSV when saving first runs, and does not require Day 7's file. Follow the [Day 8 guide](03_web_scraping/day_8/README.md) for installation, the difference between scheduling and `time.sleep()`, and stopping the running process.
+
+Web scraping Day 9 stores CoinGecko records in `03_web_scraping/day_9/crypto.db`. Choose `1` to fetch and store, or run again and choose `2` to search a saved coin ID. It currently runs on demand rather than hourly. The [Day 9 guide](03_web_scraping/day_9/README.md) explains the schema and how to open the binary database with [SQLite Viewer](https://marketplace.visualstudio.com/items?itemName=qwtel.sqlite-viewer).
 
 Day 8 in the first group hides password input: type in the terminal and press **Enter**, even though no characters or stars appear.
 
