@@ -2,7 +2,7 @@
 
 This group corresponds to `03_web_scraping` in the Udemy tutorial. It follows [01_utilities](../01_utilities/README.md) and [02_data_handling](../02_data_handling/README.md).
 
-**Status: in progress — current course section.** Local days 1–10 are documented, covering HTML extraction, data exports, images, API graphs and logging, SQLite storage, and local PDF text extraction. Individual guides identify remaining task features.
+**Status: local days 1–10 documented.** These projects cover HTML extraction, data exports, images, API graphs and logging, SQLite storage, and local PDF text extraction. Individual guides identify remaining task features. Continue with [04_automation](../04_automation/README.md), the current course section.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 

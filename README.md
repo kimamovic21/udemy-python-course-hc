@@ -23,7 +23,7 @@ My Python learning repository, starting with the basics and adding exercises as 
 | [09_decorators](09_decorators/README.md) | Wrapping functions with decorators, preserving metadata, logging, role checks, and caching results (exercise 25). Section in progress. |
 | [10_oop](10_oop/README.md) | Classes, objects, attributes, inheritance, composition, MRO, instance, static, and class methods, and properties with validation. Exercises 26–27: a device tracker and vehicle rental system; section in progress. |
 | [11_exceptions](11_exceptions/README.md) | Built-in and custom exceptions, tracebacks, input validation, chai billing, and file handling with `try`, `except`, `else`, `finally`, and `raise`. Section in progress. |
-| [challenges](challenges/README.md) | Daily projects applying the previous sections, organised by tutorial section (`01_utilities`, `02_data_handling`, and `03_web_scraping`). The challenge index lists groups, projects, and progress. In progress. |
+| [challenges](challenges/README.md) | Daily projects organised by tutorial section: utilities, data handling, web scraping, and automation. Currently starting `04_automation` with a file organizer. The challenge index lists groups, projects, and progress. |
 
 Start with **01_starter**, the first folder in this project. Detailed explanations, running instructions, and expected output are documented in the corresponding lesson, project, or challenge-group README files. New folders will be added to this overview as the course progresses.
 

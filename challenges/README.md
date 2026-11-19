@@ -2,17 +2,17 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling` and `03_web_scraping`, each lesson has its own README with explanations, examples, and running instructions.
 
-**Status: in progress.** The first group has local days 1–11, and `02_data_handling` now contains local days 1–10, including weather projects, data conversion, JSON flattening, a credential exercise, and Fernet-encrypted notes. The first group's Day 11 currently implements basic scoring; see its README for remaining challenge features. The current section is `03_web_scraping`, with local days 1–10 documented, including HTML extraction, data exports, images, API logging, SQLite storage/search, and local PDF text extraction.
+**Status: in progress.** The first group has local days 1–11, and `02_data_handling` contains local days 1–10. `03_web_scraping` has local days 1–10 documented, covering extraction, exports, images, APIs, SQLite, and PDFs. The current section is [04_automation](04_automation/README.md), starting with Day 1: File Organizer. Individual project guides describe remaining challenge features.
 
 ## Learning order
 
 1. Work through the numbered lesson folders up to `11_exceptions`.
-2. Complete the challenge groups in the order listed below, starting with `01_utilities`, then `02_data_handling`, followed by `03_web_scraping`. Within each group, follow its local project numbers.
+2. Complete the challenge groups in order: `01_utilities`, `02_data_handling`, `03_web_scraping`, then `04_automation`. Within each group, follow its local project numbers.
 3. After all challenge groups, continue with the next numbered course section (`12_...`, when added).
 
 Follow this order even if your editor sorts the folders differently.
 
-Project numbering restarts inside `02_data_handling`: its first files are `DAY_1.md` and `day_1.py`. Folder names match the tutorial sections (`01_utilities`, `02_data_handling`, and `03_web_scraping`); file numbers identify projects within each group. Keep the tutorial's original names and use the group path to distinguish projects with the same filename. Inside `02_data_handling`, each lesson now has a separate `day_1` through `day_10` folder containing its script, original task, and related data. See the [folder layout](02_data_handling/README.md#folder-layout) and each lesson's own README.
+Project numbering restarts within each group: its first files are `DAY_1.md` and `day_1.py`. Folder names match the tutorial sections (`01_utilities`, `02_data_handling`, `03_web_scraping`, and `04_automation`); file numbers identify projects within each group. Keep the tutorial's original names and use the group path to distinguish projects with the same filename. Inside `02_data_handling` and `03_web_scraping`, each lesson has a separate `day_1` through `day_10` folder. Automation follows the same layout, starting with `04_automation/day_1`, which contains its script, task statement, and lesson README. Use folder and script names without leading zeros.
 
 ## Challenge groups
 
@@ -21,6 +21,7 @@ Project numbering restarts inside `02_data_handling`: its first files are `DAY_1
 | [01_utilities](01_utilities/README.md) | Local days 1–11 | In progress |
 | [02_data_handling](02_data_handling/README.md) | Local days 1–10 | In progress |
 | [03_web_scraping](03_web_scraping/README.md) | Local days 1–10: extraction, exports, images, APIs, SQLite, and PDFs | In progress |
+| [04_automation](04_automation/README.md) | Local day 1: organize files by extension | In progress — current section |
 | `day [32-35]` | Reserved for later challenges | Planned |
 | `day [36-45]` | Reserved for later challenges | Planned |
 | `day [46-52]` | Reserved for later challenges | Planned |
@@ -60,6 +61,7 @@ Project numbering restarts inside `02_data_handling`: its first files are `DAY_1
 | `03_web_scraping` | 8 | [Hourly Crypto Price Logger](03_web_scraping/day_8/README.md) | schedule jobs, polling intervals, hourly API fetching, and a separate CSV history. |
 | `03_web_scraping` | 9 | [Store and Search Crypto Prices in SQLite](03_web_scraping/day_9/README.md) | SQLite tables, timestamped inserts, parameterized queries, and latest-price search. |
 | `03_web_scraping` | 10 | [Extract Text from a PDF](03_web_scraping/day_10/README.md) | PyMuPDF, page iteration, text extraction, string accumulation, and error handling. |
+| `04_automation` | 1 | [File Organizer](04_automation/day_1/README.md) | `os`, `shutil`, extension matching, folder creation, and moving files beside the script while skipping project files and existing folders. |
 
 ## Original challenge statements
 
@@ -103,11 +105,14 @@ python "challenges/03_web_scraping/day_7/day_7.py"
 python "challenges/03_web_scraping/day_8/day_8.py"
 python "challenges/03_web_scraping/day_9/day_9.py"
 python "challenges/03_web_scraping/day_10/day_10.py"
+python "challenges/04_automation/day_1/day_1.py"
 ```
 
 Paths are quoted consistently so these commands also work if the repository is stored in a directory with spaces. Answer each prompt in the terminal and press **Enter** to continue.
 
 In VS Code, open the Python file and press **Ctrl + S** to format and run it. Click inside the Run on Save terminal to enter your answers. See the [group README](01_utilities/README.md#how-to-run-these-projects) for detailed examples, including where Days 2, 6, and 7 save their files.
+
+Automation Day 1 uses only Python's standard library and runs without an input prompt. It organizes sample files directly beside `04_automation/day_1/day_1.py` into `PDFs`, `Images`, `TextFiles`, and `Others`. It skips its script, `DAY_1.md`, `README.md`, and existing folders. The repository root is unaffected when launched from there. See the [Day 1 guide](04_automation/day_1/README.md) for the path adjustment and original tutorial code.
 
 The CSV contact book saves `contacts.csv` beside its script in `02_data_handling/day_1`, regardless of the terminal's current working directory. See the [Day 1 README](02_data_handling/day_1/README.md#how-to-run) for details. The [CSV line-ending note](02_data_handling/day_1/README.md#csv-line-endings-and-the-windows-fix) explains the Windows blank-line issue and the commented original code beside the active fixes.
 

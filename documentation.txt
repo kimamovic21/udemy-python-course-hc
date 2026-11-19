@@ -358,3 +358,10 @@ Section 13: Day [22-31] Web scraping in Python
 107. Day 9 Store and search in Sqlite DB
 
 108. Day 10 Read PDF with PyMuPDF - support LangChain
+
+
+
+Section 14: Day [32-35] automation projects in Python
+
+
+109. Day 1 our own file organizer
