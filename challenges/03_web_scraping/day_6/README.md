@@ -108,4 +108,12 @@ In VS Code, open `day_6.py` and press **Ctrl + S**. There are no input prompts. 
 - [Python textwrap](https://docs.python.org/3/library/textwrap.html#textwrap.fill): wrapping the quote into multiple lines.
 - [Paths with pathlib](https://docs.python.org/3/library/pathlib.html): keeping generated images beside the script.
 
+## Package source repositories
+
+- [Requests — GitHub](https://github.com/psf/requests): HTTP requests (`requests`).
+- [Beautiful Soup — Launchpad](https://code.launchpad.net/beautifulsoup): HTML parsing; the upstream source is hosted on Launchpad (`bs4`).
+- [Pillow — GitHub](https://github.com/python-pillow/Pillow): creating images and drawing text (`PIL`).
+
+See the [complete package index](../../../README.md#package-source-repositories) for import-name mappings and projects you can support with a GitHub star.
+
 [Previous: Day 5](../day_5/README.md) · [Next: Day 7](../day_7/README.md)

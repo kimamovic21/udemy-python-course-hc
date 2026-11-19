@@ -46,3 +46,12 @@ Extra setup is required for [Day 4: OpenWeather, requests, and .env](day_4/READM
 Data belongs to its lesson: contacts in `day_1`, movies in `day_3`, API configuration and logs in `day_4`, and converter inputs/outputs in `day_6`–`day_8`. Credential and note files stay in `day_9` and `day_10`. The local `.env` and `vault.key` are ignored by Git. Exact-path rules also exclude this group's `day_9/vault.txt` and `day_10/notes_vault.json`, leaving files with the same names in other folders unaffected by those two rules. The scripts create these data files when the first credential or note is saved; see the corresponding lesson README for details.
 
 Day 4 and Day 5 have separate `weather_logs.csv` files. Copy newer logger records explicitly using the [Day 5 instructions](day_5/README.md#updating-day-5-from-day-4). Its README also explains the [November demonstration data](day_5/README.md#november-2026-demonstration-dataset) and displays the [saved chart examples](day_5/README.md#saved-chart-examples).
+
+## Package source repositories
+
+- [Requests — GitHub](https://github.com/psf/requests): HTTP requests (`requests`).
+- [python-dotenv — GitHub](https://github.com/theskumar/python-dotenv): loading local environment variables (`dotenv`).
+- [Matplotlib — GitHub](https://github.com/matplotlib/matplotlib): plotting data (`matplotlib.pyplot`).
+- [cryptography — GitHub](https://github.com/pyca/cryptography): Fernet encryption and decryption (`cryptography.fernet`).
+
+See the [complete package index](../../README.md#package-source-repositories) for import-name mappings and projects you can support with a GitHub star.

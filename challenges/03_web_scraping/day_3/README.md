@@ -108,4 +108,11 @@ In VS Code, open `day_3.py` and press **Ctrl + S**. The JSON stays beside the sc
 - [Python JSON encoding and decoding](https://docs.python.org/3/library/json.html): saving lists and dictionaries with `dump()` and formatting with `indent`.
 - [Requests quickstart](https://requests.readthedocs.io/en/latest/user/quickstart/): making requests and handling HTTP errors.
 
+## Package source repositories
+
+- [Requests — GitHub](https://github.com/psf/requests): HTTP requests (`requests`).
+- [Beautiful Soup — Launchpad](https://code.launchpad.net/beautifulsoup): HTML parsing; the upstream source is hosted on Launchpad (`bs4`).
+
+See the [complete package index](../../../README.md#package-source-repositories) for import-name mappings and projects you can support with a GitHub star.
+
 [Previous: Day 2](../day_2/README.md) · [Next: Day 4](../day_4/README.md)

@@ -355,4 +355,6 @@ Section 13: Day [22-31] Web scraping in Python
 
 106. Day 8 - Do this task every hour
 
-107. Day 9 store and search in Sqlite DB
+107. Day 9 Store and search in Sqlite DB
+
+108. Day 10 Read PDF with PyMuPDF - support LangChain

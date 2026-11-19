@@ -94,4 +94,11 @@ In VS Code, open `day_2.py` and press **Ctrl + S**. There are no input prompts. 
 - [Python CSV reading and writing](https://docs.python.org/3/library/csv.html): `DictWriter`, header rows, quoting, and CSV line endings.
 - [Paths with pathlib](https://docs.python.org/3/library/pathlib.html): building output paths relative to the script.
 
+## Package source repositories
+
+- [Requests — GitHub](https://github.com/psf/requests): HTTP requests (`requests`).
+- [Beautiful Soup — Launchpad](https://code.launchpad.net/beautifulsoup): HTML parsing; the upstream source is hosted on Launchpad (`bs4`).
+
+See the [complete package index](../../../README.md#package-source-repositories) for import-name mappings and projects you can support with a GitHub star.
+
 [Previous: Day 1](../day_1/README.md) · [Next: Day 3](../day_3/README.md)

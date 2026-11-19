@@ -170,3 +170,10 @@ In VS Code, open `day_1.py` and press **Ctrl + S**. This script has no input pro
 - [Extracting text with get_text()](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#get-text): reading tag text and controlling whitespace.
 - [Requests errors and exceptions](https://requests.readthedocs.io/en/latest/user/quickstart/#errors-and-exceptions): request failures, HTTP status errors, and timeouts.
 - [Wikimedia User-Agent policy](https://foundation.wikimedia.org/wiki/Policy:Wikimedia_Foundation_User-Agent_Policy/en): how scripts should identify themselves and why generic client identifiers may receive HTTP 403.
+
+## Package source repositories
+
+- [Requests — GitHub](https://github.com/psf/requests): HTTP requests (`requests`).
+- [Beautiful Soup — Launchpad](https://code.launchpad.net/beautifulsoup): HTML parsing; the upstream source is hosted on Launchpad (`bs4`).
+
+See the [complete package index](../../../README.md#package-source-repositories) for import-name mappings and projects you can support with a GitHub star.

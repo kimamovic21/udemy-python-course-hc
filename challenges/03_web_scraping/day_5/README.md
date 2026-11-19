@@ -117,4 +117,12 @@ In VS Code, open `day_5.py` and press **Ctrl + S**. There are no input prompts. 
 - [Requests quickstart](https://requests.readthedocs.io/en/latest/user/quickstart/): the library still used for fetching the homepage.
 - [Paths with pathlib](https://docs.python.org/3/library/pathlib.html): keeping the final image folder beside the script.
 
+## Package source repositories
+
+- [Requests — GitHub](https://github.com/psf/requests): HTTP requests (`requests`).
+- [Beautiful Soup — Launchpad](https://code.launchpad.net/beautifulsoup): HTML parsing; the upstream source is hosted on Launchpad (`bs4`).
+- [wget — PyPI and source archive](https://pypi.org/project/wget/): file downloads; no official GitHub repository was confirmed (`wget`).
+
+See the [complete package index](../../../README.md#package-source-repositories) for import-name mappings and projects you can support with a GitHub star.
+
 [Previous: Day 4](../day_4/README.md) · [Next: Day 6](../day_6/README.md)

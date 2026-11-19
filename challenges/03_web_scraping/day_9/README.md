@@ -113,4 +113,11 @@ The basic viewer is read-only and caches its data. Reopen the database after new
 - [CoinGecko coins/markets API](https://docs.coingecko.com/demo/reference/coins-markets): request parameters and response fields.
 - [Paths with pathlib](https://docs.python.org/3/library/pathlib.html): keeping the database beside the script.
 
-[Previous: Day 8](../day_8/README.md)
+## Package source repositories
+
+- [Requests — GitHub](https://github.com/psf/requests): HTTP requests (`requests`).
+- [schedule — GitHub](https://github.com/dbader/schedule): imported but unused in this version; no jobs are scheduled (`schedule`).
+
+See the [complete package index](../../../README.md#package-source-repositories) for import-name mappings and projects you can support with a GitHub star.
+
+[Previous: Day 8](../day_8/README.md) · [Next: Day 10](../day_10/README.md)

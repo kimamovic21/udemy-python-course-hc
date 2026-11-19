@@ -409,3 +409,9 @@ The final dictionary contains the name, city, email, and address. The current so
 To run a file manually, use **Python: Run Python File in Terminal** from the Command Palette (**Ctrl + Shift + P**). To format without saving, use **Shift + Alt + F**.
 
 The [main README](../README.md#quick-start) lists the required extensions. Each file is a separate example and can be run independently.
+
+## Package source repositories
+
+- [Arrow — GitHub](https://github.com/arrow-py/arrow): dates and time zones (`arrow`).
+
+See the [complete package index](../README.md#package-source-repositories) for import-name mappings and projects you can support with a GitHub star.

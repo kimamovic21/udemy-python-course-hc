@@ -103,4 +103,11 @@ In VS Code, open `day_4.py` and press **Ctrl + S**. There are no input prompts. 
 - [Paths with pathlib](https://docs.python.org/3/library/pathlib.html): keeping the image folder beside the script.
 - [Combining URLs with urljoin()](https://docs.python.org/3/library/urllib.parse.html#urllib.parse.urljoin): resolving relative image addresses.
 
+## Package source repositories
+
+- [Requests — GitHub](https://github.com/psf/requests): HTTP requests (`requests`).
+- [Beautiful Soup — Launchpad](https://code.launchpad.net/beautifulsoup): HTML parsing; the upstream source is hosted on Launchpad (`bs4`).
+
+See the [complete package index](../../../README.md#package-source-repositories) for import-name mappings and projects you can support with a GitHub star.
+
 [Previous: Day 3](../day_3/README.md) · [Next: Day 5](../day_5/README.md)

@@ -37,7 +37,7 @@ After **11_exceptions**, work through all the groups in the [challenge index](ch
 
 - [`.vscode/settings.json`](.vscode/settings.json) — project editor settings for Python, Black formatting, and automatic execution after **Ctrl + S**, using the Python available in the terminal.
 - [`documentation.txt`](documentation.txt) — tutorial video names, maintained manually to keep track of my course progress.
-- `challenges/**/DAY_*.md` — original challenge statements, maintained manually. Project explanations and progress are recorded in the corresponding README files.
+- `challenges/**/DAY_*.md` — challenge statements, maintained manually. Course wording is preserved where supplied; web scraping Day 10 has a marked, locally authored description. Project explanations and progress are recorded in the corresponding README files.
 
 ## Quick start
 
@@ -46,6 +46,29 @@ Open the project root in VS Code with [Python 3](https://www.python.org/) and th
 Run on Save launches the saved file with `python -u`, using the Python available in its terminal. For interactive scripts, click inside that terminal and submit each answer with **Enter**.
 
 See [01_starter: first-time setup](01_starter/README.md#first-time-setup) for step-by-step instructions.
+
+## Package source repositories
+
+These third-party packages are directly imported by the Python examples. Follow the GitHub links and use **Star** to support their projects. Source links were checked against package metadata and upstream project pages; the repositories hosted elsewhere are labeled explicitly.
+
+| Package | Import used in this repository | Project source |
+| --- | --- | --- |
+| Arrow | `arrow` | [GitHub](https://github.com/arrow-py/arrow) |
+| Requests | `requests` | [GitHub](https://github.com/psf/requests) |
+| python-dotenv | `dotenv` | [GitHub](https://github.com/theskumar/python-dotenv) |
+| Matplotlib | `matplotlib.pyplot` | [GitHub](https://github.com/matplotlib/matplotlib) |
+| cryptography | `cryptography.fernet` | [GitHub](https://github.com/pyca/cryptography) |
+| Beautiful Soup | `bs4` | [Launchpad](https://code.launchpad.net/beautifulsoup) |
+| Pillow | `PIL` | [GitHub](https://github.com/python-pillow/Pillow) |
+| wget | `wget` | [PyPI and source archive](https://pypi.org/project/wget/) |
+| schedule | `schedule` | [GitHub](https://github.com/dbader/schedule) |
+| PyMuPDF | `pymupdf` | [GitHub](https://github.com/pymupdf/PyMuPDF) |
+
+Beautiful Soup's [official project page](https://www.crummy.com/software/BeautifulSoup/) links to Launchpad rather than GitHub. For `wget`, PyPI metadata still lists an unavailable Bitbucket homepage; the PyPI page provides the source archive, and no official GitHub repository was confirmed. These entries do not point to unofficial GitHub mirrors.
+
+Modules such as `csv`, `json`, `pathlib`, `datetime`, `sqlite3`, `functools`, and `textwrap` belong to Python's standard library. Their Python implementation and bindings are in [CPython on GitHub](https://github.com/python/cpython); they are not additional pip dependencies. Local modules such as `recipes.flavors` are part of this repository.
+
+Day 9 imports `schedule` without using it to schedule jobs; Day 8 uses it actively. Package links are also listed in the relevant lesson and challenge-group READMEs.
 
 ## Useful links for beginners
 

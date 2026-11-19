@@ -142,4 +142,10 @@ Input and output paths resolve from this Python file, so data stays in this less
 - [Paths with pathlib](https://docs.python.org/3/library/pathlib.html): `Path(__file__).resolve().parent` for keeping input and output beside the script.
 - [Open-Meteo daily data](https://open-meteo.com/en/docs): the source used when preparing the model and forecast portion of the November demonstration.
 
+## Package source repositories
+
+- [Matplotlib — GitHub](https://github.com/matplotlib/matplotlib): plotting data (`matplotlib.pyplot`).
+
+See the [complete package index](../../../README.md#package-source-repositories) for import-name mappings and projects you can support with a GitHub star.
+
 [Previous: Day 4](../day_4/README.md) · [Next: Day 6](../day_6/README.md)

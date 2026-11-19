@@ -111,4 +111,10 @@ Input and output paths resolve from this Python file, so data stays in this less
 - [Paths with pathlib](https://docs.python.org/3/library/pathlib.html): `Path(__file__).resolve().parent` for keeping input and output beside the script.
 - [William Stallings](https://williamstallings.com/): optional website reference mentioned by the instructor in the Notes Locker lesson.
 
+## Package source repositories
+
+- [cryptography — GitHub](https://github.com/pyca/cryptography): Fernet encryption and decryption (`cryptography.fernet`).
+
+See the [complete package index](../../../README.md#package-source-repositories) for import-name mappings and projects you can support with a GitHub star.
+
 [Previous: Day 9](../day_9/README.md)

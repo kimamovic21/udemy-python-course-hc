@@ -123,4 +123,11 @@ Input and output paths resolve from this Python file, so data stays in this less
 - [Python CSV reading and writing](https://docs.python.org/3/library/csv.html): reading rows and dictionaries, writing records, and handling CSV line endings.
 - [Paths with pathlib](https://docs.python.org/3/library/pathlib.html): `Path(__file__).resolve().parent` for keeping input and output beside the script.
 
+## Package source repositories
+
+- [Requests — GitHub](https://github.com/psf/requests): HTTP requests (`requests`).
+- [python-dotenv — GitHub](https://github.com/theskumar/python-dotenv): loading local environment variables (`dotenv`).
+
+See the [complete package index](../../../README.md#package-source-repositories) for import-name mappings and projects you can support with a GitHub star.
+
 [Previous: Day 3](../day_3/README.md) · [Next: Day 5](../day_5/README.md)
