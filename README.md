@@ -23,7 +23,7 @@ My Python learning repository, starting with the basics and adding exercises as 
 | [09_decorators](09_decorators/README.md) | Wrapping functions with decorators, preserving metadata, logging, role checks, and caching results (exercise 25). Section in progress. |
 | [10_oop](10_oop/README.md) | Classes, objects, attributes, inheritance, composition, MRO, instance, static, and class methods, and properties with validation. Exercises 26–27: a device tracker and vehicle rental system; section in progress. |
 | [11_exceptions](11_exceptions/README.md) | Built-in and custom exceptions, tracebacks, input validation, chai billing, and file handling with `try`, `except`, `else`, `finally`, and `raise`. Section in progress. |
-| [challenges](challenges/README.md) | Daily projects organised by tutorial section: utilities, data handling, web scraping, and automation. Currently working in `04_automation` on file organization and batch renaming. The challenge index lists groups, projects, and progress. |
+| [challenges](challenges/README.md) | Daily projects organised by tutorial section: utilities, data handling, web scraping, and automation. Currently working in `04_automation` on file organization, batch renaming, and Downloads monitoring with Watchdog. The challenge index lists groups, projects, and progress. |
 
 Start with **01_starter**, the first folder in this project. Detailed explanations, running instructions, and expected output are documented in the corresponding lesson, project, or challenge-group README files. New folders will be added to this overview as the course progresses.
 
@@ -63,6 +63,7 @@ These third-party packages are directly imported by the Python examples. Follow 
 | wget | `wget` | [PyPI and source archive](https://pypi.org/project/wget/) |
 | schedule | `schedule` | [GitHub](https://github.com/dbader/schedule) |
 | PyMuPDF | `pymupdf` | [GitHub](https://github.com/pymupdf/PyMuPDF) |
+| Watchdog | `watchdog.events`, `watchdog.observers` | [GitHub](https://github.com/gorakhargosh/watchdog) |
 
 Beautiful Soup's [official project page](https://www.crummy.com/software/BeautifulSoup/) links to Launchpad rather than GitHub. For `wget`, PyPI metadata still lists an unavailable Bitbucket homepage; the PyPI page provides the source archive, and no official GitHub repository was confirmed. These entries do not point to unofficial GitHub mirrors.
 
@@ -82,5 +83,6 @@ Day 9 imports `schedule` without using it to schedule jobs; Day 8 uses it active
 - [Python errors and exceptions](https://docs.python.org/3/tutorial/errors.html) — official examples of reading tracebacks, handling specific exceptions, raising errors, and defining custom exceptions.
 - [Reading and writing files](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files) — an introduction to file modes, writing text, and closing files with `with` or `close()`.
 - [Python virtual environments (`venv`)](https://docs.python.org/3/tutorial/venv.html) — an official introduction to creating and activating project environments and managing their packages.
+- [Watchdog quickstart](https://python-watchdog.readthedocs.io/en/stable/quickstart.html) — observers and event handlers for monitoring folders, as used in Automation Day 3.
 - [Python Playground](https://python-playground.com/) — a place to try small Python examples in the browser.
 - [PEP 8: Style Guide for Python Code](https://peps.python.org/pep-0008/#introduction) — a reference for naming and formatting code; consult it gradually as you practise.

@@ -367,3 +367,5 @@ Section 14: Day [32-35] automation projects in Python
 109. Day 1 our own file organizer
 
 110. Day 2 Get your trip photos organized
+
+111. Day 3 Watchdog to monitor streaming of events
