@@ -23,3 +23,6 @@ vault.key
 
 # Generated quote images for the Day 6 project only
 /challenges/03_web_scraping/day_6/quotes/
+
+# Local images for the automation Day 2 project only
+/challenges/04_automation/day_2/images/
