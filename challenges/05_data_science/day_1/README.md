@@ -31,12 +31,27 @@ Anaconda is one setup option. You can also run this notebook in VS Code with an 
 1. Use the Microsoft Python and [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter) extensions.
 2. Open `challenges/05_data_science/day_1/day_1.ipynb` in the notebook editor.
 3. Choose a Python environment using **Select Kernel** at the top right. The selected environment needs `ipykernel`; follow VS Code's installation prompt if it is missing.
-4. Run cells from top to bottom using the play button or **Shift + Enter**. Use **Run All** to execute the whole notebook.
-5. Save with **Ctrl + S** to keep the notebook and its displayed outputs.
+4. Click inside a code cell, such as the one containing `print("hitesh")`, and press **Shift + Enter** or click its play button. Work from top to bottom. Use **Run All** at the top to execute the whole notebook.
+5. Read the result directly below the code cell in the notebook. This output appears there, rather than in the terminal used for `.py` scripts.
+6. Save with **Ctrl + S** to keep the notebook and its displayed outputs.
 
-The existing Run on Save configuration is for `.py` scripts. Saving this notebook does not run its cells through that configuration; use the notebook controls. There is no `day_1.py` to launch with `python -u` in this lesson.
+**Ctrl + S saves; Shift + Enter runs the selected cell.** The existing Run on Save configuration is for `.py` scripts. There is no `day_1.py` to launch with `python -u` in this lesson.
 
 If using Anaconda's Jupyter Notebook or JupyterLab interface instead, open the same `.ipynb` file and run its cells there.
+
+## If the notebook asks for ipykernel
+
+`ipykernel` provides the Python kernel used to execute notebook cells. It is needed in the Python environment selected in the notebook, even if that environment can already run regular `.py` scripts.
+
+If VS Code reports that running cells requires `ipykernel`, install it using the selected environment's Python:
+
+```powershell
+python -m pip install ipykernel
+```
+
+Then select the same environment with **Select Kernel** and run a cell using **Shift + Enter**. If the prompt remains after installation, close and reopen the notebook. `pip` is the installer used by the command; `ipykernel` is the package being installed.
+
+For this project, it was installed and its imports verified in the system Python 3.15 environment. Anaconda environments have their own packages, so selecting a different environment may require installing it there too.
 
 ## Day 1 explained
 
@@ -72,3 +87,5 @@ This lesson does not read or generate separate data files. Outputs appear below 
 - [Project Jupyter](https://jupyter.org/): the notebook tools' official website.
 - [Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks): opening notebooks, selecting kernels, running cells, and saving outputs.
 - [Running code in Jupyter Notebook](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Running%20Code.html): cell execution and kernel basics.
+- [IPython Kernel documentation](https://ipykernel.readthedocs.io/en/stable/): documentation for `ipykernel`.
+- [ipykernel — GitHub](https://github.com/ipython/ipykernel): the official Python kernel source repository, available to star.

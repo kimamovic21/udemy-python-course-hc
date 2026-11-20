@@ -23,7 +23,7 @@ My Python learning repository, starting with the basics and adding exercises as 
 | [09_decorators](09_decorators/README.md) | Wrapping functions with decorators, preserving metadata, logging, role checks, and caching results (exercise 25). Section in progress. |
 | [10_oop](10_oop/README.md) | Classes, objects, attributes, inheritance, composition, MRO, instance, static, and class methods, and properties with validation. Exercises 26–27: a device tracker and vehicle rental system; section in progress. |
 | [11_exceptions](11_exceptions/README.md) | Built-in and custom exceptions, tracebacks, input validation, chai billing, and file handling with `try`, `except`, `else`, `finally`, and `raise`. Section in progress. |
-| [challenges](challenges/README.md) | Daily projects covering utilities, data handling, web scraping, automation, and data science. Currently starting `05_data_science` with Python notebooks, Anaconda, and Jupyter. The challenge index lists groups, projects, and progress. |
+| [challenges](challenges/README.md) | Daily projects covering utilities, data handling, web scraping, automation, and data science. Currently working in `05_data_science` with notebooks and a NumPy/pandas CSV dataset generator. The challenge index lists groups, projects, and progress. |
 
 Start with **01_starter**, the first folder in this project. Detailed explanations, running instructions, and expected output are documented in the corresponding lesson, project, or challenge-group README files. New folders will be added to this overview as the course progresses.
 
@@ -37,7 +37,7 @@ After **11_exceptions**, work through all the groups in the [challenge index](ch
 
 - [`.vscode/settings.json`](.vscode/settings.json) — project editor settings for Python, Black formatting, and automatic execution after **Ctrl + S**, using the Python available in the terminal.
 - [`documentation.txt`](documentation.txt) — tutorial video names, maintained manually to keep track of my course progress.
-- `challenges/**/DAY_*.md` — challenge statements, maintained manually. Course wording is preserved where supplied; web scraping Day 10 and Data Science Day 1 have marked, locally authored descriptions. Project explanations and progress are recorded in the corresponding README files.
+- `challenges/**/DAY_*.md` — challenge statements, maintained manually. Course wording is preserved where supplied; web scraping Day 10 and Data Science Days 1–2 have marked, locally authored descriptions. Project explanations and progress are recorded in the corresponding README files.
 
 ## Quick start
 
@@ -67,6 +67,10 @@ These third-party packages are directly imported by the Python examples. Follow 
 | PyMuPDF | `pymupdf` | [GitHub](https://github.com/pymupdf/PyMuPDF) |
 | Watchdog | `watchdog.events`, `watchdog.observers` | [GitHub](https://github.com/gorakhargosh/watchdog) |
 | psutil | `psutil` | [GitHub](https://github.com/giampaolo/psutil) |
+| NumPy | `numpy` | [GitHub](https://github.com/numpy/numpy) |
+| pandas | `pandas` | [GitHub](https://github.com/pandas-dev/pandas) |
+
+Notebook support: [ipykernel — GitHub](https://github.com/ipython/ipykernel) provides the Python kernel used to execute notebook cells. Install it in the selected notebook environment with `python -m pip install ipykernel` if needed; see the [Day 1 setup note](challenges/05_data_science/day_1/README.md#if-the-notebook-asks-for-ipykernel) and [official documentation](https://ipykernel.readthedocs.io/en/stable/). This is a notebook runtime dependency rather than an import in the lesson code.
 
 Beautiful Soup's [official project page](https://www.crummy.com/software/BeautifulSoup/) links to Launchpad rather than GitHub. For `wget`, PyPI metadata still lists an unavailable Bitbucket homepage; the PyPI page provides the source archive, and no official GitHub repository was confirmed. These entries do not point to unofficial GitHub mirrors.
 
@@ -90,5 +94,8 @@ Day 9 imports `schedule` without using it to schedule jobs; Day 8 uses it active
 - [psutil documentation](https://psutil.io/) — system resource statistics used for the CPU, RAM, and disk dashboard in Automation Day 4.
 - [Download Anaconda](https://www.anaconda.com/download) — Python distribution and notebook tools introduced in the data science section.
 - [Project Jupyter](https://jupyter.org/) — tools for interactive notebooks containing notes, code, and outputs.
+- [NumPy](https://numpy.org/) — numerical arrays and calculations used in Data Science Day 2.
+- [pandas](https://pandas.pydata.org/) — tables and CSV export used in Data Science Day 2.
+- [Kaggle Datasets](https://www.kaggle.com/datasets) — datasets for future practice; the [official Kaggle CLI source](https://github.com/Kaggle/kaggle-cli) is also available on GitHub. Current lessons do not require this tool.
 - [Python Playground](https://python-playground.com/) — a place to try small Python examples in the browser.
 - [PEP 8: Style Guide for Python Code](https://peps.python.org/pep-0008/#introduction) — a reference for naming and formatting code; consult it gradually as you practise.

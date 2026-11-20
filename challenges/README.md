@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling`, `03_web_scraping`, `04_automation`, and `05_data_science`, each added lesson has its own folder and README.
 
-**Status: in progress.** The first group has local days 1–11, `02_data_handling` and `03_web_scraping` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The current section is [05_data_science](05_data_science/README.md), starting with a Python notebook introduction. Individual project guides describe remaining challenge features.
+**Status: in progress.** The first group has local days 1–11, `02_data_handling` and `03_web_scraping` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The current section is [05_data_science](05_data_science/README.md), with a notebook introduction and a NumPy/pandas dataset generator in local days 1–2. Individual project guides describe remaining challenge features.
 
 ## Learning order
 
@@ -22,7 +22,7 @@ Project numbering restarts within each group. Folder names match the tutorial se
 | [02_data_handling](02_data_handling/README.md) | Local days 1–10 | In progress |
 | [03_web_scraping](03_web_scraping/README.md) | Local days 1–10: extraction, exports, images, APIs, SQLite, and PDFs | In progress |
 | [04_automation](04_automation/README.md) | Local days 1–4: file organization, renaming, Downloads monitoring, and system resources | In progress |
-| [05_data_science](05_data_science/README.md) | Local day 1: notebook notes, cell execution, printing, and loops | In progress — current section |
+| [05_data_science](05_data_science/README.md) | Local days 1–2: notebook basics and generating a CSV dataset with NumPy/pandas | In progress — current section |
 
 Further challenge groups will be added as the course progresses.
 
@@ -66,10 +66,11 @@ Further challenge groups will be added as the course progresses.
 | `04_automation` | 3 | [Auto File Organizer with Watchdog](04_automation/day_3/README.md) | Filesystem events, observers, temporary-download filtering, stability checks, retries, and sorting files in Downloads. |
 | `04_automation` | 4 | [Real-Time System Resource Monitor](04_automation/day_4/README.md) | psutil, CPU/RAM/disk statistics, byte conversion, terminal refreshes, timing, and `KeyboardInterrupt`. |
 | `05_data_science` | 1 | [Introduction to Python Notebooks](05_data_science/day_1/README.md#day-1-explained) | Jupyter, Markdown and code cells, kernels, `print()`, `for`, `range()`, and f-strings. |
+| `05_data_science` | 2 | [Generate an Experience and Salary Dataset](05_data_science/day_2/README.md) | NumPy arrays, seeded random values, vectorized calculations, pandas DataFrames, and CSV export. |
 
 ## Original challenge statements
 
-The `DAY_*.md` files contain task descriptions maintained manually by the repository owner. Preserve original course wording where supplied. Web scraping Day 10 and Data Science Day 1 have marked, locally authored descriptions based on their supplied code, created at the owner's request because original statements were absent. Keep task files unchanged during later documentation updates; project explanations, running instructions, and progress belong in README files.
+The `DAY_*.md` files contain task descriptions maintained manually by the repository owner. Preserve original course wording where supplied. Web scraping Day 10 and Data Science Days 1–2 have marked, locally authored descriptions based on their supplied code, created at the owner's request because original statements were absent. Keep task files unchanged during later documentation updates; project explanations, running instructions, and progress belong in README files.
 
 As new days are added, document the project in its lesson README, where applicable, and update the relevant group's overview and this index.
 
@@ -113,6 +114,7 @@ python "challenges/04_automation/day_1/day_1.py"
 python "challenges/04_automation/day_2/day_2.py"
 python "challenges/04_automation/day_3/day_3.py"
 python "challenges/04_automation/day_4/day_4.py"
+python "challenges/05_data_science/day_2/day_2.py"
 ```
 
 Paths are quoted consistently so these commands also work if the repository is stored in a directory with spaces. Answer each prompt in the terminal and press **Enter** to continue.
@@ -128,6 +130,8 @@ Automation Day 3 requires `watchdog` and watches the user's Downloads folder, ra
 Automation Day 4 requires `psutil` and displays CPU, RAM, and disk space usage in a terminal dashboard. It refreshes approximately every four seconds and creates no output files. Stop it with **Ctrl + C**. The [Day 4 guide](04_automation/day_4/README.md) includes installation, reading explanations, package links, and the remaining CPU/RAM warning requirement.
 
 Data Science Day 1 uses [day_1.ipynb](05_data_science/day_1/day_1.ipynb). Open it in Jupyter Notebook, JupyterLab, or VS Code's notebook editor, select a Python kernel, and run cells with **Shift + Enter** or **Run All**. **Ctrl + S** saves the notebook; the existing `.py` Run on Save configuration does not execute its cells. The [Day 1 guide](05_data_science/day_1/README.md) explains setup, outputs, and the roles of [Anaconda](https://www.anaconda.com/download) and [Project Jupyter](https://jupyter.org/).
+
+Data Science Day 2 uses [NumPy](https://numpy.org/) to generate 100 synthetic experience/salary records and [pandas](https://pandas.pydata.org/) to export them to `05_data_science/day_2/experience_salary.csv`. Each run replaces that file. The [Day 2 guide](05_data_science/day_2/README.md) includes installation, pandas import troubleshooting, the calculations, and official GitHub repositories.
 
 The CSV contact book saves `contacts.csv` beside its script in `02_data_handling/day_1`, regardless of the terminal's current working directory. See the [Day 1 README](02_data_handling/day_1/README.md#how-to-run) for details. The [CSV line-ending note](02_data_handling/day_1/README.md#csv-line-endings-and-the-windows-fix) explains the Windows blank-line issue and the commented original code beside the active fixes.
 
