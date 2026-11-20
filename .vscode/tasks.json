@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Data Science Day 4 Streamlit",
+            "type": "process",
+            "command": "python",
+            "args": [
+                "-m",
+                "streamlit",
+                "run",
+                "${workspaceFolder}/challenges/05_data_science/day_4/day_4.py",
+                "--server.runOnSave",
+                "true",
+                "--server.headless",
+                "true"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "isBackground": true,
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "runOptions": {
+                "instanceLimit": 1,
+                "instancePolicy": "silent"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "focus": false
+            }
+        }
+    ]
+}

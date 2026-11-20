@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling`, `03_web_scraping`, `04_automation`, and `05_data_science`, each added lesson has its own folder and README.
 
-**Status: in progress.** The first group has local days 1–11, `02_data_handling` and `03_web_scraping` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The current section is [05_data_science](05_data_science/README.md), with notebooks, dataset generation, and linear regression in local days 1–3. Individual project guides describe remaining challenge features.
+**Status: in progress.** The first group has local days 1–11, `02_data_handling` and `03_web_scraping` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The current section is [05_data_science](05_data_science/README.md), with notebooks, dataset generation, regression, and a Streamlit app in local days 1–4. Individual project guides describe remaining challenge features.
 
 ## Learning order
 
@@ -22,7 +22,7 @@ Project numbering restarts within each group. Folder names match the tutorial se
 | [02_data_handling](02_data_handling/README.md) | Local days 1–10 | In progress |
 | [03_web_scraping](03_web_scraping/README.md) | Local days 1–10: extraction, exports, images, APIs, SQLite, and PDFs | In progress |
 | [04_automation](04_automation/README.md) | Local days 1–4: file organization, renaming, Downloads monitoring, and system resources | In progress |
-| [05_data_science](05_data_science/README.md) | Local days 1–3: notebooks, dataset generation, and salary regression | In progress — current section |
+| [05_data_science](05_data_science/README.md) | Local days 1–4: notebooks, dataset generation, regression, and a Streamlit app | In progress — current section |
 
 Further challenge groups will be added as the course progresses.
 
@@ -68,16 +68,17 @@ Further challenge groups will be added as the course progresses.
 | `05_data_science` | 1 | [Introduction to Python Notebooks](05_data_science/day_1/README.md#day-1-explained) | Jupyter, Markdown and code cells, kernels, `print()`, `for`, `range()`, and f-strings. |
 | `05_data_science` | 2 | [Generate an Experience and Salary Dataset](05_data_science/day_2/README.md) | NumPy arrays, seeded random values, vectorized calculations, pandas DataFrames, and CSV export. |
 | `05_data_science` | 3 | [Salary Prediction with Linear Regression](05_data_science/day_3/README.md) | CSV input, features and targets, scikit-learn fitting/prediction, coefficients, and Matplotlib visualization. |
+| `05_data_science` | 4 | [Interactive Salary Predictor with Streamlit](05_data_science/day_4/README.md) | Local web server, numeric input, regression predictions, and embedded Matplotlib charts. |
 
 ## Original challenge statements
 
-The `DAY_*.md` files contain task descriptions maintained manually by the repository owner. Preserve original course wording where supplied. Web scraping Day 10 and Data Science Days 1–3 have marked, locally authored descriptions based on their supplied code, created at the owner's request because original statements were absent. Keep task files unchanged during later documentation updates; project explanations, running instructions, and progress belong in README files.
+The `DAY_*.md` files contain task descriptions maintained manually by the repository owner. Preserve original course wording where supplied. Web scraping Day 10 and Data Science Days 1–4 have marked, locally authored descriptions based on their supplied code, created at the owner's request because original statements were absent. Keep task files unchanged during later documentation updates; project explanations, running instructions, and progress belong in README files.
 
 As new days are added, document the project in its lesson README, where applicable, and update the relevant group's overview and this index.
 
 ## Running the projects
 
-For Python scripts, choose the command for the project you want to run from the repository root. Data Science Day 1 is a notebook; follow its separate instructions below.
+For regular Python scripts, choose a command below and run it from the repository root. Data Science Day 1 uses notebook cells, and Day 4 uses the Streamlit runner; follow their separate instructions below.
 
 ```powershell
 python "challenges/01_utilities/day_1.py"
@@ -138,6 +139,14 @@ Data Science Day 2 uses [NumPy](https://numpy.org/) to generate 100 synthetic ex
 Data Science Day 3 reads Day 2's CSV directly and fits a `LinearRegression` model using [scikit-learn](https://scikit-learn.org/stable/). It prints the fitted slope/intercept and displays data points and predictions with Matplotlib. It does not change the input CSV or automatically save output files. The [Day 3 guide](05_data_science/day_3/README.md) includes installation, the input dependency, code fixes, model explanations, and the official GitHub repository.
 
 The manually saved [Day 3 chart example](05_data_science/day_3/README.md#saved-chart-example) shows the synthetic salary records and their fitted regression line.
+
+Data Science Day 4 uses [Streamlit](https://streamlit.io/) to turn the same regression model into a local browser app. It reads Day 2's CSV, accepts years of experience, displays a formatted estimate, and embeds a chart. After installing its dependencies, start it from the repository root with:
+
+```powershell
+python -m streamlit run "challenges/05_data_science/day_4/day_4.py" --server.runOnSave true
+```
+
+Open the Local URL printed in the terminal. In VS Code, saving `day_4.py` starts a dedicated Streamlit task; later saves reuse that task and rerun the app. This replaces ordinary `python -u` execution for this file only. Stop the server with **Ctrl + C** in its task terminal. The [Day 4 guide](05_data_science/day_4/README.md) contains installation and troubleshooting details.
 
 The CSV contact book saves `contacts.csv` beside its script in `02_data_handling/day_1`, regardless of the terminal's current working directory. See the [Day 1 README](02_data_handling/day_1/README.md#how-to-run) for details. The [CSV line-ending note](02_data_handling/day_1/README.md#csv-line-endings-and-the-windows-fix) explains the Windows blank-line issue and the commented original code beside the active fixes.
 
