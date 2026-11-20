@@ -371,3 +371,10 @@ Section 14: Day [32-35] automation projects in Python
 111. Day 3 Watchdog to monitor streaming of events
 
 112. Day 4 A system monitoring software for real world
+
+
+
+Section 15: Day [36-45] data science projects in Python
+
+
+113. Day 1 Anaconda and Jupyter notebooks

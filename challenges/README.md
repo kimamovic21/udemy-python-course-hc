@@ -1,18 +1,18 @@
 # Daily Challenges
 
-This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling`, `03_web_scraping`, and `04_automation`, each added lesson has its own README with explanations, examples, and running instructions.
+This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling`, `03_web_scraping`, `04_automation`, and `05_data_science`, each added lesson has its own folder and README.
 
-**Status: in progress.** The first group has local days 1–11, and `02_data_handling` contains local days 1–10. `03_web_scraping` has local days 1–10 documented, covering extraction, exports, images, APIs, SQLite, and PDFs. The current section is [04_automation](04_automation/README.md), with Days 1–4 covering file organization, batch renaming, Downloads monitoring, and system resource monitoring. Individual project guides describe remaining challenge features.
+**Status: in progress.** The first group has local days 1–11, `02_data_handling` and `03_web_scraping` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The current section is [05_data_science](05_data_science/README.md), starting with a Python notebook introduction. Individual project guides describe remaining challenge features.
 
 ## Learning order
 
 1. Work through the numbered lesson folders up to `11_exceptions`.
-2. Complete the challenge groups in order: `01_utilities`, `02_data_handling`, `03_web_scraping`, then `04_automation`. Within each group, follow its local project numbers.
+2. Complete the challenge groups in order: `01_utilities`, `02_data_handling`, `03_web_scraping`, `04_automation`, then `05_data_science`. Within each group, follow its local project numbers.
 3. After all challenge groups, continue with the next numbered course section (`12_...`, when added).
 
 Follow this order even if your editor sorts the folders differently.
 
-Project numbering restarts within each group: its first files are `DAY_1.md` and `day_1.py`. Folder names match the tutorial sections (`01_utilities`, `02_data_handling`, `03_web_scraping`, and `04_automation`); file numbers identify projects within each group. Keep the tutorial's original names and use the group path to distinguish projects with the same filename. Inside `02_data_handling` and `03_web_scraping`, each lesson has a separate `day_1` through `day_10` folder. Automation follows the same layout, starting with `04_automation/day_1`, which contains its script, task statement, and lesson README. Use folder and script names without leading zeros.
+Project numbering restarts within each group. Folder names match the tutorial sections, and local file numbers identify projects within each group. Use the group path to distinguish projects with the same filename. Inside `02_data_handling` and `03_web_scraping`, each lesson has a separate `day_1` through `day_10` folder. Automation and Data Science follow the same layout. Data Science Day 1 is in `05_data_science/day_1`, containing `day_1.ipynb`, `DAY_1.md`, and its own README. Use folder and file numbers without leading zeros.
 
 ## Challenge groups
 
@@ -21,10 +21,10 @@ Project numbering restarts within each group: its first files are `DAY_1.md` and
 | [01_utilities](01_utilities/README.md) | Local days 1–11 | In progress |
 | [02_data_handling](02_data_handling/README.md) | Local days 1–10 | In progress |
 | [03_web_scraping](03_web_scraping/README.md) | Local days 1–10: extraction, exports, images, APIs, SQLite, and PDFs | In progress |
-| [04_automation](04_automation/README.md) | Local days 1–4: file organization, renaming, Downloads monitoring, and system resources | In progress — current section |
-| `day [32-35]` | Reserved for later challenges | Planned |
-| `day [36-45]` | Reserved for later challenges | Planned |
-| `day [46-52]` | Reserved for later challenges | Planned |
+| [04_automation](04_automation/README.md) | Local days 1–4: file organization, renaming, Downloads monitoring, and system resources | In progress |
+| [05_data_science](05_data_science/README.md) | Local day 1: notebook notes, cell execution, printing, and loops | In progress — current section |
+
+Further challenge groups will be added as the course progresses.
 
 ## Projects covered so far
 
@@ -65,16 +65,17 @@ Project numbering restarts within each group: its first files are `DAY_1.md` and
 | `04_automation` | 2 | [Batch Rename Files in a Folder](04_automation/day_2/README.md) | Extension filtering, sorting, `enumerate()`, filename checks, a preview, confirmation, and renaming within the lesson folder. |
 | `04_automation` | 3 | [Auto File Organizer with Watchdog](04_automation/day_3/README.md) | Filesystem events, observers, temporary-download filtering, stability checks, retries, and sorting files in Downloads. |
 | `04_automation` | 4 | [Real-Time System Resource Monitor](04_automation/day_4/README.md) | psutil, CPU/RAM/disk statistics, byte conversion, terminal refreshes, timing, and `KeyboardInterrupt`. |
+| `05_data_science` | 1 | [Introduction to Python Notebooks](05_data_science/day_1/README.md#day-1-explained) | Jupyter, Markdown and code cells, kernels, `print()`, `for`, `range()`, and f-strings. |
 
 ## Original challenge statements
 
-The `DAY_*.md` files contain task descriptions maintained manually by the repository owner. Preserve original course wording where supplied. The web scraping Day 10 description is a marked, locally authored exception based on its Python script. Keep task files unchanged during documentation updates; project explanations, running instructions, and progress belong in README files.
+The `DAY_*.md` files contain task descriptions maintained manually by the repository owner. Preserve original course wording where supplied. Web scraping Day 10 and Data Science Day 1 have marked, locally authored descriptions based on their supplied code, created at the owner's request because original statements were absent. Keep task files unchanged during later documentation updates; project explanations, running instructions, and progress belong in README files.
 
 As new days are added, document the project in its lesson README, where applicable, and update the relevant group's overview and this index.
 
 ## Running the projects
 
-From the repository root, choose the command for the project you want to run:
+For Python scripts, choose the command for the project you want to run from the repository root. Data Science Day 1 is a notebook; follow its separate instructions below.
 
 ```powershell
 python "challenges/01_utilities/day_1.py"
@@ -125,6 +126,8 @@ Automation Day 2 renames matching files only in `04_automation/day_2/images`, re
 Automation Day 3 requires `watchdog` and watches the user's Downloads folder, rather than the lesson folder. New JPG/PNG images go to `Images`, PDFs to `PDFs`, and other completed files to `Others`. Common temporary downloads are skipped, and files are checked for stability before moving. Keep the process running and stop it with **Ctrl + C** before restarting. The [Day 3 guide](04_automation/day_3/README.md) includes installation, the original tutorial code, the Chrome download fix, limitations, and links to the official Watchdog documentation and GitHub repository.
 
 Automation Day 4 requires `psutil` and displays CPU, RAM, and disk space usage in a terminal dashboard. It refreshes approximately every four seconds and creates no output files. Stop it with **Ctrl + C**. The [Day 4 guide](04_automation/day_4/README.md) includes installation, reading explanations, package links, and the remaining CPU/RAM warning requirement.
+
+Data Science Day 1 uses [day_1.ipynb](05_data_science/day_1/day_1.ipynb). Open it in Jupyter Notebook, JupyterLab, or VS Code's notebook editor, select a Python kernel, and run cells with **Shift + Enter** or **Run All**. **Ctrl + S** saves the notebook; the existing `.py` Run on Save configuration does not execute its cells. The [Day 1 guide](05_data_science/day_1/README.md) explains setup, outputs, and the roles of [Anaconda](https://www.anaconda.com/download) and [Project Jupyter](https://jupyter.org/).
 
 The CSV contact book saves `contacts.csv` beside its script in `02_data_handling/day_1`, regardless of the terminal's current working directory. See the [Day 1 README](02_data_handling/day_1/README.md#how-to-run) for details. The [CSV line-ending note](02_data_handling/day_1/README.md#csv-line-endings-and-the-windows-fix) explains the Windows blank-line issue and the commented original code beside the active fixes.
 

@@ -23,7 +23,7 @@ My Python learning repository, starting with the basics and adding exercises as 
 | [09_decorators](09_decorators/README.md) | Wrapping functions with decorators, preserving metadata, logging, role checks, and caching results (exercise 25). Section in progress. |
 | [10_oop](10_oop/README.md) | Classes, objects, attributes, inheritance, composition, MRO, instance, static, and class methods, and properties with validation. Exercises 26–27: a device tracker and vehicle rental system; section in progress. |
 | [11_exceptions](11_exceptions/README.md) | Built-in and custom exceptions, tracebacks, input validation, chai billing, and file handling with `try`, `except`, `else`, `finally`, and `raise`. Section in progress. |
-| [challenges](challenges/README.md) | Daily projects organised by tutorial section: utilities, data handling, web scraping, and automation. Currently working in `04_automation` on file tools, Downloads monitoring, and a system resource dashboard. The challenge index lists groups, projects, and progress. |
+| [challenges](challenges/README.md) | Daily projects covering utilities, data handling, web scraping, automation, and data science. Currently starting `05_data_science` with Python notebooks, Anaconda, and Jupyter. The challenge index lists groups, projects, and progress. |
 
 Start with **01_starter**, the first folder in this project. Detailed explanations, running instructions, and expected output are documented in the corresponding lesson, project, or challenge-group README files. New folders will be added to this overview as the course progresses.
 
@@ -37,13 +37,15 @@ After **11_exceptions**, work through all the groups in the [challenge index](ch
 
 - [`.vscode/settings.json`](.vscode/settings.json) — project editor settings for Python, Black formatting, and automatic execution after **Ctrl + S**, using the Python available in the terminal.
 - [`documentation.txt`](documentation.txt) — tutorial video names, maintained manually to keep track of my course progress.
-- `challenges/**/DAY_*.md` — challenge statements, maintained manually. Course wording is preserved where supplied; web scraping Day 10 has a marked, locally authored description. Project explanations and progress are recorded in the corresponding README files.
+- `challenges/**/DAY_*.md` — challenge statements, maintained manually. Course wording is preserved where supplied; web scraping Day 10 and Data Science Day 1 have marked, locally authored descriptions. Project explanations and progress are recorded in the corresponding README files.
 
 ## Quick start
 
 Open the project root in VS Code with [Python 3](https://www.python.org/) and these extensions installed: [Python by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [Run on Save by pucelle](https://marketplace.visualstudio.com/items?itemName=pucelle.run-on-save), and [Black Formatter by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter). Select your Python interpreter, edit a Python file, and save with **Ctrl + S** to format and run it in the terminal. Use **Shift + Alt + F** to format a file manually.
 
 Run on Save launches the saved file with `python -u`, using the Python available in its terminal. For interactive scripts, click inside that terminal and submit each answer with **Enter**.
+
+The notebook lessons in [05_data_science](challenges/05_data_science/README.md) use `.ipynb` files. Open them in a notebook editor, select a Python kernel, and run cells with **Shift + Enter** or **Run All**. **Ctrl + S** saves the notebook. See the group guide for the Anaconda/Jupyter and VS Code setup options.
 
 See [01_starter: first-time setup](01_starter/README.md#first-time-setup) for step-by-step instructions.
 
@@ -86,5 +88,7 @@ Day 9 imports `schedule` without using it to schedule jobs; Day 8 uses it active
 - [Python virtual environments (`venv`)](https://docs.python.org/3/tutorial/venv.html) — an official introduction to creating and activating project environments and managing their packages.
 - [Watchdog quickstart](https://python-watchdog.readthedocs.io/en/stable/quickstart.html) — observers and event handlers for monitoring folders, as used in Automation Day 3.
 - [psutil documentation](https://psutil.io/) — system resource statistics used for the CPU, RAM, and disk dashboard in Automation Day 4.
+- [Download Anaconda](https://www.anaconda.com/download) — Python distribution and notebook tools introduced in the data science section.
+- [Project Jupyter](https://jupyter.org/) — tools for interactive notebooks containing notes, code, and outputs.
 - [Python Playground](https://python-playground.com/) — a place to try small Python examples in the browser.
 - [PEP 8: Style Guide for Python Code](https://peps.python.org/pep-0008/#introduction) — a reference for naming and formatting code; consult it gradually as you practise.

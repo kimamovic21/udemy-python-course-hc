@@ -2,7 +2,7 @@
 
 This group corresponds to `04_automation` in the Udemy tutorial and follows [03_web_scraping](../03_web_scraping/README.md).
 
-**Status: in progress — current course section.** Days 1–4 cover file organization, batch renaming, Downloads monitoring with Watchdog, and a terminal system resource monitor using psutil.
+**Status: local days 1–4 documented.** These projects cover file organization, batch renaming, Downloads monitoring with Watchdog, and a terminal system resource monitor using psutil. Individual guides identify remaining task features. Continue with [05_data_science](../05_data_science/README.md), the current course section.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 
