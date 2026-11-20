@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling`, `03_web_scraping`, and `04_automation`, each added lesson has its own README with explanations, examples, and running instructions.
 
-**Status: in progress.** The first group has local days 1–11, and `02_data_handling` contains local days 1–10. `03_web_scraping` has local days 1–10 documented, covering extraction, exports, images, APIs, SQLite, and PDFs. The current section is [04_automation](04_automation/README.md), with Days 1–3 covering file organization, batch renaming, and Downloads monitoring with Watchdog. Individual project guides describe remaining challenge features.
+**Status: in progress.** The first group has local days 1–11, and `02_data_handling` contains local days 1–10. `03_web_scraping` has local days 1–10 documented, covering extraction, exports, images, APIs, SQLite, and PDFs. The current section is [04_automation](04_automation/README.md), with Days 1–4 covering file organization, batch renaming, Downloads monitoring, and system resource monitoring. Individual project guides describe remaining challenge features.
 
 ## Learning order
 
@@ -21,7 +21,7 @@ Project numbering restarts within each group: its first files are `DAY_1.md` and
 | [01_utilities](01_utilities/README.md) | Local days 1–11 | In progress |
 | [02_data_handling](02_data_handling/README.md) | Local days 1–10 | In progress |
 | [03_web_scraping](03_web_scraping/README.md) | Local days 1–10: extraction, exports, images, APIs, SQLite, and PDFs | In progress |
-| [04_automation](04_automation/README.md) | Local days 1–3: file organization, renaming, and Downloads monitoring | In progress — current section |
+| [04_automation](04_automation/README.md) | Local days 1–4: file organization, renaming, Downloads monitoring, and system resources | In progress — current section |
 | `day [32-35]` | Reserved for later challenges | Planned |
 | `day [36-45]` | Reserved for later challenges | Planned |
 | `day [46-52]` | Reserved for later challenges | Planned |
@@ -64,6 +64,7 @@ Project numbering restarts within each group: its first files are `DAY_1.md` and
 | `04_automation` | 1 | [File Organizer](04_automation/day_1/README.md) | `os`, `shutil`, extension matching, folder creation, and moving files beside the script while skipping project files and existing folders. |
 | `04_automation` | 2 | [Batch Rename Files in a Folder](04_automation/day_2/README.md) | Extension filtering, sorting, `enumerate()`, filename checks, a preview, confirmation, and renaming within the lesson folder. |
 | `04_automation` | 3 | [Auto File Organizer with Watchdog](04_automation/day_3/README.md) | Filesystem events, observers, temporary-download filtering, stability checks, retries, and sorting files in Downloads. |
+| `04_automation` | 4 | [Real-Time System Resource Monitor](04_automation/day_4/README.md) | psutil, CPU/RAM/disk statistics, byte conversion, terminal refreshes, timing, and `KeyboardInterrupt`. |
 
 ## Original challenge statements
 
@@ -110,6 +111,7 @@ python "challenges/03_web_scraping/day_10/day_10.py"
 python "challenges/04_automation/day_1/day_1.py"
 python "challenges/04_automation/day_2/day_2.py"
 python "challenges/04_automation/day_3/day_3.py"
+python "challenges/04_automation/day_4/day_4.py"
 ```
 
 Paths are quoted consistently so these commands also work if the repository is stored in a directory with spaces. Answer each prompt in the terminal and press **Enter** to continue.
@@ -121,6 +123,8 @@ Automation Day 1 uses only Python's standard library and runs without an input p
 Automation Day 2 renames matching files only in `04_automation/day_2/images`, regardless of the terminal's current directory. Create this Git-ignored folder and add your practice images before running. Enter a base name and matching extension including the dot, review the preview, and confirm with `y`. It skips nested folders and checks for existing destination names. The [Day 2 guide](04_automation/day_2/README.md) shows how three house photos become `house_1.jpg`, `house_2.jpg`, and `house_3.jpg` and explains that undo is not implemented.
 
 Automation Day 3 requires `watchdog` and watches the user's Downloads folder, rather than the lesson folder. New JPG/PNG images go to `Images`, PDFs to `PDFs`, and other completed files to `Others`. Common temporary downloads are skipped, and files are checked for stability before moving. Keep the process running and stop it with **Ctrl + C** before restarting. The [Day 3 guide](04_automation/day_3/README.md) includes installation, the original tutorial code, the Chrome download fix, limitations, and links to the official Watchdog documentation and GitHub repository.
+
+Automation Day 4 requires `psutil` and displays CPU, RAM, and disk space usage in a terminal dashboard. It refreshes approximately every four seconds and creates no output files. Stop it with **Ctrl + C**. The [Day 4 guide](04_automation/day_4/README.md) includes installation, reading explanations, package links, and the remaining CPU/RAM warning requirement.
 
 The CSV contact book saves `contacts.csv` beside its script in `02_data_handling/day_1`, regardless of the terminal's current working directory. See the [Day 1 README](02_data_handling/day_1/README.md#how-to-run) for details. The [CSV line-ending note](02_data_handling/day_1/README.md#csv-line-endings-and-the-windows-fix) explains the Windows blank-line issue and the commented original code beside the active fixes.
 
