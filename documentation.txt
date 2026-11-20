@@ -380,3 +380,5 @@ Section 15: Day [36-45] data science projects in Python
 113. Day 1 Anaconda and Jupyter notebooks
 
 114. Day 2 Generate your own dataset with Numpy and Pandas
+
+115. Day 3 A project on linear regression
