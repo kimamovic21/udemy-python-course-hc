@@ -32,13 +32,13 @@ The initial import error occurred because Streamlit was not installed in the pro
 
 ## Saving changes in VS Code
 
-This app needs the Streamlit runner. The workspace's regular `python -u` Run on Save command excludes only `challenges/05_data_science/day_4/day_4.py`. A separate matching rule invokes `workbench.action.tasks.build`, which starts **Run Data Science Day 4 Streamlit**, configured as the default build task in `.vscode/tasks.json`.
+This app needs the Streamlit runner. The workspace's regular `python -u` Run on Save command excludes the Streamlit scripts in Data Science Days 4 and 7. A separate matching rule invokes `workbench.action.tasks.build`, which starts **Run current Data Science Streamlit app**, configured as the default build task in `.vscode/tasks.json`. It runs the currently open file.
 
 The installed Run on Save version appends its `args` to the VS Code command name. Passing the task label that way caused a command-not-found error. Calling the default task without arguments avoids that issue. **Ctrl + Shift + B** can also start this task.
 
-The first manual save starts the server in its own terminal. Later saves keep using that task, with `instanceLimit: 1` and `instancePolicy: "silent"` preventing duplicate task instances. `--server.runOnSave true` lets Streamlit rerun the app after code changes. The task runs headlessly, so open its Local URL yourself. Stop it with **Ctrl + C** in the task terminal; the next save can start it again. Other Python lessons retain their existing Run on Save behavior.
+The first manual save starts the server in its own terminal. Later saves keep using that task, with `instanceLimit: 1` and `instancePolicy: "silent"` preventing duplicate task instances. `--server.runOnSave true` lets Streamlit rerun the app after code changes. The task runs headlessly, so open its Local URL yourself. Stop it with **Ctrl + C** in the task terminal before switching to another Streamlit lesson; then open that lesson's script and save to start its app. Other Python lessons retain their existing Run on Save behavior.
 
-If VS Code has not picked up the new save rule, run **Developer: Reload Window**, then save `day_4.py` again. You can also start the task through **Terminal → Run Task → Run Data Science Day 4 Streamlit**.
+If VS Code has not picked up the new save rule, run **Developer: Reload Window**, then save `day_4.py` again. You can also start the task through **Terminal → Run Task → Run current Data Science Streamlit app** with the intended app file open.
 
 ## Input data and files
 

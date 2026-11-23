@@ -11,7 +11,7 @@
             "languages": [
                 "python"
             ],
-            "notMatch": "[\\\\/]challenges[\\\\/]05_data_science[\\\\/]day_4[\\\\/]day_4\\.py$",
+            "notMatch": "[\\\\/]challenges[\\\\/]05_data_science[\\\\/](?:day_4[\\\\/]day_4|day_7[\\\\/]day_7)\\.py$",
             "command": "python -u ${file}",
             "runIn": "terminal"
         },
@@ -19,7 +19,7 @@
             "languages": [
                 "python"
             ],
-            "match": "[\\\\/]challenges[\\\\/]05_data_science[\\\\/]day_4[\\\\/]day_4\\.py$",
+            "match": "[\\\\/]challenges[\\\\/]05_data_science[\\\\/](?:day_4[\\\\/]day_4|day_7[\\\\/]day_7)\\.py$",
             "command": "workbench.action.tasks.build",
             "runIn": "vscode"
         }

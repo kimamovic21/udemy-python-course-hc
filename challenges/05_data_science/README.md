@@ -2,7 +2,7 @@
 
 This group corresponds to `05_data_science` in the Udemy tutorial and follows [04_automation](../04_automation/README.md).
 
-**Status: in progress — current course section.** Days 1–6 cover notebooks, synthetic datasets, regression, a Streamlit app, labeled comments, and text classification.
+**Status: in progress — current course section.** Days 1–7 cover notebooks, synthetic datasets, regression, labeled comments, classification, and Streamlit interfaces for salary and comment predictions.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 
@@ -18,8 +18,9 @@ Each lesson has its own folder, starting with `day_1`. Use names without leading
 | [day_4](day_4/README.md) | Interactive Salary Predictor with Streamlit | Browser UI, numeric widgets, model predictions, embedded charts, and running a local Streamlit server. |
 | [day_5](day_5/README.md) | Generate a Labeled YouTube Comments Dataset | Random sampling, labeled dictionaries, pandas DataFrames, and a balanced 100-row CSV. |
 | [day_6](day_6/README.md) | Classify Comments with TF-IDF and Logistic Regression | Training/test splits, text features, pipelines, classification, and interpreting accuracy. |
+| [day_7](day_7/README.md) | YouTube Comment Classifier with Streamlit | Text input, cached model training, TF-IDF classification, local CSV data, and browser messages. |
 
-The Day 1–6 task descriptions were authored locally from the supplied notebook/scripts because no original statements were provided. Their `DAY_*.md` files identify that origin. Preserve task statements during later documentation updates.
+The Day 1–7 task descriptions were authored locally from the supplied notebook/scripts because no original statements were provided. Their `DAY_*.md` files identify that origin. Preserve task statements during later documentation updates.
 
 ## Opening the notebooks
 
@@ -62,7 +63,7 @@ python -m pip install streamlit pandas matplotlib scikit-learn
 python -m streamlit run "challenges/05_data_science/day_4/day_4.py" --server.runOnSave true
 ```
 
-Open the Local URL printed in the terminal and keep the process running. Stop it with **Ctrl + C**. In VS Code, **Ctrl + S** on `day_4.py` starts a dedicated Streamlit task instead of the regular `python -u` command. Later saves reuse the running task and rerun the app. The [Day 4 guide](day_4/README.md) explains setup, task controls, the experience input, predictions, chart, and local code adjustments.
+Open the Local URL printed in the terminal and keep the process running. Stop it with **Ctrl + C**. In VS Code, **Ctrl + S** on `day_4.py` starts the shared Streamlit task instead of the regular `python -u` command. Later saves reuse the running task and rerun the app. Stop the previous app before switching between Days 4 and 7. The [Day 4 guide](day_4/README.md) explains setup, task controls, the experience input, predictions, chart, and local code adjustments.
 
 ## Running Day 5
 
@@ -86,6 +87,17 @@ python "challenges/05_data_science/day_6/day_6.py"
 
 The input is included as `day_6/youtube_comments.csv`, beside `day_6.py`. Updating Day 5 does not change this local copy; follow the [Day 6 copy instructions](day_6/README.md#input-file-and-path-fix) to refresh it. Day 6 uses 80% of the rows for training and 20% for testing, prints an accuracy percentage, then exits. It runs through ordinary **Ctrl + S** execution and creates no output files. The guide explains the pipeline and why repeated sample comments can make a 100% score misleading for new text.
 
+## Running Day 7
+
+Day 7 uses its own `day_7/youtube_comments.csv`, copied from Day 6, to train a cached classifier and predict labels for user-entered comments.
+
+```powershell
+python -m pip install streamlit pandas scikit-learn
+python -m streamlit run "challenges/05_data_science/day_7/day_7.py" --server.runOnSave true
+```
+
+In VS Code, open `day_7.py` and press **Ctrl + S** to start the shared Streamlit task. Open its Local URL, normally `http://localhost:8501`. Stop any previously running Day 4 or Day 7 task with **Ctrl + C** before switching apps. The [Day 7 guide](day_7/README.md) explains text input, prediction messages, local data copies, and restarting after CSV updates so the cached model is retrained. This app trains on the full CSV and does not report test accuracy.
+
 ## Useful links for beginners
 
 - [Download Anaconda](https://www.anaconda.com/download): Python distribution and notebook tools introduced in this section.
@@ -102,6 +114,7 @@ The input is included as `day_6/youtube_comments.csv`, beside `day_6.py`. Updati
 - [LogisticRegression reference](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html): scikit-learn's classification model used in Day 6.
 - [Streamlit](https://streamlit.io/): the framework used for the Day 4 browser interface.
 - [Run your Streamlit app](https://docs.streamlit.io/develop/concepts/architecture/run-your-app): starting the local server using the project's Python interpreter.
+- [Streamlit resource caching](https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_resource): reusing the fitted comment classifier across Day 7 app reruns.
 - [TfidfVectorizer reference](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html): converting text into TF-IDF features, introduced as a reference in Day 5 and used in Day 6.
 
 ## Package source repositories
@@ -111,7 +124,7 @@ The input is included as `day_6/youtube_comments.csv`, beside `day_6.py`. Updati
 - [ipykernel — GitHub](https://github.com/ipython/ipykernel): Python kernel used by the notebook environment; [official documentation](https://ipykernel.readthedocs.io/en/stable/).
 - [scikit-learn — GitHub](https://github.com/scikit-learn/scikit-learn): regression, text vectorization, pipelines, train/test splitting, and classification in Days 3–6.
 - [Matplotlib — GitHub](https://github.com/matplotlib/matplotlib): imported as `matplotlib.pyplot` for the Day 3 chart.
-- [Streamlit — GitHub](https://github.com/streamlit/streamlit): imported as `streamlit` (`st`) for the Day 4 app.
+- [Streamlit — GitHub](https://github.com/streamlit/streamlit): imported as `streamlit` (`st`) for the Day 4 and Day 7 apps.
 
 Use **Star** on GitHub to support the projects. See the [project-wide package index](../../README.md#package-source-repositories) for other packages used in the course.
 

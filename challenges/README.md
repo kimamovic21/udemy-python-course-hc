@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling`, `03_web_scraping`, `04_automation`, and `05_data_science`, each added lesson has its own folder and README.
 
-**Status: in progress.** The first group has local days 1–11, `02_data_handling` and `03_web_scraping` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The current section is [05_data_science](05_data_science/README.md), with notebooks, datasets, regression, an app, and comment classification in local days 1–6. Individual project guides describe remaining challenge features.
+**Status: in progress.** The first group has local days 1–11, `02_data_handling` and `03_web_scraping` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The current section is [05_data_science](05_data_science/README.md), with notebooks, datasets, regression, classification, and interactive apps in local days 1–7. Individual project guides describe remaining challenge features.
 
 ## Learning order
 
@@ -22,7 +22,7 @@ Project numbering restarts within each group. Folder names match the tutorial se
 | [02_data_handling](02_data_handling/README.md) | Local days 1–10 | In progress |
 | [03_web_scraping](03_web_scraping/README.md) | Local days 1–10: extraction, exports, images, APIs, SQLite, and PDFs | In progress |
 | [04_automation](04_automation/README.md) | Local days 1–4: file organization, renaming, Downloads monitoring, and system resources | In progress |
-| [05_data_science](05_data_science/README.md) | Local days 1–6: notebooks, synthetic datasets, regression, an app, and text classification | In progress — current section |
+| [05_data_science](05_data_science/README.md) | Local days 1–7: notebooks, datasets, regression, classification, and Streamlit apps | In progress — current section |
 
 Further challenge groups will be added as the course progresses.
 
@@ -71,16 +71,17 @@ Further challenge groups will be added as the course progresses.
 | `05_data_science` | 4 | [Interactive Salary Predictor with Streamlit](05_data_science/day_4/README.md) | Local web server, numeric input, regression predictions, and embedded Matplotlib charts. |
 | `05_data_science` | 5 | [Generate a Labeled YouTube Comments Dataset](05_data_science/day_5/README.md) | Random comment selection, class labels, dictionaries, pandas DataFrames, and CSV export. |
 | `05_data_science` | 6 | [Classify Comments with TF-IDF and Logistic Regression](05_data_science/day_6/README.md) | Text features, pipelines, train/test splitting, logistic regression, and accuracy. |
+| `05_data_science` | 7 | [YouTube Comment Classifier with Streamlit](05_data_science/day_7/README.md) | Cached model training, local CSV input, text widgets, and interactive classification messages. |
 
 ## Original challenge statements
 
-The `DAY_*.md` files contain task descriptions maintained manually by the repository owner. Preserve original course wording where supplied. Web scraping Day 10 and Data Science Days 1–6 have marked, locally authored descriptions based on their supplied code, created at the owner's request because original statements were absent. Keep task files unchanged during later documentation updates; project explanations, running instructions, and progress belong in README files.
+The `DAY_*.md` files contain task descriptions maintained manually by the repository owner. Preserve original course wording where supplied. Web scraping Day 10 and Data Science Days 1–7 have marked, locally authored descriptions based on their supplied code, created at the owner's request because original statements were absent. Keep task files unchanged during later documentation updates; project explanations, running instructions, and progress belong in README files.
 
 As new days are added, document the project in its lesson README, where applicable, and update the relevant group's overview and this index.
 
 ## Running the projects
 
-For regular Python scripts, choose a command below and run it from the repository root. Data Science Day 1 uses notebook cells, and Day 4 uses the Streamlit runner; follow their separate instructions below.
+For regular Python scripts, choose a command below and run it from the repository root. Data Science Day 1 uses notebook cells, and Days 4 and 7 use the Streamlit runner; follow their separate instructions below.
 
 ```powershell
 python "challenges/01_utilities/day_1.py"
@@ -150,11 +151,19 @@ Data Science Day 4 uses [Streamlit](https://streamlit.io/) to turn the same regr
 python -m streamlit run "challenges/05_data_science/day_4/day_4.py" --server.runOnSave true
 ```
 
-Open the Local URL printed in the terminal. In VS Code, saving `day_4.py` starts a dedicated Streamlit task; later saves reuse that task and rerun the app. This replaces ordinary `python -u` execution for this file only. Stop the server with **Ctrl + C** in its task terminal. The [Day 4 guide](05_data_science/day_4/README.md) contains installation and troubleshooting details.
+Open the Local URL printed in the terminal. In VS Code, saving `day_4.py` starts the shared Streamlit task; later saves reuse that task and rerun the app. The Streamlit scripts in Days 4 and 7 use this task in place of ordinary `python -u` execution. Stop the server with **Ctrl + C** in its task terminal before switching apps. The [Day 4 guide](05_data_science/day_4/README.md) contains installation and troubleshooting details.
 
 Data Science Day 5 randomly samples predefined comments and writes `05_data_science/day_5/youtube_comments.csv`, with 50 `toxic` and 50 `support` records. It generates local practice data rather than downloading from YouTube. The [Day 5 guide](05_data_science/day_5/README.md) explains the CSV and links to `TfidfVectorizer`, which is used by the classifier in Day 6.
 
 Data Science Day 6 reads its own `05_data_science/day_6/youtube_comments.csv`, copied from Day 5's generated data. It trains a TF-IDF/logistic regression pipeline and reports accuracy on a 20% test split, then exits without generating files or prompting for new text. The [Day 6 guide](05_data_science/day_6/README.md) documents the local input, copy instructions, training flow, reference links, original instructor source, and limitations of testing on repeated sample comments.
+
+Data Science Day 7 adds a Streamlit browser interface for comment classification. Its own CSV copy is kept beside the script, and `st.cache_resource` reuses a model trained on the full dataset. Start it with **Ctrl + S** on `day_7.py`, or manually from the repository root:
+
+```powershell
+python -m streamlit run "challenges/05_data_science/day_7/day_7.py" --server.runOnSave true
+```
+
+Open the Local URL printed in the terminal, enter a comment, and view the classification message. The [Day 7 guide](05_data_science/day_7/README.md) explains setup, cache behavior, input limitations, and switching between Streamlit lessons.
 
 The CSV contact book saves `contacts.csv` beside its script in `02_data_handling/day_1`, regardless of the terminal's current working directory. See the [Day 1 README](02_data_handling/day_1/README.md#how-to-run) for details. The [CSV line-ending note](02_data_handling/day_1/README.md#csv-line-endings-and-the-windows-fix) explains the Windows blank-line issue and the commented original code beside the active fixes.
 

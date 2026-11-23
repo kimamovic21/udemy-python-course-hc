@@ -2,14 +2,14 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Run Data Science Day 4 Streamlit",
+            "label": "Run current Data Science Streamlit app",
             "type": "process",
             "command": "python",
             "args": [
                 "-m",
                 "streamlit",
                 "run",
-                "${workspaceFolder}/challenges/05_data_science/day_4/day_4.py",
+                "${file}",
                 "--server.runOnSave",
                 "true",
                 "--server.headless",
