@@ -2,7 +2,7 @@
 
 This group corresponds to `05_data_science` in the Udemy tutorial and follows [04_automation](../04_automation/README.md).
 
-**Status: in progress — current course section.** Days 1–4 introduce notebooks, dataset generation, linear regression, and an interactive Streamlit salary predictor.
+**Status: in progress — current course section.** Days 1–5 cover notebooks, synthetic datasets, linear regression, a Streamlit salary predictor, and labeled comment data.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 
@@ -16,8 +16,9 @@ Each lesson has its own folder, starting with `day_1`. Use names without leading
 | [day_2](day_2/README.md) | Generate an Experience and Salary Dataset | NumPy arrays, seeded random values, pandas DataFrames, CSV export, and script-relative output paths. |
 | [day_3](day_3/README.md) | Salary Prediction with Linear Regression | CSV input, features and targets, scikit-learn, model fitting, predictions, and Matplotlib charts. |
 | [day_4](day_4/README.md) | Interactive Salary Predictor with Streamlit | Browser UI, numeric widgets, model predictions, embedded charts, and running a local Streamlit server. |
+| [day_5](day_5/README.md) | Generate a Labeled YouTube Comments Dataset | Random sampling, labeled dictionaries, pandas DataFrames, and a balanced 100-row CSV. |
 
-The Day 1–4 task descriptions were authored locally from the supplied notebook/scripts because no original statements were provided. Their `DAY_*.md` files identify that origin. Preserve task statements during later documentation updates.
+The Day 1–5 task descriptions were authored locally from the supplied notebook/scripts because no original statements were provided. Their `DAY_*.md` files identify that origin. Preserve task statements during later documentation updates.
 
 ## Opening the notebooks
 
@@ -62,6 +63,17 @@ python -m streamlit run "challenges/05_data_science/day_4/day_4.py" --server.run
 
 Open the Local URL printed in the terminal and keep the process running. Stop it with **Ctrl + C**. In VS Code, **Ctrl + S** on `day_4.py` starts a dedicated Streamlit task instead of the regular `python -u` command. Later saves reuse the running task and rerun the app. The [Day 4 guide](day_4/README.md) explains setup, task controls, the experience input, predictions, chart, and local code adjustments.
 
+## Running Day 5
+
+Day 5 uses pandas and imports NumPy, with Python's built-in `random` module selecting comments from predefined lists:
+
+```powershell
+python -m pip install pandas numpy
+python "challenges/05_data_science/day_5/day_5.py"
+```
+
+It also runs on **Ctrl + S** as a regular Python script. Each run creates or replaces `day_5/youtube_comments.csv` with 100 records: 50 labeled `toxic` and 50 labeled `support`. Repeated comments are expected. The [Day 5 guide](day_5/README.md) explains the generation logic and the script-relative output path. `TfidfVectorizer` is linked as a related reference; text vectorization and classifier training are not implemented in this generator.
+
 ## Useful links for beginners
 
 - [Download Anaconda](https://www.anaconda.com/download): Python distribution and notebook tools introduced in this section.
@@ -76,6 +88,7 @@ Open the Local URL printed in the terminal and keep the process running. Stop it
 - [LinearRegression reference](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html): the model used for experience/salary predictions.
 - [Streamlit](https://streamlit.io/): the framework used for the Day 4 browser interface.
 - [Run your Streamlit app](https://docs.streamlit.io/develop/concepts/architecture/run-your-app): starting the local server using the project's Python interpreter.
+- [TfidfVectorizer reference](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html): converting text into TF-IDF features, provided as a related reference alongside Day 5's comment dataset.
 
 ## Package source repositories
 

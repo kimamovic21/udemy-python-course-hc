@@ -384,3 +384,5 @@ Section 15: Day [36-45] data science projects in Python
 115. Day 3 A project on linear regression
 
 116. Day 4 Salary prediction project with Streamlint
+
+117. Day 5 NLP, Youtube comment dataset and TfidfVectorizer
