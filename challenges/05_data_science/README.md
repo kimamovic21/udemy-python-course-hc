@@ -2,7 +2,7 @@
 
 This group corresponds to `05_data_science` in the Udemy tutorial and follows [04_automation](../04_automation/README.md).
 
-**Status: in progress — current course section.** Days 1–5 cover notebooks, synthetic datasets, linear regression, a Streamlit salary predictor, and labeled comment data.
+**Status: in progress — current course section.** Days 1–6 cover notebooks, synthetic datasets, regression, a Streamlit app, labeled comments, and text classification.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 
@@ -17,8 +17,9 @@ Each lesson has its own folder, starting with `day_1`. Use names without leading
 | [day_3](day_3/README.md) | Salary Prediction with Linear Regression | CSV input, features and targets, scikit-learn, model fitting, predictions, and Matplotlib charts. |
 | [day_4](day_4/README.md) | Interactive Salary Predictor with Streamlit | Browser UI, numeric widgets, model predictions, embedded charts, and running a local Streamlit server. |
 | [day_5](day_5/README.md) | Generate a Labeled YouTube Comments Dataset | Random sampling, labeled dictionaries, pandas DataFrames, and a balanced 100-row CSV. |
+| [day_6](day_6/README.md) | Classify Comments with TF-IDF and Logistic Regression | Training/test splits, text features, pipelines, classification, and interpreting accuracy. |
 
-The Day 1–5 task descriptions were authored locally from the supplied notebook/scripts because no original statements were provided. Their `DAY_*.md` files identify that origin. Preserve task statements during later documentation updates.
+The Day 1–6 task descriptions were authored locally from the supplied notebook/scripts because no original statements were provided. Their `DAY_*.md` files identify that origin. Preserve task statements during later documentation updates.
 
 ## Opening the notebooks
 
@@ -74,6 +75,17 @@ python "challenges/05_data_science/day_5/day_5.py"
 
 It also runs on **Ctrl + S** as a regular Python script. Each run creates or replaces `day_5/youtube_comments.csv` with 100 records: 50 labeled `toxic` and 50 labeled `support`. Repeated comments are expected. The [Day 5 guide](day_5/README.md) explains the generation logic and the script-relative output path. `TfidfVectorizer` is linked as a related reference; text vectorization and classifier training are not implemented in this generator.
 
+## Running Day 6
+
+Day 6 reads its own copy of the CSV originally produced by Day 5 and trains a TF-IDF/logistic regression pipeline:
+
+```powershell
+python -m pip install pandas scikit-learn
+python "challenges/05_data_science/day_6/day_6.py"
+```
+
+The input is included as `day_6/youtube_comments.csv`, beside `day_6.py`. Updating Day 5 does not change this local copy; follow the [Day 6 copy instructions](day_6/README.md#input-file-and-path-fix) to refresh it. Day 6 uses 80% of the rows for training and 20% for testing, prints an accuracy percentage, then exits. It runs through ordinary **Ctrl + S** execution and creates no output files. The guide explains the pipeline and why repeated sample comments can make a 100% score misleading for new text.
+
 ## Useful links for beginners
 
 - [Download Anaconda](https://www.anaconda.com/download): Python distribution and notebook tools introduced in this section.
@@ -84,18 +96,20 @@ It also runs on **Ctrl + S** as a regular Python script. Each run creates or rep
 - [pandas](https://pandas.pydata.org/): the table library used in Day 2.
 - [Reading and writing tables with pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html): introductory CSV examples.
 - [Kaggle Datasets](https://www.kaggle.com/datasets): datasets to explore as future practice; Day 2 currently generates its own data locally.
-- [scikit-learn documentation](https://scikit-learn.org/stable/): the machine learning library used in Day 3.
+- [scikit-learn documentation](https://scikit-learn.org/stable/): the machine learning library used for salary regression and comment classification.
 - [LinearRegression reference](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html): the model used for experience/salary predictions.
+- [Logistic regression — Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression): background reading for the Day 6 classifier.
+- [LogisticRegression reference](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html): scikit-learn's classification model used in Day 6.
 - [Streamlit](https://streamlit.io/): the framework used for the Day 4 browser interface.
 - [Run your Streamlit app](https://docs.streamlit.io/develop/concepts/architecture/run-your-app): starting the local server using the project's Python interpreter.
-- [TfidfVectorizer reference](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html): converting text into TF-IDF features, provided as a related reference alongside Day 5's comment dataset.
+- [TfidfVectorizer reference](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html): converting text into TF-IDF features, introduced as a reference in Day 5 and used in Day 6.
 
 ## Package source repositories
 
 - [NumPy — GitHub](https://github.com/numpy/numpy): imported as `numpy` (`np` in the script).
 - [pandas — GitHub](https://github.com/pandas-dev/pandas): imported as `pandas` (`pd` in the script).
 - [ipykernel — GitHub](https://github.com/ipython/ipykernel): Python kernel used by the notebook environment; [official documentation](https://ipykernel.readthedocs.io/en/stable/).
-- [scikit-learn — GitHub](https://github.com/scikit-learn/scikit-learn): imported from `sklearn.linear_model` in Day 3.
+- [scikit-learn — GitHub](https://github.com/scikit-learn/scikit-learn): regression, text vectorization, pipelines, train/test splitting, and classification in Days 3–6.
 - [Matplotlib — GitHub](https://github.com/matplotlib/matplotlib): imported as `matplotlib.pyplot` for the Day 3 chart.
 - [Streamlit — GitHub](https://github.com/streamlit/streamlit): imported as `streamlit` (`st`) for the Day 4 app.
 
