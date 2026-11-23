@@ -2,7 +2,7 @@
 
 This group corresponds to `05_data_science` in the Udemy tutorial and follows [04_automation](../04_automation/README.md).
 
-**Status: in progress — current course section.** Days 1–7 cover notebooks, synthetic datasets, regression, labeled comments, classification, and Streamlit interfaces for salary and comment predictions.
+**Status: in progress — current course section.** Days 1–8 cover notebooks, synthetic datasets, regression, labeled comments, classification, Streamlit interfaces for salary and comment predictions, and book data exported to CSV.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 
@@ -19,8 +19,9 @@ Each lesson has its own folder, starting with `day_1`. Use names without leading
 | [day_5](day_5/README.md) | Generate a Labeled YouTube Comments Dataset | Random sampling, labeled dictionaries, pandas DataFrames, and a balanced 100-row CSV. |
 | [day_6](day_6/README.md) | Classify Comments with TF-IDF and Logistic Regression | Training/test splits, text features, pipelines, classification, and interpreting accuracy. |
 | [day_7](day_7/README.md) | YouTube Comment Classifier with Streamlit | Text input, cached model training, TF-IDF classification, local CSV data, and browser messages. |
+| [day_8](day_8/README.md) | Generate a Book Dataset | Lists of dictionaries, pandas DataFrames, CSV export without an index, and script-relative output paths. |
 
-The Day 1–7 task descriptions were authored locally from the supplied notebook/scripts because no original statements were provided. Their `DAY_*.md` files identify that origin. Preserve task statements during later documentation updates.
+The Day 1–8 task descriptions were authored locally from the supplied notebook/scripts because no original statements were provided. Their `DAY_*.md` files identify that origin. Preserve task statements during later documentation updates.
 
 ## Opening the notebooks
 
@@ -98,6 +99,17 @@ python -m streamlit run "challenges/05_data_science/day_7/day_7.py" --server.run
 
 In VS Code, open `day_7.py` and press **Ctrl + S** to start the shared Streamlit task. Open its Local URL, normally `http://localhost:8501`. Stop any previously running Day 4 or Day 7 task with **Ctrl + C** before switching apps. The [Day 7 guide](day_7/README.md) explains text input, prediction messages, local data copies, and restarting after CSV updates so the cached model is retrained. This app trains on the full CSV and does not report test accuracy.
 
+## Running Day 8
+
+Day 8 converts 10 predefined book dictionaries into a pandas table and exports it to CSV:
+
+```powershell
+python -m pip install pandas
+python "challenges/05_data_science/day_8/day_8.py"
+```
+
+It also runs through ordinary **Ctrl + S** execution. Each run creates or replaces `day_8/books.csv` beside the script, with the columns `title`, `author`, `genre`, and `description`, and no index column. This lesson prepares local practice data without downloading books or training a model. The [Day 8 guide](day_8/README.md) explains the code, output path, and overwrite behavior.
+
 ## Useful links for beginners
 
 - [Download Anaconda](https://www.anaconda.com/download): Python distribution and notebook tools introduced in this section.
@@ -105,7 +117,7 @@ In VS Code, open `day_7.py` and press **Ctrl + S** to start the shared Streamlit
 - [Jupyter Notebooks in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-notebooks): opening notebooks, selecting kernels, running cells, and saving outputs.
 - [NumPy](https://numpy.org/): numerical arrays and random values used in Day 2.
 - [NumPy for beginners](https://numpy.org/doc/stable/user/absolute_beginners.html): introductory array examples.
-- [pandas](https://pandas.pydata.org/): the table library used in Day 2.
+- [pandas](https://pandas.pydata.org/): the table library used to read and export lesson datasets, including the Day 8 book CSV.
 - [Reading and writing tables with pandas](https://pandas.pydata.org/docs/getting_started/intro_tutorials/02_read_write.html): introductory CSV examples.
 - [Kaggle Datasets](https://www.kaggle.com/datasets): datasets to explore as future practice; Day 2 currently generates its own data locally.
 - [scikit-learn documentation](https://scikit-learn.org/stable/): the machine learning library used for salary regression and comment classification.
@@ -122,7 +134,7 @@ In VS Code, open `day_7.py` and press **Ctrl + S** to start the shared Streamlit
 - [NumPy — GitHub](https://github.com/numpy/numpy): imported as `numpy` (`np` in the script).
 - [pandas — GitHub](https://github.com/pandas-dev/pandas): imported as `pandas` (`pd` in the script).
 - [ipykernel — GitHub](https://github.com/ipython/ipykernel): Python kernel used by the notebook environment; [official documentation](https://ipykernel.readthedocs.io/en/stable/).
-- [scikit-learn — GitHub](https://github.com/scikit-learn/scikit-learn): regression, text vectorization, pipelines, train/test splitting, and classification in Days 3–6.
+- [scikit-learn — GitHub](https://github.com/scikit-learn/scikit-learn): regression, text vectorization, pipelines, train/test splitting, and classification in Days 3–7.
 - [Matplotlib — GitHub](https://github.com/matplotlib/matplotlib): imported as `matplotlib.pyplot` for the Day 3 chart.
 - [Streamlit — GitHub](https://github.com/streamlit/streamlit): imported as `streamlit` (`st`) for the Day 4 and Day 7 apps.
 

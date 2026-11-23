@@ -2,7 +2,7 @@
 
 This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling`, `03_web_scraping`, `04_automation`, and `05_data_science`, each added lesson has its own folder and README.
 
-**Status: in progress.** The first group has local days 1–11, `02_data_handling` and `03_web_scraping` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The current section is [05_data_science](05_data_science/README.md), with notebooks, datasets, regression, classification, and interactive apps in local days 1–7. Individual project guides describe remaining challenge features.
+**Status: in progress.** The first group has local days 1–11, `02_data_handling` and `03_web_scraping` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The current section is [05_data_science](05_data_science/README.md), with notebooks, datasets, regression, classification, interactive apps, and book CSV export in local days 1–8. Individual project guides describe remaining challenge features.
 
 ## Learning order
 
@@ -22,7 +22,7 @@ Project numbering restarts within each group. Folder names match the tutorial se
 | [02_data_handling](02_data_handling/README.md) | Local days 1–10 | In progress |
 | [03_web_scraping](03_web_scraping/README.md) | Local days 1–10: extraction, exports, images, APIs, SQLite, and PDFs | In progress |
 | [04_automation](04_automation/README.md) | Local days 1–4: file organization, renaming, Downloads monitoring, and system resources | In progress |
-| [05_data_science](05_data_science/README.md) | Local days 1–7: notebooks, datasets, regression, classification, and Streamlit apps | In progress — current section |
+| [05_data_science](05_data_science/README.md) | Local days 1–8: notebooks, datasets, regression, classification, Streamlit apps, and book CSV export | In progress — current section |
 
 Further challenge groups will be added as the course progresses.
 
@@ -72,10 +72,11 @@ Further challenge groups will be added as the course progresses.
 | `05_data_science` | 5 | [Generate a Labeled YouTube Comments Dataset](05_data_science/day_5/README.md) | Random comment selection, class labels, dictionaries, pandas DataFrames, and CSV export. |
 | `05_data_science` | 6 | [Classify Comments with TF-IDF and Logistic Regression](05_data_science/day_6/README.md) | Text features, pipelines, train/test splitting, logistic regression, and accuracy. |
 | `05_data_science` | 7 | [YouTube Comment Classifier with Streamlit](05_data_science/day_7/README.md) | Cached model training, local CSV input, text widgets, and interactive classification messages. |
+| `05_data_science` | 8 | [Generate a Book Dataset](05_data_science/day_8/README.md) | Book dictionaries, pandas DataFrames, CSV export, and script-relative file paths. |
 
 ## Original challenge statements
 
-The `DAY_*.md` files contain task descriptions maintained manually by the repository owner. Preserve original course wording where supplied. Web scraping Day 10 and Data Science Days 1–7 have marked, locally authored descriptions based on their supplied code, created at the owner's request because original statements were absent. Keep task files unchanged during later documentation updates; project explanations, running instructions, and progress belong in README files.
+The `DAY_*.md` files contain task descriptions maintained manually by the repository owner. Preserve original course wording where supplied. Web scraping Day 10 and Data Science Days 1–8 have marked, locally authored descriptions based on their supplied code, created at the owner's request because original statements were absent. Keep task files unchanged during later documentation updates; project explanations, running instructions, and progress belong in README files.
 
 As new days are added, document the project in its lesson README, where applicable, and update the relevant group's overview and this index.
 
@@ -123,6 +124,7 @@ python "challenges/05_data_science/day_2/day_2.py"
 python "challenges/05_data_science/day_3/day_3.py"
 python "challenges/05_data_science/day_5/day_5.py"
 python "challenges/05_data_science/day_6/day_6.py"
+python "challenges/05_data_science/day_8/day_8.py"
 ```
 
 Paths are quoted consistently so these commands also work if the repository is stored in a directory with spaces. Answer each prompt in the terminal and press **Enter** to continue.
@@ -164,6 +166,8 @@ python -m streamlit run "challenges/05_data_science/day_7/day_7.py" --server.run
 ```
 
 Open the Local URL printed in the terminal, enter a comment, and view the classification message. The [Day 7 guide](05_data_science/day_7/README.md) explains setup, cache behavior, input limitations, and switching between Streamlit lessons.
+
+Data Science Day 8 exports 10 predefined book records to `05_data_science/day_8/books.csv` using pandas. Each run replaces the local CSV without adding an index column; no web requests or model training take place. The [Day 8 guide](05_data_science/day_8/README.md) includes the task, setup, code explanation, and output behavior.
 
 The CSV contact book saves `contacts.csv` beside its script in `02_data_handling/day_1`, regardless of the terminal's current working directory. See the [Day 1 README](02_data_handling/day_1/README.md#how-to-run) for details. The [CSV line-ending note](02_data_handling/day_1/README.md#csv-line-endings-and-the-windows-fix) explains the Windows blank-line issue and the commented original code beside the active fixes.
 
