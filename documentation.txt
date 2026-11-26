@@ -392,3 +392,5 @@ Section 15: Day [36-45] data science projects in Python
 119. Day 7 A complete Youtube comment classifier
 
 120. Day 8 Generating dataset for recommendation engine
+
+121. Day 9 Building a recommendation engine BONUS VIDEO
