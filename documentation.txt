@@ -396,3 +396,22 @@ Section 15: Day [36-45] data science projects in Python
 121. Day 9 Building a recommendation engine BONUS VIDEO
 
 122. Day 10 Recommendation engine with streamlit BONUS VIDEO
+
+
+
+Section 16: Day [46-52] - Building URL shortener - full stack project
+
+
+123. Day 1 Introduction to URL shortener project
+
+124. Day 2 Creating basic routes in Flask
+
+125. Day 3 Preparing our database for URL shortener
+
+126. Day 4 Work on database functions for CRUD
+
+127. Day 5 Handle GET and POST requests
+
+128. Day 6 Handle Jinja templates and frontend
+
+129. Day 7 Handle dynamic routes

@@ -23,7 +23,7 @@ My Python learning repository, starting with the basics and adding exercises as 
 | [09_decorators](09_decorators/README.md) | Wrapping functions with decorators, preserving metadata, logging, role checks, and caching results (exercise 25). Section in progress. |
 | [10_oop](10_oop/README.md) | Classes, objects, attributes, inheritance, composition, MRO, instance, static, and class methods, and properties with validation. Exercises 26–27: a device tracker and vehicle rental system; section in progress. |
 | [11_exceptions](11_exceptions/README.md) | Built-in and custom exceptions, tracebacks, input validation, chai billing, and file handling with `try`, `except`, `else`, `finally`, and `raise`. Section in progress. |
-| [challenges](challenges/README.md) | Daily projects covering utilities, data handling, web scraping, automation, and data science. Currently working in `05_data_science` with notebooks, practice datasets, regression, interactive predictors, and book recommendations. The challenge index lists groups, projects, and progress. |
+| [challenges](challenges/README.md) | Projects covering utilities, data handling, web scraping, automation, data science, and Flask web apps. Currently working on `06_url_shortener`, Udemy section 16, days 46–52, as one application. The challenge index lists groups, projects, and progress. |
 
 Start with **01_starter**, the first folder in this project. Detailed explanations, running instructions, and expected output are documented in the corresponding lesson, project, or challenge-group README files. New folders will be added to this overview as the course progresses.
 
@@ -47,6 +47,8 @@ Open the project root in VS Code with [Python 3](https://www.python.org/) and th
 Run on Save launches the saved file with `python -u`, using the Python available in its terminal. For interactive scripts, click inside that terminal and submit each answer with **Enter**.
 
 The Streamlit scripts in [Data Science Day 4](challenges/05_data_science/day_4/README.md), [Day 7](challenges/05_data_science/day_7/README.md), and [Day 10](challenges/05_data_science/day_10/README.md) use a shared task on **Ctrl + S**. Its first save starts the currently open app, and later saves reuse that task while Streamlit handles code changes. Open the Local URL printed in the task terminal. Stop the running app with **Ctrl + C** before opening and saving another Streamlit lesson.
+
+The [URL Shortener](challenges/06_url_shortener/README.md) uses Flask and runs with ordinary Python execution. Install Flask in the selected environment, start `challenges/06_url_shortener/app.py`, and open `http://localhost:8000/`. Its guide explains setup, the local SQLite database, and the planned single commit for days 46–52.
 
 The notebook lessons in [05_data_science](challenges/05_data_science/README.md) use `.ipynb` files. Open them in a notebook editor, select a Python kernel, and run cells with **Shift + Enter** or **Run All**. **Ctrl + S** saves the notebook. See the group guide for the Anaconda/Jupyter and VS Code setup options.
 
@@ -74,6 +76,9 @@ These third-party packages are directly imported by the Python examples. Follow 
 | pandas | `pandas` | [GitHub](https://github.com/pandas-dev/pandas) |
 | scikit-learn | `sklearn.linear_model`, `sklearn.pipeline`, `sklearn.feature_extraction.text`, `sklearn.model_selection`, `sklearn.metrics.pairwise` | [GitHub](https://github.com/scikit-learn/scikit-learn) |
 | Streamlit | `streamlit` | [GitHub](https://github.com/streamlit/streamlit) |
+| Flask | `flask` | [GitHub](https://github.com/pallets/flask) |
+
+Flask support packages: the [URL Shortener package guide](challenges/06_url_shortener/README.md#flask-packages-and-their-sources) links the official documentation and GitHub repositories for Flask, Werkzeug, Jinja2, MarkupSafe, Click, ItsDangerous, and Blinker. The supporting packages are framework dependencies rather than direct imports in the lesson code.
 
 Notebook support: [ipykernel — GitHub](https://github.com/ipython/ipykernel) provides the Python kernel used to execute notebook cells. Install it in the selected notebook environment with `python -m pip install ipykernel` if needed; see the [Day 1 setup note](challenges/05_data_science/day_1/README.md#if-the-notebook-asks-for-ipykernel) and [official documentation](https://ipykernel.readthedocs.io/en/stable/). This is a notebook runtime dependency rather than an import in the lesson code.
 
@@ -103,6 +108,9 @@ Day 9 imports `schedule` without using it to schedule jobs; Day 8 uses it active
 - [pandas](https://pandas.pydata.org/) — tables and CSV export used in Data Science Day 2.
 - [scikit-learn documentation](https://scikit-learn.org/stable/) — the library used for salary regression, comment classification, and book-description similarity in the data science section.
 - [Streamlit](https://streamlit.io/) — the Python framework used for the salary predictor, comment classifier, and book recommendation apps in Data Science Days 4, 7, and 10.
+- [Flask documentation](https://flask.palletsprojects.com/en/stable/) — routes, templates, and web app setup for the URL Shortener in section 16, days 46–52.
+- [Flask hosting options](challenges/06_url_shortener/README.md#optional-hosting-references) — Render, PythonAnywhere, and Vercel references for sharing the app later, with a note about database storage.
+- [Streamlit Community Cloud](https://docs.streamlit.io/deploy/streamlit-community-cloud) — hosting and sharing Streamlit apps from GitHub repositories.
 - [Kaggle Datasets](https://www.kaggle.com/datasets) — datasets for future practice; the [official Kaggle CLI source](https://github.com/Kaggle/kaggle-cli) is also available on GitHub. Current lessons do not require this tool.
 - [Python Playground](https://python-playground.com/) — a place to try small Python examples in the browser.
 - [PEP 8: Style Guide for Python Code](https://peps.python.org/pep-0008/#introduction) — a reference for naming and formatting code; consult it gradually as you practise.

@@ -1,3 +1,7 @@
+# Python bytecode cache
+__pycache__/
+*.pyc
+
 # Local environment variables
 .env
 .env.*
@@ -26,3 +30,6 @@ vault.key
 
 # Local images for the automation Day 2 project only
 /challenges/04_automation/day_2/images/
+
+# Generated SQLite database for the URL Shortener project only
+/challenges/06_url_shortener/database.db

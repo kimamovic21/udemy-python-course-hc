@@ -1,13 +1,13 @@
 # Daily Challenges
 
-This part of the course puts the earlier Python lessons into practice through daily projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling`, `03_web_scraping`, `04_automation`, and `05_data_science`, each added lesson has its own folder and README.
+This part of the course puts the earlier Python lessons into practice through projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling`, `03_web_scraping`, `04_automation`, and `05_data_science`, each added lesson has its own folder and README. `06_url_shortener` keeps one application together across several course days.
 
-**Status: in progress.** The first group has local days 1–11, `02_data_handling` and `03_web_scraping` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The current section is [05_data_science](05_data_science/README.md), with notebooks, datasets, regression, classification, interactive apps, and book recommendations in local days 1–10. Individual project guides describe remaining challenge features.
+**Status: in progress.** The first group has local days 1–11, `02_data_handling`, `03_web_scraping`, and `05_data_science` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The current project is [06_url_shortener](06_url_shortener/README.md), corresponding to Udemy section 16, days 46–52. Individual project guides describe current behavior and remaining challenge features.
 
 ## Learning order
 
 1. Work through the numbered lesson folders up to `11_exceptions`.
-2. Complete the challenge groups in order: `01_utilities`, `02_data_handling`, `03_web_scraping`, `04_automation`, then `05_data_science`. Within each group, follow its local project numbers.
+2. Complete the challenge groups in order: `01_utilities`, `02_data_handling`, `03_web_scraping`, `04_automation`, `05_data_science`, then `06_url_shortener`. Follow local project numbers where present; the URL Shortener is one application rather than separate daily folders.
 3. After all challenge groups, continue with the next numbered course section (`12_...`, when added).
 
 Follow this order even if your editor sorts the folders differently.
@@ -22,7 +22,8 @@ Project numbering restarts within each group. Folder names match the tutorial se
 | [02_data_handling](02_data_handling/README.md) | Local days 1–10 | In progress |
 | [03_web_scraping](03_web_scraping/README.md) | Local days 1–10: extraction, exports, images, APIs, SQLite, and PDFs | In progress |
 | [04_automation](04_automation/README.md) | Local days 1–4: file organization, renaming, Downloads monitoring, and system resources | In progress |
-| [05_data_science](05_data_science/README.md) | Local days 1–10: notebooks, datasets, regression, classification, Streamlit apps, and book recommendations | In progress — current section |
+| [05_data_science](05_data_science/README.md) | Local days 1–10: notebooks, datasets, regression, classification, Streamlit apps, and book recommendations | Documented through local day 10 |
+| [06_url_shortener](06_url_shortener/README.md) | Section 16, days 46–52: one Flask/SQLite URL Shortener application | In progress — current section |
 
 Further challenge groups will be added as the course progresses.
 
@@ -75,14 +76,19 @@ Further challenge groups will be added as the course progresses.
 | `05_data_science` | 8 | [Generate a Book Dataset](05_data_science/day_8/README.md) | Book dictionaries, pandas DataFrames, CSV export, and script-relative file paths. |
 | `05_data_science` | 9 | [Book Recommendations from Descriptions](05_data_science/day_9/README.md) | TF-IDF, cosine similarity, title lookup, sorted scores, and five book recommendations. |
 | `05_data_science` | 10 | [Book Recommendation App with Streamlit](05_data_science/day_10/README.md) | Browser input, normalized titles, warnings, recommendation tables, and local CSV data. |
+| `06_url_shortener` | 46–52 (course days) | [URL Shortener with Flask](06_url_shortener/README.md) | Routes, HTML/Jinja templates, short codes, SQLite persistence, redirects, visit counts, and deletion. |
 
 ## Original challenge statements
 
 The `DAY_*.md` files contain task descriptions maintained manually by the repository owner. Preserve original course wording where supplied. Web scraping Day 10 and Data Science Days 1–10 have marked, locally authored descriptions based on their supplied code, created at the owner's request because original statements were absent. Keep task files unchanged during later documentation updates; project explanations, running instructions, and progress belong in README files.
 
+For section 16, days 46–52, document the shared application in `06_url_shortener/README.md`. The owner plans one commit for the complete project rather than a separate commit for each day.
+
 As new days are added, document the project in its lesson README, where applicable, and update the relevant group's overview and this index.
 
 ## Running the projects
+
+The URL Shortener uses [Flask](https://flask.palletsprojects.com/en/stable/). From the repository root, install it with `python -m pip install Flask`, then run `python "challenges/06_url_shortener/app.py"`. Open `http://localhost:8000/` and stop the server with **Ctrl + C**. Its SQLite database stays beside `models.py`. See the [project guide](06_url_shortener/README.md) for environment selection, routes, and the original dependency snapshot.
 
 For regular Python scripts, choose a command below and run it from the repository root. Data Science Day 1 uses notebook cells, and Days 4, 7, and 10 use the Streamlit runner; follow their separate instructions below.
 
@@ -227,3 +233,5 @@ See the [main README](../README.md#folder-overview) for the overall course struc
 ## Package source repositories
 
 The [project-wide package index](../README.md#package-source-repositories) maps the imported packages to their upstream projects. It includes GitHub links for starring, labels the Beautiful Soup and wget exceptions, and explains where Python's standard-library code lives. Each relevant lesson README lists its own package sources.
+
+The [URL Shortener package guide](06_url_shortener/README.md#flask-packages-and-their-sources) also covers all seven packages in its tutorial requirements, with their roles, official documentation, and GitHub repositories. It distinguishes the direct Flask import from supporting framework dependencies.

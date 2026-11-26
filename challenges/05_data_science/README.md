@@ -2,7 +2,7 @@
 
 This group corresponds to `05_data_science` in the Udemy tutorial and follows [04_automation](../04_automation/README.md).
 
-**Status: in progress — current course section.** Days 1–10 cover notebooks, synthetic datasets, regression, labeled comments, classification, Streamlit interfaces, book CSV export, and book recommendations in the terminal and browser.
+**Status: documented through Day 10.** Days 1–10 cover notebooks, synthetic datasets, regression, labeled comments, classification, Streamlit interfaces, book CSV export, and book recommendations in the terminal and browser. The next course project is [06_url_shortener](../06_url_shortener/README.md), section 16, days 46–52.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 
@@ -149,6 +149,7 @@ In VS Code, **Ctrl + S** on `day_10.py` starts the shared Streamlit task used by
 - [Logistic regression — Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression): background reading for the Day 6 classifier.
 - [LogisticRegression reference](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html): scikit-learn's classification model used in Day 6.
 - [Streamlit](https://streamlit.io/): the framework used for the browser interfaces in Days 4, 7, and 10.
+- [Streamlit Community Cloud](https://docs.streamlit.io/deploy/streamlit-community-cloud): an optional service for publishing and sharing Streamlit apps from GitHub. The current lessons are configured for local execution.
 - [Run your Streamlit app](https://docs.streamlit.io/develop/concepts/architecture/run-your-app): starting the local server using the project's Python interpreter.
 - [Streamlit resource caching](https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_resource): reusing the fitted comment classifier across Day 7 app reruns.
 - [TfidfVectorizer reference](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html): converting text into features for the comment classifiers and book recommendations in Days 9–10.
