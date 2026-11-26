@@ -8,7 +8,7 @@ Enter a comment in a local browser app and classify it as `toxic` or `support`. 
 
 Open `day_7.py` in VS Code and press **Ctrl + S**. This starts **Run current Data Science Streamlit app**. Open the Local URL printed in its terminal, normally `http://localhost:8501`.
 
-The shared task permits one running app. Before switching between Day 4 and Day 7, stop the previous app with **Ctrl + C** in the task terminal, then open and save the intended script. Later saves of the running app let Streamlit rerun it. If the updated save rule is not picked up, run **Developer: Reload Window** and save again.
+The shared task permits one running app. Before switching between Days 4, 7, and 10, stop the previous app with **Ctrl + C** in the task terminal, then open and save the intended script. Later saves of the running app let Streamlit rerun it. If the updated save rule is not picked up, run **Developer: Reload Window** and save again.
 
 You can also start Day 7 manually from the repository root:
 

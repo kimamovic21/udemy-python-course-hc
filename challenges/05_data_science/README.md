@@ -2,7 +2,7 @@
 
 This group corresponds to `05_data_science` in the Udemy tutorial and follows [04_automation](../04_automation/README.md).
 
-**Status: in progress — current course section.** Days 1–9 cover notebooks, synthetic datasets, regression, labeled comments, classification, Streamlit interfaces, book CSV export, and recommendations based on description similarity.
+**Status: in progress — current course section.** Days 1–10 cover notebooks, synthetic datasets, regression, labeled comments, classification, Streamlit interfaces, book CSV export, and book recommendations in the terminal and browser.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 
@@ -21,8 +21,9 @@ Each lesson has its own folder, starting with `day_1`. Use names without leading
 | [day_7](day_7/README.md) | YouTube Comment Classifier with Streamlit | Text input, cached model training, TF-IDF classification, local CSV data, and browser messages. |
 | [day_8](day_8/README.md) | Generate a Book Dataset | Lists of dictionaries, pandas DataFrames, CSV export without an index, and script-relative output paths. |
 | [day_9](day_9/README.md) | Book Recommendations from Descriptions | TF-IDF, English stop words, cosine similarity, title lookups, sorting, and selecting five recommendations. |
+| [day_10](day_10/README.md) | Book Recommendation App with Streamlit | Browser text input, title normalization, missing-title warnings, recommendation tables, and local CSV input. |
 
-The Day 1–9 task descriptions were authored locally from the supplied notebook/scripts because no original statements were provided. Their `DAY_*.md` files identify that origin. Preserve task statements during later documentation updates.
+The Day 1–10 task descriptions were authored locally from the supplied notebook/scripts because no original statements were provided. Their `DAY_*.md` files identify that origin. Preserve task statements during later documentation updates.
 
 ## Opening the notebooks
 
@@ -65,7 +66,7 @@ python -m pip install streamlit pandas matplotlib scikit-learn
 python -m streamlit run "challenges/05_data_science/day_4/day_4.py" --server.runOnSave true
 ```
 
-Open the Local URL printed in the terminal and keep the process running. Stop it with **Ctrl + C**. In VS Code, **Ctrl + S** on `day_4.py` starts the shared Streamlit task instead of the regular `python -u` command. Later saves reuse the running task and rerun the app. Stop the previous app before switching between Days 4 and 7. The [Day 4 guide](day_4/README.md) explains setup, task controls, the experience input, predictions, chart, and local code adjustments.
+Open the Local URL printed in the terminal and keep the process running. Stop it with **Ctrl + C**. In VS Code, **Ctrl + S** on `day_4.py` starts the shared Streamlit task instead of the regular `python -u` command. Later saves reuse the running task and rerun the app. Stop the previous app before switching between Days 4, 7, and 10. The [Day 4 guide](day_4/README.md) explains setup, task controls, the experience input, predictions, chart, and local code adjustments.
 
 ## Running Day 5
 
@@ -98,7 +99,7 @@ python -m pip install streamlit pandas scikit-learn
 python -m streamlit run "challenges/05_data_science/day_7/day_7.py" --server.runOnSave true
 ```
 
-In VS Code, open `day_7.py` and press **Ctrl + S** to start the shared Streamlit task. Open its Local URL, normally `http://localhost:8501`. Stop any previously running Day 4 or Day 7 task with **Ctrl + C** before switching apps. The [Day 7 guide](day_7/README.md) explains text input, prediction messages, local data copies, and restarting after CSV updates so the cached model is retrained. This app trains on the full CSV and does not report test accuracy.
+In VS Code, open `day_7.py` and press **Ctrl + S** to start the shared Streamlit task. Open its Local URL, normally `http://localhost:8501`. Stop any previously running Streamlit task with **Ctrl + C** before switching apps. The [Day 7 guide](day_7/README.md) explains text input, prediction messages, local data copies, and restarting after CSV updates so the cached model is retrained. This app trains on the full CSV and does not report test accuracy.
 
 ## Running Day 8
 
@@ -122,6 +123,17 @@ python "challenges/05_data_science/day_9/day_9.py"
 
 It also runs through ordinary **Ctrl + S** execution. The current final line prints five recommendations for `Spacebound`; edit that title to try another existing book. Without a function call and `print()`, the script only prepares the data and produces no terminal output. It does not change the CSV or save results. The [Day 9 guide](day_9/README.md) explains local data copies, the ranking steps, and limitations of the small dataset.
 
+## Running Day 10
+
+Day 10 adds a Streamlit interface to the book recommender and reads its own `day_10/books.csv`, copied from Day 9:
+
+```powershell
+python -m pip install streamlit pandas scikit-learn
+python -m streamlit run "challenges/05_data_science/day_10/day_10.py" --server.runOnSave true
+```
+
+In VS Code, **Ctrl + S** on `day_10.py` starts the shared Streamlit task used by Days 4, 7, and 10. Stop the previous app before switching lessons and open the printed Local URL, normally `http://localhost:8501`. Enter `Spacebound` and press **Enter** to see five titles and authors. Unknown titles show a warning. The [Day 10 guide](day_10/README.md) covers local input, title normalization, the difference from Day 9, and reruns without caching. The CSV is not modified and no output files are created.
+
 ## Useful links for beginners
 
 - [Download Anaconda](https://www.anaconda.com/download): Python distribution and notebook tools introduced in this section.
@@ -136,20 +148,20 @@ It also runs through ordinary **Ctrl + S** execution. The current final line pri
 - [LinearRegression reference](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html): the model used for experience/salary predictions.
 - [Logistic regression — Wikipedia](https://en.wikipedia.org/wiki/Logistic_regression): background reading for the Day 6 classifier.
 - [LogisticRegression reference](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html): scikit-learn's classification model used in Day 6.
-- [Streamlit](https://streamlit.io/): the framework used for the Day 4 browser interface.
+- [Streamlit](https://streamlit.io/): the framework used for the browser interfaces in Days 4, 7, and 10.
 - [Run your Streamlit app](https://docs.streamlit.io/develop/concepts/architecture/run-your-app): starting the local server using the project's Python interpreter.
 - [Streamlit resource caching](https://docs.streamlit.io/develop/api-reference/caching-and-state/st.cache_resource): reusing the fitted comment classifier across Day 7 app reruns.
-- [TfidfVectorizer reference](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html): converting text into features for the comment classifiers and Day 9 book recommendations.
-- [cosine_similarity reference](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html): comparing book-description vectors in Day 9.
+- [TfidfVectorizer reference](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html): converting text into features for the comment classifiers and book recommendations in Days 9–10.
+- [cosine_similarity reference](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.pairwise.cosine_similarity.html): comparing book-description vectors in Days 9–10.
 
 ## Package source repositories
 
 - [NumPy — GitHub](https://github.com/numpy/numpy): imported as `numpy` (`np` in the script).
 - [pandas — GitHub](https://github.com/pandas-dev/pandas): imported as `pandas` (`pd` in the script).
 - [ipykernel — GitHub](https://github.com/ipython/ipykernel): Python kernel used by the notebook environment; [official documentation](https://ipykernel.readthedocs.io/en/stable/).
-- [scikit-learn — GitHub](https://github.com/scikit-learn/scikit-learn): regression, text vectorization, pipelines, train/test splitting, classification, and cosine similarity in Days 3–7 and 9.
+- [scikit-learn — GitHub](https://github.com/scikit-learn/scikit-learn): regression, text vectorization, pipelines, train/test splitting, classification, and cosine similarity in Days 3–7 and 9–10.
 - [Matplotlib — GitHub](https://github.com/matplotlib/matplotlib): imported as `matplotlib.pyplot` for the Day 3 chart.
-- [Streamlit — GitHub](https://github.com/streamlit/streamlit): imported as `streamlit` (`st`) for the Day 4 and Day 7 apps.
+- [Streamlit — GitHub](https://github.com/streamlit/streamlit): imported as `streamlit` (`st`) for the Day 4, Day 7, and Day 10 apps.
 
 Use **Star** on GitHub to support the projects. See the [project-wide package index](../../README.md#package-source-repositories) for other packages used in the course.
 

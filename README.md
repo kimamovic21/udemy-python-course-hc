@@ -36,9 +36,9 @@ After **11_exceptions**, work through all the groups in the [challenge index](ch
 ## Supporting files
 
 - [`.vscode/settings.json`](.vscode/settings.json) — project editor settings for Python, Black formatting, and automatic execution after **Ctrl + S**, using the Python available in the terminal.
-- [`.vscode/tasks.json`](.vscode/tasks.json) — the shared Streamlit task started when Data Science Day 4 or Day 7 is saved.
+- [`.vscode/tasks.json`](.vscode/tasks.json) — the shared Streamlit task started when Data Science Day 4, Day 7, or Day 10 is saved.
 - [`documentation.txt`](documentation.txt) — tutorial video names, maintained manually to keep track of my course progress.
-- `challenges/**/DAY_*.md` — challenge statements, maintained manually. Course wording is preserved where supplied; web scraping Day 10 and Data Science Days 1–9 have marked, locally authored descriptions. Project explanations and progress are recorded in the corresponding README files.
+- `challenges/**/DAY_*.md` — challenge statements, maintained manually. Course wording is preserved where supplied; web scraping Day 10 and Data Science Days 1–10 have marked, locally authored descriptions. Project explanations and progress are recorded in the corresponding README files.
 
 ## Quick start
 
@@ -46,7 +46,7 @@ Open the project root in VS Code with [Python 3](https://www.python.org/) and th
 
 Run on Save launches the saved file with `python -u`, using the Python available in its terminal. For interactive scripts, click inside that terminal and submit each answer with **Enter**.
 
-The Streamlit scripts in [Data Science Day 4](challenges/05_data_science/day_4/README.md) and [Day 7](challenges/05_data_science/day_7/README.md) use a shared task on **Ctrl + S**. Its first save starts the currently open app, and later saves reuse that task while Streamlit handles code changes. Open the Local URL printed in the task terminal. Stop the running app with **Ctrl + C** before opening and saving another Streamlit lesson.
+The Streamlit scripts in [Data Science Day 4](challenges/05_data_science/day_4/README.md), [Day 7](challenges/05_data_science/day_7/README.md), and [Day 10](challenges/05_data_science/day_10/README.md) use a shared task on **Ctrl + S**. Its first save starts the currently open app, and later saves reuse that task while Streamlit handles code changes. Open the Local URL printed in the task terminal. Stop the running app with **Ctrl + C** before opening and saving another Streamlit lesson.
 
 The notebook lessons in [05_data_science](challenges/05_data_science/README.md) use `.ipynb` files. Open them in a notebook editor, select a Python kernel, and run cells with **Shift + Enter** or **Run All**. **Ctrl + S** saves the notebook. See the group guide for the Anaconda/Jupyter and VS Code setup options.
 
@@ -102,7 +102,7 @@ Day 9 imports `schedule` without using it to schedule jobs; Day 8 uses it active
 - [NumPy](https://numpy.org/) — numerical arrays and calculations used in Data Science Day 2.
 - [pandas](https://pandas.pydata.org/) — tables and CSV export used in Data Science Day 2.
 - [scikit-learn documentation](https://scikit-learn.org/stable/) — the library used for salary regression, comment classification, and book-description similarity in the data science section.
-- [Streamlit](https://streamlit.io/) — the Python framework used for the interactive salary predictor in Data Science Day 4.
+- [Streamlit](https://streamlit.io/) — the Python framework used for the salary predictor, comment classifier, and book recommendation apps in Data Science Days 4, 7, and 10.
 - [Kaggle Datasets](https://www.kaggle.com/datasets) — datasets for future practice; the [official Kaggle CLI source](https://github.com/Kaggle/kaggle-cli) is also available on GitHub. Current lessons do not require this tool.
 - [Python Playground](https://python-playground.com/) — a place to try small Python examples in the browser.
 - [PEP 8: Style Guide for Python Code](https://peps.python.org/pep-0008/#introduction) — a reference for naming and formatting code; consult it gradually as you practise.

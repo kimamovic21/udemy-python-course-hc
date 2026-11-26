@@ -394,3 +394,5 @@ Section 15: Day [36-45] data science projects in Python
 120. Day 8 Generating dataset for recommendation engine
 
 121. Day 9 Building a recommendation engine BONUS VIDEO
+
+122. Day 10 Recommendation engine with streamlit BONUS VIDEO
