@@ -2,7 +2,7 @@
 
 This folder corresponds to **Udemy section 17** and follows the projects in [challenges](../challenges/README.md), ending with the Flask URL Shortener. The local folder number is `12`; the course section number is `17`.
 
-**Status: in progress — current course section.** Examples 01–08 cover threads, processes, the GIL, function arguments, concurrent HTTP downloads, and protecting a shared counter with a lock.
+**Status: in progress — current course section.** Examples 01–12 cover threads, processes, the GIL, concurrent downloads, locking, CPU-bound summation, queue-based messages, and a shared process counter.
 
 [Main project overview](../README.md#folder-overview)
 
@@ -18,6 +18,10 @@ This folder corresponds to **Udemy section 17** and follows the projects in [cha
 | [06_thread_two.py](06_thread_two.py) | Reusing one function in two threads with different positional arguments supplied through `args`. |
 | [07_thread_download.py](07_thread_download.py) | Starting one thread per image URL, downloading response bytes with Requests, and joining workers stored in a list. |
 | [08_thread_lock.py](08_thread_lock.py) | Ten threads updating one global counter inside a `with lock:` block. |
+| [09_process_one.py](09_process_one.py) | Summing numbers in two threads and measuring elapsed time; despite the filename, this example uses `threading`. |
+| [10_process_two.py](10_process_two.py) | Summing numbers in two separate processes with a larger loop, a main guard, and elapsed-time output. |
+| [11_process_queue.py](11_process_queue.py) | Sending a message from a worker process to the parent through `multiprocessing.Queue`. |
+| [12_process_value.py](12_process_value.py) | Four processes safely updating a shared integer through `Value` and its associated lock. |
 
 Video **131: What is Concurrency and Parallelism ?** includes `01_threading.py` and `02_multiprocessing.py`. `01` and `02` identify the local Python files, not two different videos. Examples 03–04 introduce CPU-bound work and the GIL. The video-progress record remains in `documentation.txt`, maintained by the repository owner.
 
@@ -36,6 +40,10 @@ python "12_threads_concurrency/05_thread_one.py"
 python "12_threads_concurrency/06_thread_two.py"
 python "12_threads_concurrency/07_thread_download.py"
 python "12_threads_concurrency/08_thread_lock.py"
+python "12_threads_concurrency/09_process_one.py"
+python "12_threads_concurrency/10_process_two.py"
+python "12_threads_concurrency/11_process_queue.py"
+python "12_threads_concurrency/12_process_value.py"
 ```
 
 Run the commands one at a time to observe each example. You can also open any of these files in VS Code and press **Ctrl + S** with the existing Run on Save configuration. Output appears in the terminal; there is no browser page or input prompt.
@@ -211,12 +219,81 @@ Final counter: 1000000
 
 The total is `10 × 100,000`. Unlike example 03's independent local counters, all workers here modify the same variable. The lock demonstrates synchronization of shared updates; the GIL should not be treated as a general replacement for application-level locking. This example does not measure elapsed time.
 
+## 09: CPU-bound summation with threads
+
+Despite its name, `09_process_one.py` uses `threading.Thread`, not separate processes. Each of its two workers calls `cpu_heavy()` and sums the integers in `range(10**7)`: zero through 9,999,999.
+
+Each call has its own local `total`. The script prints a start message and `DONE ✅` for each worker but does not display the resulting sums. Both threads start before the main thread joins them. The final `Time taken: ... seconds` includes worker creation, execution, and waiting for completion.
+
+This is CPU-bound Python work, so the GIL-enabled CPython considerations from example 03 apply. The owner's reported `0.87` seconds is one observed run, not a fixed expected duration.
+
+## 10: CPU-bound summation with processes
+
+`10_process_two.py` creates two `Process` workers inside the main guard. Each calls its own `cpu_heavy()`, sums `range(10**9)`, and prints `DONE ✅`. Both workers start before they are joined; the parent then prints elapsed time. Each process has an independent local `total`, which is not returned or displayed.
+
+The processes can use different CPU cores, but the loops here are much larger than example 09's loops:
+
+| Example | Workers | Iterations per worker | Total iterations |
+| --- | --- | --- | --- |
+| 09 | Two threads | `10**7` = 10 million | 20 million |
+| 10 | Two processes | `10**9` = one billion | Two billion |
+
+The owner observed `52.85` seconds for example 10, compared with `0.87` seconds for example 09. Example 10 performs **100 times more iterations per worker**, so those timings are not a direct comparison of threading and multiprocessing. A meaningful comparison needs the same loop size, worker count, Python environment, and similar system load. The tutorial code retains its supplied loop sizes.
+
+## 11: Sending a result through a process queue
+
+`11_process_queue.py` shows communication between a worker and its parent:
+
+1. The parent creates `queue = Queue()` inside the main guard.
+2. `Process(target=prepare_chai, args=(queue,))` gives the worker access to that queue. The comma makes `args` a one-element tuple.
+3. The worker runs `queue.put("Masala chai is ready")` to send a message.
+4. The parent starts the worker, waits with `p.join()`, and prints the message returned by `queue.get()`.
+
+Expected output:
+
+```text
+Masala chai is ready
+```
+
+`put()` sends an item; `get()` receives the next item and waits if none is available by default. A multiprocessing queue transfers data between processes, whose ordinary local variables are otherwise separate. This example sends one small string and creates no output files.
+
+## 12: Sharing a value between processes
+
+`12_process_value.py` uses `counter = Value("i", 0)` to allocate a shared integer initialized to zero. The type code `"i"` selects a signed C integer, and `counter.value` reads or changes its value.
+
+Four processes run `increment(counter)`, each performing 100,000 updates to the same shared number. Inside the loop:
+
+```python
+with counter.get_lock():
+    counter.value += 1
+```
+
+The associated lock protects the complete read-modify-write operation. The `+=` update should not be assumed atomic merely because `Value` provides synchronized access to its individual property operations. Leaving the `with` block releases the lock.
+
+The parent starts all four workers, joins them, and reads the final value:
+
+```text
+Final counter value:  400000
+```
+
+The result is `4 × 100,000`. The code's string already ends with a space, and `print()` adds its separator, which explains the two spaces before the number. This example does not measure elapsed time or create output files.
+
+### Queue, Value, and thread locks
+
+| Example | Shared information | Mechanism |
+| --- | --- | --- |
+| 08 | One global counter within a single process. | Threads use `threading.Lock()` around updates. |
+| 11 | A message passed from child to parent. | Processes send and receive through `multiprocessing.Queue`. |
+| 12 | One integer in shared memory. | Processes access `multiprocessing.Value` and lock its updates. |
+
+The main guard keeps the parent-only startup code in examples 10–12 from running again when Windows child processes import the script. These APIs are part of the standard library, so no new packages need to be installed for examples 09–12.
+
 ## Concurrency and parallelism
 
 - **Concurrency:** multiple tasks make progress during the same period, including taking turns while another task waits.
 - **Parallelism:** multiple tasks execute at the same instant, for example on different CPU cores.
 
-Examples 01–02 and 05–06 simulate overlapping waits, 03–04 compare CPU-bound workers, 07 uses real network requests, and 08 introduces synchronization of shared data.
+Examples 01–02 and 05–06 simulate overlapping waits, 03–04 and 09–10 explore CPU-bound workers, 07 uses real network requests, 08 introduces thread synchronization, and 11–12 demonstrate process communication and shared state.
 
 ## Useful links and source code
 
@@ -225,6 +302,13 @@ Examples 01–02 and 05–06 simulate overlapping waits, 03–04 compare CPU-bou
 - [GIL and threading performance](https://docs.python.org/3/library/threading.html#gil-and-performance-considerations): official CPython guidance, including free-threaded builds.
 - [What Is the Python Global Interpreter Lock (GIL)? — Real Python](https://realpython.com/python-gil/): supplementary background reading for examples 03–04. Use the official Python notes above for current interpreter-specific behavior.
 - [Python multiprocessing documentation](https://docs.python.org/3/library/multiprocessing.html): processes, argument passing, and safe startup with the main guard.
+- [Process reference](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Process): worker targets, arguments, `start()`, and `join()`.
+- [Exchanging objects between processes](https://docs.python.org/3/library/multiprocessing.html#exchanging-objects-between-processes): queue-based communication introduced in example 11.
+- [Queue reference](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Queue): sending items with `put()` and receiving them with `get()`.
+- [Sharing state between processes](https://docs.python.org/3/library/multiprocessing.html#sharing-state-between-processes): shared-memory values as used in example 12.
+- [Value reference](https://docs.python.org/3/library/multiprocessing.html#multiprocessing.Value): type codes, synchronized values, and locking compound updates with `get_lock()`.
+- [The `__main__` environment](https://docs.python.org/3/library/__main__.html): why guarded startup runs only when a script is executed directly.
+- [time.time reference](https://docs.python.org/3/library/time.html#time.time): the wall-clock readings used by the timing examples.
 - [time.sleep reference](https://docs.python.org/3/library/time.html#time.sleep): suspending the calling thread.
 - [Requests quickstart: binary response content](https://requests.readthedocs.io/en/latest/user/quickstart/#binary-response-content): the response bytes used in example 07.
 - [Requests — GitHub](https://github.com/psf/requests): official source repository for the third-party HTTP client.

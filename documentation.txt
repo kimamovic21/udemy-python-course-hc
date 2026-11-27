@@ -428,3 +428,5 @@ Section 17: Multithreading, Multiprocessing, GIL in Python
 132. What is global interpreter lock - GIL
 
 133. Threads and lock in depth
+
+134. Multi process with Queue and Value
