@@ -426,3 +426,5 @@ Section 17: Multithreading, Multiprocessing, GIL in Python
 131. What is Concurrency and Parallelism ?
  
 132. What is global interpreter lock - GIL
+
+133. Threads and lock in depth

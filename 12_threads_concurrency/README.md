@@ -2,7 +2,7 @@
 
 This folder corresponds to **Udemy section 17** and follows the projects in [challenges](../challenges/README.md), ending with the Flask URL Shortener. The local folder number is `12`; the course section number is `17`.
 
-**Status: in progress — current course section.** Examples 01–04 cover waiting-time concurrency, separate processes, and CPU-bound counting with threads and processes for discussing the GIL.
+**Status: in progress — current course section.** Examples 01–08 cover threads, processes, the GIL, function arguments, concurrent HTTP downloads, and protecting a shared counter with a lock.
 
 [Main project overview](../README.md#folder-overview)
 
@@ -14,6 +14,10 @@ This folder corresponds to **Udemy section 17** and follows the projects in [cha
 | [02_multiprocessing.py](02_multiprocessing.py) | Creating three separate `Process` workers, passing arguments, starting all workers before joining, and protecting startup with `if __name__ == "__main__":`. |
 | [03_gil_threading.py](03_gil_threading.py) | Named threads, `current_thread()`, CPU-bound counting loops, elapsed time, and the effect of the GIL on Python thread execution. |
 | [04_gil_multiprocessing.py](04_gil_multiprocessing.py) | Running CPU-bound counting in two separate processes, protecting startup with the main guard, joining both workers, and measuring total elapsed time. |
+| [05_thread_one.py](05_thread_one.py) | Running two different breakfast functions in threads and measuring their overlapping waits. |
+| [06_thread_two.py](06_thread_two.py) | Reusing one function in two threads with different positional arguments supplied through `args`. |
+| [07_thread_download.py](07_thread_download.py) | Starting one thread per image URL, downloading response bytes with Requests, and joining workers stored in a list. |
+| [08_thread_lock.py](08_thread_lock.py) | Ten threads updating one global counter inside a `with lock:` block. |
 
 Video **131: What is Concurrency and Parallelism ?** includes `01_threading.py` and `02_multiprocessing.py`. `01` and `02` identify the local Python files, not two different videos. Examples 03–04 introduce CPU-bound work and the GIL. The video-progress record remains in `documentation.txt`, maintained by the repository owner.
 
@@ -28,11 +32,21 @@ python "12_threads_concurrency/01_threading.py"
 python "12_threads_concurrency/02_multiprocessing.py"
 python "12_threads_concurrency/03_gil_threading.py"
 python "12_threads_concurrency/04_gil_multiprocessing.py"
+python "12_threads_concurrency/05_thread_one.py"
+python "12_threads_concurrency/06_thread_two.py"
+python "12_threads_concurrency/07_thread_download.py"
+python "12_threads_concurrency/08_thread_lock.py"
 ```
 
 Run the commands one at a time to observe each example. You can also open any of these files in VS Code and press **Ctrl + S** with the existing Run on Save configuration. Output appears in the terminal; there is no browser page or input prompt.
 
-`threading`, `multiprocessing`, and `time` are part of Python's standard library. No additional packages need to be installed. These scripts create no output files.
+`threading`, `multiprocessing`, and `time` are part of Python's standard library. Example 07 also needs the third-party Requests package and an internet connection. Install it in the Python environment used by VS Code if needed:
+
+```powershell
+python -m pip install requests
+```
+
+These scripts create no output files. In particular, example 07 downloads image data into memory without saving images to disk.
 
 ## 01: How the threading example works
 
@@ -143,18 +157,76 @@ Each script performs 200 million increments overall. On a multicore computer, se
 
 Compare the scripts in the same Python environment, running them separately under similar system load. Their timed regions also differ slightly: example 04 includes process-object creation, while example 03 creates its thread objects before starting the timer. These are learning examples rather than a controlled benchmark. The GIL-enabled versus free-threaded distinction described above still matters when interpreting the results.
 
+## 05: Two different tasks with overlapping waits
+
+`05_thread_one.py` prepares a simulated breakfast. `boil_milk()` waits for two seconds, while `toast_bun()` waits for three seconds. A separate thread runs each function.
+
+Both workers start before the main thread joins them, so their waits overlap. After both finish, the script prints `Breakfast is ready in ... seconds`. Total runtime is roughly three seconds plus overhead, compared with about five seconds if the functions were called sequentially. Message order can vary.
+
+The elapsed time is measured with `time.time()`. These functions simulate waiting with `sleep()`; they do not perform CPU-intensive cooking calculations.
+
+## 06: One function with different arguments
+
+`06_thread_two.py` reuses `prepare_chai(type_, wait_time)` for two workers:
+
+| Thread | Arguments | Effective function call |
+| --- | --- | --- |
+| `t1` | `args=("Masala", 2)` | `prepare_chai("Masala", 2)` |
+| `t2` | `args=("Ginger", 3)` | `prepare_chai("Ginger", 3)` |
+
+`target` selects the function, while `args` supplies its positional arguments as a tuple. Each call prints its tea type, waits for its own duration, and prints a ready message. Unlike example 05's two different functions, both threads here run the same function with different inputs.
+
+The waits overlap, so the script takes roughly three seconds plus overhead. It joins both workers but does not measure or print total elapsed time.
+
+## 07: Concurrent image downloads
+
+`07_thread_download.py` requests the JPEG, PNG, and SVG image endpoints from [httpbin](https://httpbin.org/), a service for testing HTTP clients.
+
+1. `download(url)` prints the URL and calls `requests.get(url)`.
+2. The response body is available as `resp.content`; `len(resp.content)` gives its size in bytes.
+3. A loop creates and starts one thread per URL. `args=(url,)` is a one-element tuple; its comma makes it a tuple rather than a parenthesized string.
+4. Each worker is added to the `threads` list. A second loop joins all workers after they have been started.
+5. The final line reports the overall elapsed time as `All downloads done in ... seconds`.
+
+Network waits can overlap, so downloads can make progress concurrently. Completion order and total time depend on the network and server. The owner's observed `1.22` seconds is an example, not a fixed expected runtime. Output from different threads can appear together on one terminal line.
+
+**The downloaded images are not saved as files.** Their bytes are held in memory while each function runs, and only the URL, byte count, and elapsed time are printed. There is no generated image folder or CSV.
+
+The current function does not set a request timeout or check the response with `raise_for_status()`. It reports the size of the returned body; the final timing message does not validate that every response was a successful image download.
+
+## 08: Protecting a shared counter with a lock
+
+`08_thread_lock.py` creates a single global `counter`, initially zero, and a `threading.Lock()`. Ten threads call `increment()`, each performing 100,000 increments.
+
+- `global counter` lets the function update the variable defined outside the function.
+- `with lock:` acquires the same lock for each update. One thread at a time can execute the protected `counter += 1` block; other threads attempting that block wait.
+- Leaving the block releases the lock automatically, including when an exception exits the block.
+- The script starts all ten workers, joins them, and then prints the shared result.
+
+Expected output after all increments finish:
+
+```text
+Final counter: 1000000
+```
+
+The total is `10 × 100,000`. Unlike example 03's independent local counters, all workers here modify the same variable. The lock demonstrates synchronization of shared updates; the GIL should not be treated as a general replacement for application-level locking. This example does not measure elapsed time.
+
 ## Concurrency and parallelism
 
 - **Concurrency:** multiple tasks make progress during the same period, including taking turns while another task waits.
 - **Parallelism:** multiple tasks execute at the same instant, for example on different CPU cores.
 
-The waiting examples illustrate overlapping work, while examples 03–04 compare threads and processes for CPU-bound Python code.
+Examples 01–02 and 05–06 simulate overlapping waits, 03–04 compare CPU-bound workers, 07 uses real network requests, and 08 introduces synchronization of shared data.
 
 ## Useful links and source code
 
 - [Python threading documentation](https://docs.python.org/3/library/threading.html): thread objects, `start()`, and `join()`.
+- [Lock objects](https://docs.python.org/3/library/threading.html#lock-objects): protecting shared updates in example 08.
 - [GIL and threading performance](https://docs.python.org/3/library/threading.html#gil-and-performance-considerations): official CPython guidance, including free-threaded builds.
 - [What Is the Python Global Interpreter Lock (GIL)? — Real Python](https://realpython.com/python-gil/): supplementary background reading for examples 03–04. Use the official Python notes above for current interpreter-specific behavior.
 - [Python multiprocessing documentation](https://docs.python.org/3/library/multiprocessing.html): processes, argument passing, and safe startup with the main guard.
 - [time.sleep reference](https://docs.python.org/3/library/time.html#time.sleep): suspending the calling thread.
+- [Requests quickstart: binary response content](https://requests.readthedocs.io/en/latest/user/quickstart/#binary-response-content): the response bytes used in example 07.
+- [Requests — GitHub](https://github.com/psf/requests): official source repository for the third-party HTTP client.
+- [httpbin](https://httpbin.org/): the source of example 07's JPEG, PNG, and SVG responses.
 - [CPython — GitHub](https://github.com/python/cpython): Python's reference implementation and standard-library source, including these modules. They are not separate pip packages.
