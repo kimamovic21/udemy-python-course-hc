@@ -24,7 +24,7 @@ My Python learning repository, starting with the basics and adding exercises as 
 | [10_oop](10_oop/README.md) | Classes, objects, attributes, inheritance, composition, MRO, instance, static, and class methods, and properties with validation. Exercises 26–27: a device tracker and vehicle rental system; section in progress. |
 | [11_exceptions](11_exceptions/README.md) | Built-in and custom exceptions, tracebacks, input validation, chai billing, and file handling with `try`, `except`, `else`, `finally`, and `raise`. Section in progress. |
 | [challenges](challenges/README.md) | Projects covering utilities, data handling, web scraping, automation, data science, and Flask web apps, including `06_url_shortener` from Udemy section 16, days 46–52. The challenge index lists groups, projects, and progress. |
-| [12_threads_concurrency](12_threads_concurrency/README.md) | Udemy section 17: threads, processes, concurrency, and parallelism. Video 131 has examples 01–02 covering `Thread`, `Process`, `start()`, `join()`, argument passing, and the multiprocessing main guard. Current section. |
+| [12_threads_concurrency](12_threads_concurrency/README.md) | Udemy section 17: threads, processes, concurrency, parallelism, and the GIL. Examples 01–04 cover worker startup, joins, the main guard, and comparing CPU-bound counting with threads and processes. Current section. |
 
 Start with **01_starter**, the first folder in this project. Detailed explanations, running instructions, and expected output are documented in the corresponding lesson, project, or challenge-group README files. New folders will be added to this overview as the course progresses.
 
@@ -102,7 +102,8 @@ Day 9 imports `schedule` without using it to schedule jobs; Day 8 uses it active
 - [Reading and writing files](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files) — an introduction to file modes, writing text, and closing files with `with` or `close()`.
 - [Python virtual environments (`venv`)](https://docs.python.org/3/tutorial/venv.html) — an official introduction to creating and activating project environments and managing their packages.
 - [Python threading](https://docs.python.org/3/library/threading.html) — standard-library threads, starting work, and waiting with `join()` in section 17.
-- [Python multiprocessing](https://docs.python.org/3/library/multiprocessing.html) — separate worker processes, argument passing, and the main guard in example 02 of section 17.
+- [Python GIL — Real Python](https://realpython.com/python-gil/) — background reading for section 17, examples 03–04; see the lesson README for modern CPython build differences and timing limitations.
+- [Python multiprocessing](https://docs.python.org/3/library/multiprocessing.html) — separate worker processes, the main guard, argument passing in example 02, and CPU-bound counting in example 04 of section 17.
 - [time.sleep](https://docs.python.org/3/library/time.html#time.sleep) — pausing the calling thread, as used in the order-taking and chai-brewing example.
 - [Watchdog quickstart](https://python-watchdog.readthedocs.io/en/stable/quickstart.html) — observers and event handlers for monitoring folders, as used in Automation Day 3.
 - [psutil documentation](https://psutil.io/) — system resource statistics used for the CPU, RAM, and disk dashboard in Automation Day 4.
