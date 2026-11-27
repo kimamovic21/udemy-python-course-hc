@@ -2,13 +2,13 @@
 
 This part of the course puts the earlier Python lessons into practice through projects. Use this README as the index for challenge groups. Each group's README explains its learning order and links to project documentation. In `02_data_handling`, `03_web_scraping`, `04_automation`, and `05_data_science`, each added lesson has its own folder and README. `06_url_shortener` keeps one application together across several course days.
 
-**Status: in progress.** The first group has local days 1–11, `02_data_handling`, `03_web_scraping`, and `05_data_science` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The current project is [06_url_shortener](06_url_shortener/README.md), corresponding to Udemy section 16, days 46–52. Individual project guides describe current behavior and remaining challenge features.
+**Status: documented project checkpoints.** The first group has local days 1–11, `02_data_handling`, `03_web_scraping`, and `05_data_science` have local days 1–10 documented, and `04_automation` has local days 1–4 documented. The latest challenge project is [06_url_shortener](06_url_shortener/README.md), corresponding to Udemy section 16, days 46–52. Individual project guides describe current behavior and remaining challenge features. The course now continues in [12_threads_concurrency](../12_threads_concurrency/README.md), Udemy section 17.
 
 ## Learning order
 
 1. Work through the numbered lesson folders up to `11_exceptions`.
 2. Complete the challenge groups in order: `01_utilities`, `02_data_handling`, `03_web_scraping`, `04_automation`, `05_data_science`, then `06_url_shortener`. Follow local project numbers where present; the URL Shortener is one application rather than separate daily folders.
-3. After all challenge groups, continue with the next numbered course section (`12_...`, when added).
+3. After the challenge groups, continue with [12_threads_concurrency](../12_threads_concurrency/README.md), corresponding to Udemy section 17.
 
 Follow this order even if your editor sorts the folders differently.
 
@@ -23,7 +23,7 @@ Project numbering restarts within each group. Folder names match the tutorial se
 | [03_web_scraping](03_web_scraping/README.md) | Local days 1–10: extraction, exports, images, APIs, SQLite, and PDFs | In progress |
 | [04_automation](04_automation/README.md) | Local days 1–4: file organization, renaming, Downloads monitoring, and system resources | In progress |
 | [05_data_science](05_data_science/README.md) | Local days 1–10: notebooks, datasets, regression, classification, Streamlit apps, and book recommendations | Documented through local day 10 |
-| [06_url_shortener](06_url_shortener/README.md) | Section 16, days 46–52: one Flask/SQLite URL Shortener application | In progress — current section |
+| [06_url_shortener](06_url_shortener/README.md) | Section 16, days 46–52: one Flask/SQLite URL Shortener application | Tutorial project documented |
 
 Further challenge groups will be added as the course progresses.
 

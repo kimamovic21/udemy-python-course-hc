@@ -2,7 +2,7 @@
 
 This project corresponds to **Udemy section 16, days 46–52**. It follows [05_data_science](../05_data_science/README.md) and is kept as one application in `06_url_shortener`, rather than separate daily folders. The repository owner plans one commit for the whole project when it is ready.
 
-**Status: in progress — current course section.**
+**Status: tutorial project documented.** The course continues with [Threads and Concurrency](../../12_threads_concurrency/README.md), Udemy section 17.
 
 [Challenge index](../README.md) · [Main project overview](../../README.md#folder-overview)
 
